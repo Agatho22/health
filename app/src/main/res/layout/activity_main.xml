@@ -415,6 +415,17 @@
                     android:layout_height="match_parent">
 
 
+                    <Button
+                        android:id="@+id/btn_walk"
+                        style="@style/LoginButton"
+                        android:layout_width="106dp"
+                        android:layout_height="58dp"
+                        android:background="@drawable/round_bg"
+                        android:text="stap"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>
