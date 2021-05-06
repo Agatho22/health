@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">health</string>
+    <string name="equivalent_">Equivalent to the calories of 1,50 bowls of rice</string>
+    <string name="details">Details</string>
+    <string name="steps">Steps</string>
+    <string name="for_you">260 kcal</string>
+    <string name="you_step">5.050</string>
+    <string name="steps_to_re">6,950 steps to reach the goal.</string>
+    <string name="some_id">12:30</string>
+    <string name="highlights">Highlights</string>
+    <string name="summary">Summary</string>
+    <string name="privacy">Privacy</string>
+    <string name="last_night_">Last Night Sleep</string>
+    <string name="stime">8 h 55 min</string>
+    <string name="water">Water</string>
+
+
+</resources>
