@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         btn_step.setOnClickListener(new View.OnClickListener() { //걸어 버튼 클릭시 MainActivity2 액티비티로 이동
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(com.aman.health.MainActivity.this, MainActivity2.class);
+                Intent intent = new Intent(com.aman.health.MainActivity.this, StepActivity.class);
                 startActivity(intent);
             }
         });
