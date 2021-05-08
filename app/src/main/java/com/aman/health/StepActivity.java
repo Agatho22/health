@@ -40,7 +40,7 @@ public class StepActivity extends AppCompatActivity implements SensorEventListen
     @Override
     protected void onPause() {
         super.onPause();
-        SensorManager.unregisterListener(this);
+        sensorManager.unregisterListener(this);
     }
 
     @Override
