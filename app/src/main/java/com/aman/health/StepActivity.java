@@ -123,17 +123,21 @@ public class StepActivity extends AppCompatActivity implements View.OnClickListe
                 requestPermissions(permission_list, 0);
             }
         }
-    }
-    // 권한 확인 여부가 완료되면 호출되는 메소드
-    @Override
-    public void onRequestPermissionResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        // 권한 확인 여부가 완료되면 호출되는 메소드
+        @Override
+                public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        text1.setText("");
+            text1.setText("");
 
-        // 사용자가 권한 허용 여부를 확인한다.
-        for(int i = 0 ; i < grantResults.length ; i++){
-            if()
+            //사용자가 권한 혀용여부를 확인
+            for(int i = 0; i < grantResults.length ; i++) {
+                if(grantResults[i] == PackageManager.PERMISSION_DENIED){
+                    text1.append(permissions[i] + " : 허용\n");
+                } else {
+                    text1.append(permissions[i] + " : 거부\n");
+                }
+            }
         }
     }
 }
