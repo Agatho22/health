@@ -58,3 +58,5 @@ public class StepActivity extends AppCompatActivity implements SensorEventListen
         }
     }
 }
+
+

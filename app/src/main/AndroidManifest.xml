@@ -6,6 +6,8 @@
     <uses-feature android:name="android.hardware.sensor.stepdetector" />
 
 
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -27,6 +29,9 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".LoginActivity" />
+
         <activity
             android:name=".StepActivity">
             <intent-filter>
@@ -36,8 +41,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity" />
     </application>
 
 </manifest>

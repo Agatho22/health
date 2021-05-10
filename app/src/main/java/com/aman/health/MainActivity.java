@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView tv_id, tv_pass;
+    //private TextView tv_id, tv_pass;
     private Button btn_water, btn_step;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        tv_id = findViewById(R.id.tv_id);
-        tv_pass = findViewById(R.id.tv_pass);
+        //tv_id = findViewById(R.id.tv_id);
+        //tv_pass = findViewById(R.id.tv_pass);
         btn_water = findViewById(R.id.btn_water);
         btn_step = findViewById(R.id.btn_step);
 
@@ -51,8 +51,8 @@ public class MainActivity extends AppCompatActivity {
         String userPass = intent.getStringExtra("userPass");
 
 
-        tv_id.setText(userID);
-        tv_pass.setText(userPass);
+        //tv_id.setText(userID);
+        //tv_pass.setText(userPass);
 
     }
 }
