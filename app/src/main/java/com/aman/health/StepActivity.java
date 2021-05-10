@@ -30,6 +30,20 @@ public class StepActivity extends AppCompatActivity implements View.OnClickListe
     private Button startBtn, endBtn;
     private Intent intent; //서비스 객체를 가지고 있는 인텐트 객체
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_step);
+
+        stepService = new StepService();
+        startBtn = findViewById(R.id.startBtn);
+        endBtn = findViewById(R.id.endBtn);
+        textCount = findViewById(R.id.textCount);
+        statusService = findViewById(R.id.textStatusService);
+        setListener();
+
+    }
+
     private StepCallback stepCallback = new StepCallback() { //서비스 내부로 Set되어 스텝카운트의 변화와 Unbind의 결과를 전달하는 콜백 객체의 구현체
         @Override
         public void onStepCallback(int step) {
@@ -58,25 +72,14 @@ public class StepActivity extends AppCompatActivity implements View.OnClickListe
         @Override
         public void onServiceDisconnected(ComponentName name) { //요거는 사실상 서비스가 킬되거나 아예 죽임 당했을 때만 호출된다고 보시면 됨
 
-// stopService 또는 unBindService때 호출되지 않음.
+            // stopService 또는 unBindService때 호출되지 않음.
             isService = false;
             statusService.setText("해제됨");
             Toast.makeText(StepActivity.this, "디스바인딩", Toast.LENGTH_SHORT).show();
         }
     };
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        stepService = new StepService();
-        startBtn = findViewById(R.id.startBtn);
-        endBtn = findViewById(R.id.endBtn);
-        textCount = findViewById(R.id.textCount);
-        statusService = findViewById(R.id.textStatusService);
-        setListener();
 
-    }
     public void setListener() {
         startBtn.setOnClickListener(this);
         endBtn.setOnClickListener(this);
@@ -121,22 +124,6 @@ public class StepActivity extends AppCompatActivity implements View.OnClickListe
             if(chk == PackageManager.PERMISSION_DENIED){
                 // 사용자에게 권한 허용여부를 확인하는 창을 띄움
                 requestPermissions(permission_list, 0);
-            }
-        }
-        // 권한 확인 여부가 완료되면 호출되는 메소드
-        @Override
-                public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-            text1.setText("");
-
-            //사용자가 권한 혀용여부를 확인
-            for(int i = 0; i < grantResults.length ; i++) {
-                if(grantResults[i] == PackageManager.PERMISSION_DENIED){
-                    text1.append(permissions[i] + " : 허용\n");
-                } else {
-                    text1.append(permissions[i] + " : 거부\n");
-                }
             }
         }
     }
