@@ -2,6 +2,7 @@ package com.aman.health;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +13,7 @@ public class WaterActivity extends AppCompatActivity {
     private int water,i_water;
     private String s_water;
     private EditText et_water;
-    private Button btn_select, btn_clear;
+    private Button btn_select, btn_clear ,btn_wa_memo;
     private TextView wa_info;
     private TextView wa_info22;
 
@@ -24,7 +25,7 @@ public class WaterActivity extends AppCompatActivity {
         btn_select = findViewById(R.id.btn_select);
         btn_clear = findViewById(R.id.btn_clear);
         et_water =(EditText)findViewById(R.id.et_water);
-
+        btn_wa_memo = findViewById(R.id.btn_wa_memo);
         btn_select.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 int i_water = Integer.parseInt(et_water.getText().toString());
@@ -53,6 +54,13 @@ public class WaterActivity extends AppCompatActivity {
                 wa_info22.setText("오늘 하루 물 목표 섭취까지 남은량 :"+2000+"ml");
                 i_water=0;
                 water = i_water;
+            }
+        });
+        btn_wa_memo.setOnClickListener(new View.OnClickListener() { //water 버튼 클릭시 water 액티비티로 이동
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(com.aman.health.WaterActivity.this, wa_memoActivity.class);
+                startActivity(intent);
             }
         });
     }

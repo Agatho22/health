@@ -19,7 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class StepActivity extends AppCompatActivity implements View.OnClickListener {
 
-    String [] permission_list = {
+    String[] permission_list = {
             Manifest.permission.ACTIVITY_RECOGNITION
     };
 
@@ -77,6 +77,7 @@ public class StepActivity extends AppCompatActivity implements View.OnClickListe
         setListener();
 
     }
+
     public void setListener() {
         startBtn.setOnClickListener(this);
         endBtn.setOnClickListener(this);
@@ -101,6 +102,7 @@ public class StepActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
+
     @Override
     protected void onStop() {//액티비티를 벗어났을 땐 서비스와 액티비티의 바인드를 끊어줌 : 백그라운드에서 UI를 건들지 않게 하기 위함
         super.onStop();
@@ -108,37 +110,24 @@ public class StepActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     // 권한 체크 메소드
-    public void checkPermission(){
+    public void checkPermission() {
         //현재 안드로이드 버전이 6.0 미만이면 메소드를 종료
-        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.M){
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             return;
         }
         //각 권한의 허용 여부를 확인
-        for(String permission : permission_list){
+        for (String permission : permission_list) {
             //권한 허용 여부를 확인
             int chk = checkCallingOrSelfPermission(permission);
             //거부 상태일시
-            if(chk == PackageManager.PERMISSION_DENIED){
+            if (chk == PackageManager.PERMISSION_DENIED) {
                 // 사용자에게 권한 허용여부를 확인하는 창을 띄움
                 requestPermissions(permission_list, 0);
             }
         }
-        // 권한 확인 여부가 완료되면 호출되는 메소드
-        @Override
-                public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-            text1.setText("");
-
-            //사용자가 권한 혀용여부를 확인
-            for(int i = 0; i < grantResults.length ; i++) {
-                if(grantResults[i] == PackageManager.PERMISSION_DENIED){
-                    text1.append(permissions[i] + " : 허용\n");
-                } else {
-                    text1.append(permissions[i] + " : 거부\n");
-                }
-            }
-        }
     }
 }
+
+        // 권한 확인 여부가 완료되면 호출되는 메소드
+
 
