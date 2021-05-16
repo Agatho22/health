@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
 
     //private TextView tv_id, tv_pass;
-    private Button btn_water, btn_step;
+    private Button btn_water, btn_step, btn_timer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         //tv_pass = findViewById(R.id.tv_pass);
         btn_water = findViewById(R.id.btn_water);
         btn_step = findViewById(R.id.btn_step);
+        btn_timer = findViewById(R.id.btn_timer);
 
 
         btn_water.setOnClickListener(new View.OnClickListener() { //water 버튼 클릭시 water 액티비티로 이동
@@ -41,6 +42,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(com.aman.health.MainActivity.this, StepActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_timer.setOnClickListener(new View.OnClickListener() { //타이머 버튼 클릭시 Timer 액티비티로 이동
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(com.aman.health.MainActivity.this, TimerActivity.class);
                 startActivity(intent);
             }
         });
