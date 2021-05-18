@@ -3,10 +3,8 @@
     package="com.aman.health">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <uses-feature android:name="android.hardware.sensor.stepdetector" />
-
-
-
 
     <application
         android:allowBackup="true"
@@ -16,24 +14,24 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".WaterActivity"></activity>
-        <!-- Android 9 버전부터 이 옵션 추가해야함. http 보안관련 때문에.. -->
-
-        <activity
-            android:name=".MainActivity"
-            android:windowSoftInputMode="adjustPan">
+        <activity android:name=".LoginActivityF">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".RegisterActivityF" />
+        <activity android:name=".WaterActivity" /> <!-- Android 9 버전부터 이 옵션 추가해야함. http 보안관련 때문에.. -->
+        <activity
+            android:name=".MainActivity"
+            android:windowSoftInputMode="adjustPan">
 
+        </activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".TimerActivity"/>
-        <activity android:name=".StepActivity"/>
-
+        <activity android:name=".TimerActivity" />
+        <activity android:name=".StepActivity" />
     </application>
 
 </manifest>
