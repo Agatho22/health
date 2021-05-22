@@ -13,108 +13,120 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="75dp"
+        android:layout_marginStart="25dp"
         android:layout_marginTop="38dp"
-        android:layout_marginEnd="75dp"
+        android:layout_marginEnd="25dp"
         android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/push_up" />
 
+    <ImageView
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="139dp"
+        android:layout_marginTop="304dp"
+        android:layout_marginEnd="130dp"
+        android:layout_marginBottom="287dp"
+        android:background="@drawable/whitecircle" />
+
+    <EditText
+        android:id="@+id/time_out_sec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="148dp"
+        android:layout_marginBottom="322dp"
+        android:gravity="center"
+        android:imeOptions="actionDone"
+        android:inputType="number"
+        android:maxLength="2"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:text="00"
+        android:textSize="40dp" />
+
+    <EditText
+        android:id="@+id/time_out_min"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="148dp"
+        android:layout_marginBottom="322dp"
+        android:gravity="center"
+        android:imeOptions="actionNext"
+        android:inputType="number"
+        android:maxLength="2"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:text="00"
+        android:textSize="40dp" />
+
+    <Button
+        android:id="@+id/btn_start"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/circularProgressbar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="95dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="130dp"
+        android:layout_toStartOf="@+id/btn_reset"
+        android:layout_weight="1"
+        android:text="시작" />
+
+    <Button
+        android:id="@+id/btn_reset"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/circularProgressbar"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="55dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginBottom="130dp"
+        android:layout_weight="1"
+        android:enabled="false"
+        android:text="리셋" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="3dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="336dp"
+        android:layout_toStartOf="@+id/time_out_sec"
+        android:layout_toEndOf="@+id/time_out_min"
+        android:gravity="center"
+        android:text=":"
+        android:textSize="40dp" />
+
     <ProgressBar
         android:id="@+id/circularProgressbar"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="250dp"
+        android:layout_width="411dp"
         android:layout_height="250dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="246dp"
-        android:layout_marginEnd="80dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="251dp"
+        android:layout_marginEnd="-2dp"
         android:indeterminate="false"
         android:max="100"
-        android:progress="50"
+        android:progress="0"
         android:progressDrawable="@drawable/circular"
         android:secondaryProgress="100" />
 
-    <ImageView
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_alignStart="@+id/circularProgressbar"
-        android:layout_alignTop="@+id/circularProgressbar"
-        android:layout_alignEnd="@+id/circularProgressbar"
-        android:layout_alignBottom="@+id/circularProgressbar"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="80dp"
-        android:layout_marginBottom="80dp"
-        android:background="@drawable/whitecircle" />
-
-    <TextView
-        android:id="@+id/tv"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:gravity="center"
-        android:text="25%"
-        android:layout_centerInParent="true"
-        android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/textview4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/circularProgressbar"
-        android:layout_marginTop="10dp"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:text="운동시간: 60초"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.587" />
-
-    <Button
-        android:id="@+id/btn_start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textview4"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="85dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="65dp"
-        android:layout_toStartOf="@+id/btn_reset"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:onClick="onStartPauseButton"
-        android:text="시작"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_reset"
-        app:layout_constraintHorizontal_bias="0.605"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview4" />
-
-    <Button
-        android:id="@+id/btn_reset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textview4"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="85dp"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:onClick="onStopButton"
-        android:text="정지"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview4" />
-
 </RelativeLayout>
+
