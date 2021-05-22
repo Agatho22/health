@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,33 +20,76 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginActivityF extends AppCompatActivity {
 
+    private static final String TAG = "LoginActivityF";
     private FirebaseAuth mfirebaseAuth; //파이어베이스 인증
-    private DatabaseReference mDatabaseRef; // 실시간 데이터베이스
     private EditText mEtEmail, mEtpwd; //로그인 입력필드
+    private Button btn_login, btn_register;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_f);
 
-        mfirebaseAuth = mfirebaseAuth.getInstance();
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("cmyk");
+        mfirebaseAuth =  FirebaseAuth.getInstance();
 
+
+        //버튼 등록하기
         mEtEmail = findViewById(R.id.et_email);
         mEtpwd = findViewById(R.id.et_pwd);
+        btn_login = findViewById(R.id.btn_loginf);
+        btn_register = findViewById(R.id.btn_registerf);
 
+        //가입 버튼이 눌리면
+        btn_register.setOnClickListener(new View.OnClickListener(){
 
-        Button btn_login = findViewById(R.id.btn_loginf);
+            @Override
+            public void onClick(View v) {
+                //intent함수를 통해 register액티비티 함수를 호출한다.
+                startActivity(new Intent(LoginActivityF.this,RegisterActivityF.class));
+
+            }
+        });
+
+        //로그인 버튼이 눌리면
+        btn_login.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                String email = mEtEmail.getText().toString().trim();
+                String pwd = mEtpwd.getText().toString().trim();
+                mfirebaseAuth.signInWithEmailAndPassword(email,pwd)
+                        .addOnCompleteListener(LoginActivityF.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                Log.d(TAG, "로그인 정보: " + email + " , " + pwd);
+                                if(task.isSuccessful()){
+                                    Intent intent = new Intent(LoginActivityF.this, MainActivity.class);
+                                    startActivity(intent);
+
+                                }else{
+                                    Toast.makeText(LoginActivityF.this,"로그인 오류",Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+
+            }
+        });
+    }
+}
+
+/*
+
+Button btn_login = findViewById(R.id.btn_loginf);
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //로그인 요청
-                String strEmail = mEtEmail.getText().toString();
-                String strPwd = mEtpwd.getText().toString();
+                String strEmail = mEtEmail.getText().toString().trim();
+                String strPwd = mEtpwd.getText().toString().trim();
 
                 mfirebaseAuth.signInWithEmailAndPassword(strEmail, strPwd).addOnCompleteListener(LoginActivityF.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        Log.d(TAG, "등록 버튼 " + strEmail + " , " + pwd);
                         if (task.isSuccessful()){
                             //로그인 성공
                             Intent intent = new Intent(LoginActivityF.this, MainActivity.class);
@@ -70,5 +114,4 @@ public class LoginActivityF extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
-}
+ */
