@@ -30,9 +30,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_email" />
 
-    <Button
+    <com.royrodriguez.transitionbutton.TransitionButton
         style="@style/LoginButton"
-        android:id="@+id/btn_loginf"
+        android:id="@+id/transition_button"
         android:layout_marginTop="40dp"
         android:background="@drawable/round_bg"
         android:text="LOGIN"
@@ -89,7 +89,7 @@
         android:text="Join"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_loginf" />
+        app:layout_constraintTop_toBottomOf="@+id/transition_button" />
     <Button
         android:id="@+id/button5"
         android:layout_width="17dp"
