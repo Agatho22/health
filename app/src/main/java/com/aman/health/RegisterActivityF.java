@@ -7,8 +7,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,8 +29,10 @@ public class RegisterActivityF extends AppCompatActivity {
 
     private static final String TAG = "RegisterActivityF";
     private FirebaseAuth mfirebaseAuth; //파이어베이스 인증
-    private DatabaseReference mDatabaseRef; // 실시간 데이터베이스
+    private DatabaseReference mDatabaseRef; //실시간 데이터베이스
     private EditText mEtEmail, mEtpwd, mEtpwd2, mEtName, mEtAge, mEtheight, mEtweight; //회원가입 입력필드
+    private RadioGroup rg_gender;
+    private String gender;
     private Button mBtnRegister;
 
 
@@ -37,11 +42,10 @@ public class RegisterActivityF extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_f);
 
-        //파이어베이스 접근 설정
-        //user = firebaseAuth.getCurrentUser();
-        //firebaseAuth =  FirebaseAuth.getInstance();
-        //firebaseDatabase = FirebaseDatabase.getInstance().getReference();
 
+
+
+        //파이어베이스 접근 설정
         mfirebaseAuth = mfirebaseAuth.getInstance();
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
 
@@ -53,7 +57,17 @@ public class RegisterActivityF extends AppCompatActivity {
         mEtAge = findViewById(R.id.et_age);
         mEtheight = findViewById(R.id.et_height);
         mEtweight = findViewById(R.id.et_weight);
+        rg_gender = findViewById(R.id.rg_gender);
         mBtnRegister = findViewById(R.id.btn_registerf);
+
+
+        rg_gender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
+                RadioButton genderButton = (RadioButton)findViewById(i);
+                gender = genderButton.getText().toString();
+            }
+        });
 
         mBtnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,6 +109,7 @@ public class RegisterActivityF extends AppCompatActivity {
                                 hashMap.put("age",age+"");
                                 hashMap.put("height",height+"");
                                 hashMap.put("weight",weight+"");
+                                hashMap.put("gender",gender);
 
                                 mDatabaseRef.child(uid).setValue(hashMap);
 

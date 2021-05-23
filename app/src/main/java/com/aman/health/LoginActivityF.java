@@ -36,7 +36,7 @@ public class LoginActivityF extends AppCompatActivity {
         //버튼 등록하기
         mEtEmail = findViewById(R.id.et_email);
         mEtpwd = findViewById(R.id.et_pwd);
-        btn_login = findViewById(R.id.btn_loginf);
+        btn_login = findViewById(R.id.transition_button);
         btn_register = findViewById(R.id.btn_registerf);
 
         //가입 버튼이 눌리면
