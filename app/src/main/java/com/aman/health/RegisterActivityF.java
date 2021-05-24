@@ -104,12 +104,12 @@ public class RegisterActivityF extends AppCompatActivity {
                                 HashMap<Object,String> hashMap = new HashMap<>();
 
                                 hashMap.put("uid",uid);
-                                hashMap.put("email",email);
-                                hashMap.put("name",name);
-                                hashMap.put("age",age+"");
-                                hashMap.put("height",height+"");
-                                hashMap.put("weight",weight+"");
-                                hashMap.put("gender",gender);
+                                hashMap.put("Email",email);
+                                hashMap.put("Name",name);
+                                hashMap.put("Age",age+"");
+                                hashMap.put("Height",height+"");
+                                hashMap.put("Weight",weight+"");
+                                hashMap.put("Gender",gender);
 
                                 mDatabaseRef.child(uid).setValue(hashMap);
 

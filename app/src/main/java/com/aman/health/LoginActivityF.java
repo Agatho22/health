@@ -59,37 +59,28 @@ public class LoginActivityF extends AppCompatActivity {
             public void onClick(View v) {
                 String email = mEtEmail.getText().toString().trim();
                 String pwd = mEtpwd.getText().toString().trim();
+
                 // Start the loading animation when the user tap the button
                 transitionButton.startAnimation();
-                final Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        boolean isSuccessful = true;
-                        if (isSuccessful) {
-                            transitionButton.stopAnimation(TransitionButton.StopAnimationStyle.EXPAND, new TransitionButton.OnAnimationStopEndListener() {
-                                @Override
-                                public void onAnimationStopEnd() {
-                                    Intent intent = new Intent(getBaseContext(), MainActivity.class);
-                                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                                    startActivity(intent);
-                                }
-                            });
-                        } else {
-                            transitionButton.stopAnimation(TransitionButton.StopAnimationStyle.SHAKE, null);
-                        }
-                    }
-            }, 2000);
+
                 mfirebaseAuth.signInWithEmailAndPassword(email,pwd)
                         .addOnCompleteListener(LoginActivityF.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 Log.d(TAG, "로그인 정보: " + email + " , " + pwd);
                                 if(task.isSuccessful()){
-                                    Intent intent = new Intent(LoginActivityF.this, MainActivity.class);
-                                    startActivity(intent);
+                                    transitionButton.stopAnimation(TransitionButton.StopAnimationStyle.EXPAND, new TransitionButton.OnAnimationStopEndListener() {
+                                        @Override
+                                        public void onAnimationStopEnd() {
+                                            Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                                            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                                            startActivity(intent);
+                                            finish();
+                                        }
+                                    });
 
                                 }else{
+                                    transitionButton.stopAnimation(TransitionButton.StopAnimationStyle.SHAKE, null);
                                     Toast.makeText(LoginActivityF.this,"로그인 오류",Toast.LENGTH_SHORT).show();
                                 }
                             }
