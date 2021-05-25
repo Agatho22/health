@@ -103,7 +103,7 @@ public class RegisterActivityF extends AppCompatActivity {
                                 //해쉬맵 테이블을 파이어베이스 데이터베이스에 저장
                                 HashMap<Object,String> hashMap = new HashMap<>();
 
-                                hashMap.put("uid",uid);
+                                hashMap.put("Uid",uid);
                                 hashMap.put("Email",email);
                                 hashMap.put("Name",name);
                                 hashMap.put("Age",age+"");

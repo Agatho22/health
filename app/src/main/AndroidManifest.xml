@@ -14,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".LoginActivityF">
+        <activity
+            android:name=".LoginActivityF"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,7 +29,6 @@
             android:name=".MainActivity"
             android:windowSoftInputMode="adjustPan">
         </activity>
-        <activity android:name=".LoginActivity" />
         <activity android:name=".TimerActivity" />
         <activity android:name=".StepActivity" />
     </application>
