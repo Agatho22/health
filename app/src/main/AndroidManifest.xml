@@ -14,9 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".LoginActivityF"></activity> //.IntroActivity 17번 줄
         <activity
-            android:name=".LoginActivityF"
-            android:windowSoftInputMode="adjustPan">
+            android:name=".IntroActivity"
+            android:windowSoftInputMode="adjustPan">  //.LoginActivityF 19줄
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,8 +28,7 @@
         <activity android:name=".WaterActivity" /> <!-- Android 9 버전부터 이 옵션 추가해야함. http 보안관련 때문에.. -->
         <activity
             android:name=".MainActivity"
-            android:windowSoftInputMode="adjustPan">
-        </activity>
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name=".TimerActivity" />
         <activity android:name=".StepActivity" />
     </application>
