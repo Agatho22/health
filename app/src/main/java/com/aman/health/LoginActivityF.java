@@ -32,7 +32,6 @@ public class LoginActivityF extends AppCompatActivity {
     private Button btn_register;
     private TransitionButton transitionButton;
     private CheckBox cb_auto;
-    private Context mContext;
     private SharedPreferences appData;
     private boolean saveLoginData;
     private String sv_email,sv_pwd;
@@ -50,7 +49,7 @@ public class LoginActivityF extends AppCompatActivity {
         appData = getSharedPreferences("appData", MODE_PRIVATE);
         load();
 
-        mContext = this;
+
         mfirebaseAuth =  FirebaseAuth.getInstance();
 
         //버튼 등록하기

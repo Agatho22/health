@@ -106,10 +106,14 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/round_border"
             android:hint="나이"
-            android:inputType="number"
+            android:inputType="date"
+            android:clickable="true"
+            android:focusable="false"
+            android:editable="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_weight" />
+            app:layout_constraintTop_toBottomOf="@+id/et_weight"
+            tools:ignore="Deprecated" />
 
         <RadioGroup
             android:id="@+id/rg_gender"

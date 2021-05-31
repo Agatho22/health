@@ -66,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
                 //editor.clear()는 appData 들어있는 모든 정보를 기기에서 지웁니다.
                 editor.clear();
                 editor.commit();
-                Toast.makeText(MainActivity.this, "로그아웃.", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });

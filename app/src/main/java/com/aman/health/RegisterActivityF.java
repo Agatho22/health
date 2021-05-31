@@ -1,11 +1,13 @@
 package com.aman.health;
 
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -23,7 +25,10 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 
 public class RegisterActivityF extends AppCompatActivity {
 
@@ -34,6 +39,21 @@ public class RegisterActivityF extends AppCompatActivity {
     private RadioGroup rg_gender;
     private String gender;
     private Button mBtnRegister;
+    int age= 0;
+
+    Calendar myCalendar = Calendar.getInstance();
+
+    DatePickerDialog.OnDateSetListener myDatePicker = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+            myCalendar.set(Calendar.YEAR, year);
+            myCalendar.set(Calendar.MONTH, month);
+            myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+            updateLabel();
+        }
+    };
+
+
 
 
 
@@ -43,18 +63,25 @@ public class RegisterActivityF extends AppCompatActivity {
         setContentView(R.layout.activity_register_f);
 
 
-
-
         //파이어베이스 접근 설정
         mfirebaseAuth = mfirebaseAuth.getInstance();
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
+        mEtAge = findViewById(R.id.et_age);
+        mEtAge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new DatePickerDialog(RegisterActivityF.this, myDatePicker, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+
+
+
 
 
         mEtEmail = findViewById(R.id.et_email);
         mEtpwd = findViewById(R.id.et_pwd);
         mEtpwd2 = findViewById(R.id.et_pwd2);
         mEtName = findViewById(R.id.et_name);
-        mEtAge = findViewById(R.id.et_age);
         mEtheight = findViewById(R.id.et_height);
         mEtweight = findViewById(R.id.et_weight);
         rg_gender = findViewById(R.id.rg_gender);
@@ -92,11 +119,13 @@ public class RegisterActivityF extends AppCompatActivity {
                             mDialog.dismiss();
                             if (task.isSuccessful()) {
 
+                                java.util.Calendar cal = java.util.Calendar.getInstance();
+
                                 FirebaseUser user = mfirebaseAuth.getCurrentUser();
                                 String email = user.getEmail();
                                 String uid = user.getUid();
                                 String name = mEtName.getText().toString().trim();
-                                int age = Integer.parseInt(mEtAge.getText().toString());
+                                int age =cal.get (cal.YEAR)-myCalendar.get(Calendar.YEAR);
                                 double height = Double.parseDouble(mEtheight.getText().toString());
                                 double weight = Double.parseDouble(mEtweight.getText().toString());
 
@@ -144,4 +173,14 @@ public class RegisterActivityF extends AppCompatActivity {
         onBackPressed();; // 뒤로가기 버튼이 눌렸을시
         return super.onSupportNavigateUp(); // 뒤로가기 버튼
     }
+
+    private void updateLabel() {
+        String myFormat = "yyyy/MM/dd";
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.KOREA);
+
+        EditText mEtAge = (EditText) findViewById(R.id.et_age);
+        mEtAge.setText(sdf.format(myCalendar.getTime()));
+
+    }
+
 }
