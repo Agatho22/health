@@ -125,7 +125,7 @@ public class RegisterActivityF extends AppCompatActivity {
                                 String email = user.getEmail();
                                 String uid = user.getUid();
                                 String name = mEtName.getText().toString().trim();
-                                int age =cal.get (cal.YEAR)-myCalendar.get(Calendar.YEAR);
+                                int age =cal.get (cal.YEAR)-myCalendar.get(Calendar.YEAR)+1;
                                 double height = Double.parseDouble(mEtheight.getText().toString());
                                 double weight = Double.parseDouble(mEtweight.getText().toString());
 
