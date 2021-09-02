@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "126996430383",
+    "project_id": "cmyk221",
+    "storage_bucket": "cmyk221.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:126996430383:android:08b655b0f0c91b19ad10da",
+        "android_client_info": {
+          "package_name": "com.aman.health"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "126996430383-pjc3mug4rq1socqdhc392dqpe5jr2urc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMoLU6exoOy_greQSvvyfXZV00CmNNAhE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "126996430383-pjc3mug4rq1socqdhc392dqpe5jr2urc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
