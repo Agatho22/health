@@ -10,142 +10,68 @@
     </style>
 
     <style name="equivalent_">
-        <item name="android:textSize">
-            11sp
-        </item>
-        <item name="android:textColor">
-            #000000
-        </item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">#000000</item>
     </style>
 
     <style name="highlights">
-
-        <item name="android:textSize">
-            13sp
-        </item>
-
-        <item name="android:textColor">
-            #000000
-        </item>
-
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">#000000</item>
     </style>
 
-
     <style name="details">
-        <item name="android:textSize">
-            12sp
-        </item>
-        <item name="android:textColor">
-            #0070FF
-        </item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#0070FF</item>
     </style>
 
     <style name="steps">
-        <item name="android:textSize">
-            12sp
-        </item>
-        <item name="android:textColor">
-            #365EE9
-        </item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#365EE9</item>
     </style>
 
     <style name="for_you">
-        <item name="android:textSize">
-            16sp
-        </item>
-        <item name="android:letterSpacing">
-            0.01
-        </item>
-        <item name="android:textColor">
-            #000000
-        </item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">#000000</item>
     </style>
 
     <style name="you_step">
-        <item name="android:textSize">
-            16sp
-        </item>
-        <item name="android:letterSpacing">
-            0.01
-        </item>
-        <item name="android:textColor">
-            #000000
-        </item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">#000000</item>
     </style>
 
     <style name="steps_to_re">
-        <item name="android:textSize">
-            11sp
-        </item>
-        <item name="android:textColor">
-            #000000
-        </item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">#000000</item>
     </style>
 
     <style name="some_id">
-        <item name="android:textSize">
-            11sp
-        </item>
-        <item name="android:textColor">
-            #000000
-        </item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">#000000</item>
     </style>
 
     <style name="summary">
-
-        <item name="android:textSize">
-            24sp
-        </item>
-
-        <item name="android:letterSpacing">
-            0.01
-        </item>
-
-        <item name="android:textColor">
-            #000000
-        </item>
-
+        <item name="android:textSize">24sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">#000000</item>
     </style>
 
     <style name="last_night_">
-
-        <item name="android:textSize">
-            12sp
-        </item>
-
-        <item name="android:textColor">
-            #FF9C8A
-        </item>
-
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#FF9C8A</item>
     </style>
 
 
     <style name="stime">
-
-        <item name="android:textSize">
-            16sp
-        </item>
-
-        <item name="android:letterSpacing">
-            0.01
-        </item>
-
-        <item name="android:textColor">
-            #000000
-        </item>
-
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">#000000</item>
     </style>
 
     <style name="water">
-
-        <item name="android:textSize">
-            12sp
-        </item>
-
-        <item name="android:textColor">
-            #0c3a97
-        </item>
-
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#0c3a97</item>
     </style>
 
     <style name="LoginText" parent="Theme.AppCompat.Light.NoActionBar">
