@@ -34,12 +34,15 @@
                  android:layout_gravity="center"
                  android:layout_marginTop="10dp"
                  android:text="Login"
+                 android:textColor="#000000"
+                 android:textStyle="bold"
                  android:textSize="34sp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textAlignment="center"
+                android:textColor="#808080"
                 android:layout_marginTop="15dp"
                 android:text="돌아오셨군요!\n로그인하여 다양한 컨텐츠를 누려보세요!"
                 android:textSize="17sp" />
