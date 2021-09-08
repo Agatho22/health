@@ -18,6 +18,7 @@
             android:orientation="vertical"
             android:focusable="true"
             android:focusableInTouchMode="true">
+
             <!--회사 로고-->
             <ImageView
                 android:id="@+id/apple"
@@ -108,7 +109,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="자동 로그인"
-                    android:layout_marginRight="12dp"
+                    android:layout_marginEnd="12dp"
                     app:layout_constraintBottom_toTopOf="@+id/transition_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -130,9 +131,18 @@
                 android:id="@+id/btn_registerf"
                 style="@style/LoginButton"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/round_bg"
+                android:background="@drawable/round_bg01"
                 android:text="Join"
                 android:layout_gravity="center" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Forgot Password?"
+                android:textColor="#00498c"
+                android:textAlignment="center"
+                android:textSize="16sp" />
 
                   </LinearLayout>
              </ScrollView>
