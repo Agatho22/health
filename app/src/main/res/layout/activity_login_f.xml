@@ -118,8 +118,8 @@
 
             </LinearLayout>
 
-            <com.royrodriguez.transitionbutton.TransitionButton
-                android:id="@+id/transition_button"
+            <Button
+                android:id="@+id/btn_loginf"
                 style="@style/LoginButton"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/round_bg01"

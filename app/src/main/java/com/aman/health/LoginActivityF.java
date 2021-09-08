@@ -23,7 +23,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.royrodriguez.transitionbutton.TransitionButton;
 
 public class LoginActivityF extends AppCompatActivity {
 
@@ -31,8 +30,7 @@ public class LoginActivityF extends AppCompatActivity {
     private FirebaseAuth mfirebaseAuth; //파이어베이스 인증
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
     private EditText mEtEmail, mEtpwd; //로그인 입력필드
-    private Button btn_register;
-    private TransitionButton transitionButton;
+    private Button btn_login, btn_register;
     private CheckBox cb_auto;
     private SharedPreferences appData;
     private boolean saveLoginData;
@@ -57,7 +55,7 @@ public class LoginActivityF extends AppCompatActivity {
         //버튼 등록하기
         mEtEmail = findViewById(R.id.et_email);
         mEtpwd = findViewById(R.id.et_pwd);
-        transitionButton = findViewById(R.id.transition_button);
+        btn_login = findViewById(R.id.btn_loginf);
         btn_register = findViewById(R.id.btn_registerf);
         cb_auto = (CheckBox) findViewById(R.id.cb_auto);
 
@@ -84,20 +82,16 @@ public class LoginActivityF extends AppCompatActivity {
 
 
         //로그인 버튼이 눌리면
-        transitionButton.setOnClickListener(new View.OnClickListener(){
+        btn_login.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 String email = mEtEmail.getText().toString().trim();
                 String pwd = mEtpwd.getText().toString().trim();
 
-                // Start the loading animation when the user tap the button
-                transitionButton.startAnimation();
-
                 if (!mEtEmail.getText().toString().equals("") && !mEtpwd.getText().toString().equals("")) {
                     loginUser(mEtEmail.getText().toString(), mEtpwd.getText().toString());
                 } else {
                     Toast.makeText(LoginActivityF.this, "계정과 비밀번호를 입력하세요.", Toast.LENGTH_LONG).show();
-                    transitionButton.stopAnimation(TransitionButton.StopAnimationStyle.SHAKE, null);
 
                 }
 
@@ -138,23 +132,18 @@ public class LoginActivityF extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Log.d(TAG, "로그인 정보: " + email + " , " + password);
                         if (task.isSuccessful()) {
-                            transitionButton.stopAnimation(TransitionButton.StopAnimationStyle.EXPAND, new TransitionButton.OnAnimationStopEndListener() {
-                                @Override
-                                public void onAnimationStopEnd() {
                                     Intent intent = new Intent(getBaseContext(), MainActivity.class);
-                                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                                    Toast.makeText(getApplicationContext(),"로그인에 성공하였습니다.",Toast.LENGTH_SHORT).show();
                                     startActivity(intent);
-                                    save();
                                     finish();
-                                }
-                            });
-                            mfirebaseAuth.addAuthStateListener(firebaseAuthListener);
-                        } else {
+                            }
+
+                            else {
                             // 로그인 실패
-                            transitionButton.stopAnimation(TransitionButton.StopAnimationStyle.SHAKE, null);
                             Toast.makeText(LoginActivityF.this, "아이디 또는 비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
+                             }
+                            mfirebaseAuth.addAuthStateListener(firebaseAuthListener);
                         }
-                    }
                 });
     }
 
