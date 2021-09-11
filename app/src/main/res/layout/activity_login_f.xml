@@ -32,7 +32,7 @@
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:layout_gravity="center"
-                 android:layout_marginTop="10dp"
+                 android:layout_marginTop="35dp"
                  android:text="Login"
                  android:textColor="#000000"
                  android:textStyle="bold"
@@ -43,14 +43,14 @@
                 android:layout_gravity="center"
                 android:textAlignment="center"
                 android:textColor="#808080"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="16dp"
                 android:text="돌아오셨군요!\n로그인하여 다양한 컨텐츠를 누려보세요!"
                 android:textSize="17sp" />
 
             <!--아이디, 페스워드 시작-->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginVertical="10dp"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -59,10 +59,10 @@
                 <EditText
                     android:id="@+id/et_email"
                     style="@style/LoginText"
-                    android:layout_marginTop="80dp"
+                    android:layout_marginTop="40dp"
                     android:background="@drawable/row_light_s"
                     android:drawableStart="@drawable/ic_email"
-                    android:hint="아이디"
+                    android:hint="이메일"
                     android:inputType="textEmailAddress"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -85,7 +85,7 @@
                 <EditText
                     android:id="@+id/et_pwd"
                     style="@style/LoginText"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="0dp"
                     android:background="@drawable/row_light_s"
                     android:drawableStart="@drawable/ic_lock"
                     android:hint="패스워드"
@@ -135,7 +135,7 @@
                 style="@style/LoginButton"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/round_bg01"
-                android:text="Join"
+                android:text="Create account"
                 android:layout_gravity="center" />
 
             <TextView
@@ -143,6 +143,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Forgot Password?"
+                android:textStyle="bold"
                 android:textColor="#00498c"
                 android:textAlignment="center"
                 android:textSize="16sp" />

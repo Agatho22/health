@@ -157,38 +157,38 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
-<!--
-        <RadioGroup
-            android:id="@+id/rg_gender"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_age">
+        <!--
+                <RadioGroup
+                    android:id="@+id/rg_gender"
+                    android:layout_width="300dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_age">
 
-            <RadioButton
-                android:id="@+id/rb_male"
-                android:layout_width="90dp"
-                android:layout_height="match_parent"
-                android:background="@drawable/round_border"
-                android:gravity="left|center"
-                android:text="male" />
+                    <RadioButton
+                        android:id="@+id/rb_male"
+                        android:layout_width="90dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/round_border"
+                        android:gravity="left|center"
+                        android:text="male" />
 
-            <RadioButton
-                android:id="@+id/rb_female"
-                android:layout_width="90dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="30dp"
-                android:background="@drawable/round_border"
-                android:padding="0dp"
-                android:text="female" />
+                    <RadioButton
+                        android:id="@+id/rb_female"
+                        android:layout_width="90dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="30dp"
+                        android:background="@drawable/round_border"
+                        android:padding="0dp"
+                        android:text="female" />
 
 
-        </RadioGroup>
--->
+                </RadioGroup>
+        -->
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
