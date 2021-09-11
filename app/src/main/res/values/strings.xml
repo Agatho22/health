@@ -13,7 +13,11 @@
     <string name="last_night_">Last Night Sleep</string>
     <string name="stime">8 h 55 min</string>
     <string name="water">Water</string>
-    <string name="link">Don\u00E2\u0080\u0099t have an account? Create account</string>
+    <string name="title_activity_abcde">abcde</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

@@ -125,7 +125,7 @@
                 android:id="@+id/btn_loginf"
                 style="@style/LoginButton"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/round_bg01"
+                android:background="@drawable/round_bg"
                 android:text="Sign In"
                 android:layout_gravity="center" />
 

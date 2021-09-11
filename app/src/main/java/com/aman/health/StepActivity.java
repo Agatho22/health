@@ -1,111 +1,141 @@
 package com.aman.health;
 
-import android.Manifest;
 import android.content.Context;
-import android.content.pm.PackageManager;
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.os.Build;
+
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
-public class StepActivity extends AppCompatActivity implements SensorEventListener {
-
-    SensorManager sensorManager;
-    Sensor stepCountSensor;
-    TextView stepCountView;
-    Button resetButton;
-
-    // 현재 걸음 수
-    int currentSteps = 0;
-
-    @RequiresApi(api = Build.VERSION_CODES.Q)
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_step);
-
-        stepCountView = findViewById(R.id.stepCountView);
-        resetButton = findViewById(R.id.resetButton);
+import androidx.fragment.app.Fragment;
 
 
-        // 활동 퍼미션 체크
-        if(ContextCompat.checkSelfPermission(this,
-                Manifest.permission.ACTIVITY_RECOGNITION) == PackageManager.PERMISSION_DENIED){
+public class StepActivity extends Fragment implements SensorEventListener{
 
-            requestPermissions(new String[]{Manifest.permission.ACTIVITY_RECOGNITION}, 0);
-        }
+    //센서기능 변수 시작
+    private long lastTime;
+    private float speed, lastX, lastY, lastZ, x, y, z;
+    private static final int SHAKE_THRESHOLD = 800;    //속도가 800
 
-        // 걸음 센서 연결
-        // * 옵션
-        // - TYPE_STEP_DETECTOR:  리턴 값이 무조건 1, 앱이 종료되면 다시 0부터 시작
-        // - TYPE_STEP_COUNTER : 앱 종료와 관계없이 계속 기존의 값을 가지고 있다가 1씩 증가한 값을 리턴
-        //
-        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        stepCountSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR);
+    public static final int DATA_X = SensorManager.DATA_X;
+    public static final int DATA_Y = SensorManager.DATA_Y;
+    public static final int DATA_Z = SensorManager.DATA_Z;
 
-        // 디바이스에 걸음 센서의 존재 여부 체크
-        if (stepCountSensor == null) {
-            Toast.makeText(this, "No Step Sensor", Toast.LENGTH_SHORT).show();
-        }
+    public SensorManager sensorManager;
+    public Sensor accelerormeterSensor;
 
-        // 리셋 버튼 추가 - 리셋 기능
-        resetButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 현재 걸음수 초기화
-                currentSteps = 0;
-                stepCountView.setText(String.valueOf(currentSteps));
+    public int sensitive=150;
+    //센서기능 변수 끝
 
-            }
-        });
+
+    //만보계 변수 시작
+    public static int cnt = 0;
+    public int resultcnt=0;
+
+    public TextView walkcnt;
+
+    //만보계 변수 끝
+
+    public StepActivity() {
 
     }
 
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
+        View view = inflater.inflate(R.layout.activity_step, container, false);
+
+
+        walkcnt = (TextView)view.findViewById(R.id.walkcnt);
+        walkcnt.setText("" + cnt);
+        return view;
+    }
+
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState)
+    {
+        super.onActivityCreated(savedInstanceState);
+
+
+        sensorManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
+        accelerormeterSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+
+    }
+
+
+    @Override
     public void onStart() {
         super.onStart();
-        if(stepCountSensor !=null) {
-            // 센서 속도 설정
-            // * 옵션
-            // - SENSOR_DELAY_NORMAL: 20,000 초 딜레이
-            // - SENSOR_DELAY_UI: 6,000 초 딜레이
-            // - SENSOR_DELAY_GAME: 20,000 초 딜레이
-            // - SENSOR_DELAY_FASTEST: 딜레이 없음
-            //
-            sensorManager.registerListener(this,stepCountSensor,SensorManager.SENSOR_DELAY_FASTEST);
-        }
+
+        if (accelerormeterSensor != null)
+            sensorManager.registerListener(this, accelerormeterSensor,
+                    SensorManager.SENSOR_DELAY_GAME);
+
     }
 
 
-
     @Override
-    public void onSensorChanged(SensorEvent event) {
-        // 걸음 센서 이벤트 발생시
-        if(event.sensor.getType() == Sensor.TYPE_STEP_DETECTOR){
+    public void onStop() {
+        super.onStop();
 
-            if(event.values[0]==1.0f){
-                // 센서 이벤트가 발생할때 마다 걸음수 증가
-                currentSteps++;
-                stepCountView.setText(String.valueOf(currentSteps));
+        if (sensorManager != null)
+            sensorManager.unregisterListener(this);
+
+    }
+
+
+    //sensoreventlistener에 필수. 센서가 변하면 발생하는 함수. 흔들림 감지
+    @Override
+    public void onSensorChanged(android.hardware.SensorEvent event) {
+        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+            //센서종류가 가속도센서일때
+            long currentTime = System.currentTimeMillis();
+            //현재시간을 가져옴
+            long gabOfTime = (currentTime - lastTime);
+            //현재시간-측정시간
+
+            if (gabOfTime > sensitive) {
+                //현재시간-측정시간이 0.14초 이상되었을때, 흔들림 감지
+                lastTime = currentTime;
+                x = event.values[SensorManager.DATA_X];
+                y = event.values[SensorManager.DATA_Y];
+                z = event.values[SensorManager.DATA_Z];
+
+                speed = Math.abs(x + y + z - lastX - lastY - lastZ) / gabOfTime * 10000;
+
+                if (speed > SHAKE_THRESHOLD) {
+                    //속도가 800이상일 때 흔들림을 감지한다.
+                    // 이벤트발생!!
+
+                    resultcnt = (++cnt);
+
+                    walkcnt.setText(""+resultcnt);
+
+
+
+
+                }
+
+                lastX = event.values[DATA_X];
+                lastY = event.values[DATA_Y];
+                lastZ = event.values[DATA_Z];
             }
 
         }
 
     }
 
-
+    //sensoreventlistener에 필수
     @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
+    public void onAccuracyChanged(android.hardware.Sensor sensor, int i) {
     }
 }

@@ -1,7 +1,5 @@
 package com.aman.health;
 
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,8 +9,6 @@ import android.text.TextWatcher;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;

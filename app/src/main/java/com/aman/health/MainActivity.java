@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         btn_water.setOnClickListener(new View.OnClickListener() { //water 버튼 클릭시 water 액티비티로 이동
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(com.aman.health.MainActivity.this, WaterActivity.class);
+                Intent intent = new Intent(MainActivity.this, WaterActivity.class);
                 startActivity(intent);
             }
         });
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         btn_step.setOnClickListener(new View.OnClickListener() { //걸어 버튼 클릭시 step 액티비티로 이동
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(com.aman.health.MainActivity.this, StepActivity.class);
+                Intent intent = new Intent(MainActivity.this, StepActivity.class);
                 startActivity(intent);
             }
         });
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         btn_timer.setOnClickListener(new View.OnClickListener() { //타이머 버튼 클릭시 Timer 액티비티로 이동
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(com.aman.health.MainActivity.this, TimerActivity.class);
+                Intent intent = new Intent(MainActivity.this, TimerActivity.class);
                 startActivity(intent);
             }
         });

@@ -3,10 +3,32 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/drawable-xhdpi/circular.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/drawable-xhdpi/divider.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/drawable-xxhdpi/circle.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/drawable-xxhdpi/round_bg.xml" value="0.20625" />
+        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/drawable-xxhdpi/round_bg01.xml" value="0.20625" />
+        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/drawable-xxhdpi/round_border.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/drawable/ellipse.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/drawable/ic_home.xml" value="0.22083333333333333" />
+        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/drawable/ic_person_pin.xml" value="0.22083333333333333" />
+        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/drawable/ic_rectangle.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/drawable/ic_search.xml" value="0.22083333333333333" />
+        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/drawable/ic_vector.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_abcde.xml" value="0.2046875" />
+        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_home.xml" value="0.322463768115942" />
+        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_intro.xml" value="0.2046875" />
         <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_login_f.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_login_test.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_step.xml" value="0.2046875" />
-        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_timer.xml" value="0.2046875" />
+        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_main.xml" value="0.2046875" />
+        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_register_f.xml" value="0.2046875" />
+        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_step.xml" value="0.33" />
+        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_timer.xml" value="0.33" />
+        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_wa_memo.xml" value="0.2046875" />
+        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_water.xml" value="0.33" />
+        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/fragment_abcde.xml" value="0.2046875" />
+        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/fragment_step.xml" value="0.322463768115942" />
+        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/menu/bottom_nav.xml" value="0.36614583333333334" />
       </map>
     </option>
   </component>
