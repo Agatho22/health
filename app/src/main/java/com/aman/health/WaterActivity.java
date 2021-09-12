@@ -56,12 +56,5 @@ public class WaterActivity extends AppCompatActivity {
                 water = i_water;
             }
         });
-        btn_wa_memo.setOnClickListener(new View.OnClickListener() { //water 버튼 클릭시 water 액티비티로 이동
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(com.aman.health.WaterActivity.this, wa_memoActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 }
