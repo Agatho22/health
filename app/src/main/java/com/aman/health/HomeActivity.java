@@ -29,10 +29,10 @@ public class HomeActivity extends AppCompatActivity {
                 case R.id.action_step:
                     viewPager.setCurrentItem(0);
                     break;
-                case R.id.action_timer:
+                case R.id.action_profile:
                     viewPager.setCurrentItem(1);
                     break;
-                case R.id.action_main:
+                case R.id.action_search:
                     viewPager.setCurrentItem(2);
                     break;
             }
@@ -57,10 +57,10 @@ public class HomeActivity extends AppCompatActivity {
                         navigationView.getMenu().findItem(R.id.action_step).setChecked(true);
                         break;
                     case 1:
-                        navigationView.getMenu().findItem(R.id.action_step).setChecked(true);
+                        navigationView.getMenu().findItem(R.id.action_profile).setChecked(true);
                         break;
                     case 2:
-                        navigationView.getMenu().findItem(R.id.action_step).setChecked(true);
+                        navigationView.getMenu().findItem(R.id.action_search).setChecked(true);
                         break;
                 }
 

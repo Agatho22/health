@@ -6,11 +6,11 @@
         android:title="Item"
         android:icon="@drawable/ic_home"/>
     <item
-        android:id="@+id/action_timer"
+        android:id="@+id/action_profile"
         android:title="Item"
         android:icon="@drawable/ic_person_pin"/>
     <item
-        android:id="@+id/action_main"
+        android:id="@+id/action_search"
         android:title="Item"
         android:icon="@drawable/ic_search"/>
 </menu>

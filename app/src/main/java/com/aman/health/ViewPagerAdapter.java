@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
+import com.aman.health.SearchFragment;
+
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     public ViewPagerAdapter(@NonNull FragmentManager fm, int behavior) {
@@ -18,9 +20,9 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
             case 0:
                 return new StepActivity();
             case 1:
-                return new StepActivity();
+                return new ProFileFragment();
             case 2:
-                return new StepActivity();
+                return new SearchFragment();
             default:
                 return new StepActivity();
         }
