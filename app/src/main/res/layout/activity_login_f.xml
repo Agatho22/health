@@ -93,7 +93,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="12dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="22dp"
                     android:text="자동 로그인"
                     app:layout_constraintBottom_toTopOf="@+id/transition_button"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -106,10 +106,12 @@
             <Button
                 android:id="@+id/btn_loginf"
                 style="@style/LoginButton"
-                android:layout_marginTop="20dp"
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="22dp"
                 android:background="@drawable/round_bg01"
-                android:text="Sign In"
-                android:layout_gravity="center" />
+                android:text="로그인"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -126,29 +128,10 @@
                     android:layout_weight="5"
                     android:textColor="#808080"
                     android:textStyle="bold"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="32dp"
                     android:text="Create New ID"
                     android:textSize="16dp"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:clickable="true"
-                android:gravity="center_horizontal"
-                android:onClick="onTextViewClicked"
-                android:text="Forgot Password?"
-                android:textAlignment="center"
-                android:textColor="#00498c"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                tools:ignore="OnClick,TouchTargetSizeCheck" />
-
-            <Button
-                android:id="@+id/btn_registerf"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Button" />
                 <TextView
                     android:id="@+id/forgotpw"
                     android:layout_width="wrap_content"
@@ -157,7 +140,7 @@
                     android:layout_weight="5"
                     android:textColor="#00498c"
                     android:textStyle="bold"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="32dp"
                     android:text="Forgot Password?"
                     android:textSize="16dp"/>
 

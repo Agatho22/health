@@ -8,9 +8,52 @@
     android:layout_height="fill_parent"
     tools:context=".RegisterActivityF2">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <!--큰 레이아웃 없으면 안됌. 스크롤뷰는 하나의 위젯만 있어야하기때문-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <!--회사 로고-->
+            <ImageView
+                android:id="@+id/apple"
+                android:layout_width="55dp"
+                android:layout_height="66dp"
+                android:layout_marginTop="80dp"
+                android:background="@drawable/apple"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="35dp"
+                android:text="Create account"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="34sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="#808080"
+                android:layout_marginTop="16dp"
+                android:text="돌아오셨군요!\n로그인하여 다양한 컨텐츠를 누려보세요!"
+                android:textSize="17sp" />
 
 
-        <View
+
+
+            <View
             android:id="@+id/view7"
             android:layout_width="0dp"
             android:layout_height="100dp"
