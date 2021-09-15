@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,7 +26,8 @@ public class LoginActivityF extends AppCompatActivity {
     private FirebaseAuth mfirebaseAuth; //파이어베이스 인증
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
     private EditText mEtEmail, mEtpwd; //로그인 입력필드
-    private Button btn_login, btn_register;
+    private Button btn_login;
+    private TextView register;
     private CheckBox cb_auto;
     private SharedPreferences appData;
     private boolean saveLoginData;
@@ -51,7 +53,7 @@ public class LoginActivityF extends AppCompatActivity {
         mEtEmail = findViewById(R.id.et_email);
         mEtpwd = findViewById(R.id.et_pwd);
         btn_login = findViewById(R.id.btn_loginf);
-        btn_register = findViewById(R.id.btn_registerf);
+        register = (TextView) findViewById(R.id.register);
         cb_auto = (CheckBox) findViewById(R.id.cb_auto);
 
 
@@ -111,7 +113,7 @@ public class LoginActivityF extends AppCompatActivity {
 
 
         //가입 버튼이 눌리면
-        btn_register.setOnClickListener(new View.OnClickListener(){
+        register.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 //intent함수를 통해 register액티비티 함수를 호출한다.

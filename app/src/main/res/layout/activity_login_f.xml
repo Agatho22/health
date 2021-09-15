@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/back"
+    android:background="@drawable/login_bg"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     tools:context=".LoginActivityF">
 
     <ScrollView
@@ -48,6 +50,7 @@
                 android:textSize="17sp" />
 
             <!--아이디, 페스워드 시작-->
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -59,8 +62,8 @@
                 <EditText
                     android:id="@+id/et_email"
                     style="@style/LoginText"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="40dp"
-                    android:background="@drawable/row_light_s"
                     android:drawableStart="@drawable/ic_email"
                     android:hint="이메일"
                     android:inputType="textEmailAddress"
@@ -68,42 +71,20 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/view" />
 
-                <View
-                    android:id="@+id/divider"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:alpha="0.2"
-                    android:background="@drawable/divider" />
+
                 <!--아이디 끝-->
 
                 <!--페스워드 시작-->
                 <EditText
                     android:id="@+id/et_pwd"
                     style="@style/LoginText"
-                    android:layout_marginTop="0dp"
-                    android:background="@drawable/row_light_s"
+                    android:layout_marginTop="5dp"
                     android:drawableStart="@drawable/ic_lock"
                     android:hint="패스워드"
                     android:inputType="textPassword"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/et_email" />
-                <View
-                    android:id="@+id/divider2"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:alpha="0.2"
-                    android:background="@drawable/divider" />
                 <!--페스워드 끝-->
 
                 <!--자동로그인 시작-->
@@ -111,8 +92,9 @@
                     android:id="@+id/cb_auto"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="자동 로그인"
                     android:layout_marginEnd="12dp"
+                    android:layout_marginTop="10dp"
+                    android:text="자동 로그인"
                     app:layout_constraintBottom_toTopOf="@+id/transition_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -129,29 +111,38 @@
                 android:text="Sign In"
                 android:layout_gravity="center" />
 
-
-            <TextView
-                android:id="@+id/btn_registerf"
-                style="@style/LoginButton"
-
-                android:layout_marginTop="10dp"
-                android:textColor="#00498c"
-                android:text="Create New ID"
-                android:layout_gravity="center"
-                android:textSize="16dp"/>
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Forgot Password?"
-                android:onClick="onTextViewClicked"
-                android:clickable="true"
-                android:textStyle="bold"
-                android:textColor="#00498c"
-                android:textAlignment="center"
-                android:textSize="16sp" />
+                android:orientation="horizontal"
+                android:weightSum="10"
+                >
 
+                <TextView
+                    android:id="@+id/register"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_weight="5"
+                    android:textColor="#808080"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20dp"
+                    android:text="Create New ID"
+                    android:textSize="16dp"/>
+
+                <TextView
+                    android:id="@+id/forgotpw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_weight="5"
+                    android:textColor="#00498c"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20dp"
+                    android:text="Forgot Password?"
+                    android:textSize="16dp"/>
+
+                    </LinearLayout>
                   </LinearLayout>
              </ScrollView>
         </LinearLayout>
