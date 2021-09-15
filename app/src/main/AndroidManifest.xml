@@ -13,21 +13,42 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".LoginActivityF" />
         <activity
-            android:name=".IntroActivity"
-            android:windowSoftInputMode="adjustPan"/>
-            //.LoginActivityF 19줄
-            <activity
-                android:name=".HomeActivity"
-                android:windowSoftInputMode="adjustPan">
-        <intent-filter>
+            android:name=".Fbtest"
+            android:exported="true"
+        />
+        <activity
+            android:name=".RegisterActivityF"
+            android:windowSoftInputMode="adjustPan" >
+
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:windowSoftInputMode="adjustPan" >
+
+        </activity>
+
+
+        <activity android:name=".LoginActivityF" >
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
+        <activity
+            android:name=".IntroActivity"
+            android:windowSoftInputMode="adjustPan" >
+
+        </activity>
+
+        <activity
+            android:name=".HomeActivity"
+            android:windowSoftInputMode="adjustPan">
+
+        </activity>
 
 
     </application>

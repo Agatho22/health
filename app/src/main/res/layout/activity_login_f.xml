@@ -130,6 +130,25 @@
                     android:text="Create New ID"
                     android:textSize="16dp"/>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:clickable="true"
+                android:gravity="center_horizontal"
+                android:onClick="onTextViewClicked"
+                android:text="Forgot Password?"
+                android:textAlignment="center"
+                android:textColor="#00498c"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:ignore="OnClick,TouchTargetSizeCheck" />
+
+            <Button
+                android:id="@+id/btn_registerf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Button" />
                 <TextView
                     android:id="@+id/forgotpw"
                     android:layout_width="wrap_content"

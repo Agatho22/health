@@ -35,10 +35,14 @@ public class LoginActivityF extends AppCompatActivity {
 
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_f);
+
+
 
 
 
@@ -96,21 +100,6 @@ public class LoginActivityF extends AppCompatActivity {
             }
         });
 
-        firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    Intent intent = new Intent(LoginActivityF.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
-                } else {
-                }
-            }
-        };
-
-
-
 
         //가입 버튼이 눌리면
         register.setOnClickListener(new View.OnClickListener(){
@@ -129,17 +118,19 @@ public class LoginActivityF extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Log.d(TAG, "로그인 정보: " + email + " , " + password);
                         if (task.isSuccessful()) {
+                                    FirebaseUser user = mfirebaseAuth.getCurrentUser();
                                     Intent intent = new Intent(getBaseContext(), MainActivity.class);
                                     Toast.makeText(getApplicationContext(),"로그인에 성공하였습니다.",Toast.LENGTH_SHORT).show();
                                     startActivity(intent);
                                     finish();
+
                             }
 
                             else {
                             // 로그인 실패
                             Toast.makeText(LoginActivityF.this, "아이디 또는 비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
                              }
-                            mfirebaseAuth.addAuthStateListener(firebaseAuthListener);
+
                         }
                 });
     }
