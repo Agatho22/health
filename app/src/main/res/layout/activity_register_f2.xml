@@ -23,11 +23,11 @@
 
             <!--회사 로고-->
             <ImageView
-                android:id="@+id/apple"
-                android:layout_width="55dp"
-                android:layout_height="66dp"
+                android:id="@+id/CMYK"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginTop="80dp"
-                android:background="@drawable/apple"
+                android:background="@drawable/cmyk"
                 android:layout_gravity="center"/>
 
             <TextView

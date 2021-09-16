@@ -3,42 +3,25 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/drawable-xhdpi/circular.xml" value="0.38229166666666664" />
-        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/drawable-xhdpi/divider.xml" value="0.38229166666666664" />
-        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/drawable-xxhdpi/circle.xml" value="0.38229166666666664" />
-        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/drawable-xxhdpi/round_bg.xml" value="0.20625" />
-        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/drawable-xxhdpi/round_bg01.xml" value="0.20625" />
-        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/drawable-xxhdpi/round_border.xml" value="0.38229166666666664" />
-        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/drawable/asdasd.xml" value="0.22083333333333333" />
-        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/drawable/ellipse.xml" value="0.38229166666666664" />
-        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/drawable/ic_home.xml" value="0.22083333333333333" />
-        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/drawable/ic_person_pin.xml" value="0.22083333333333333" />
-        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/drawable/ic_rectangle.xml" value="0.38229166666666664" />
-        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/drawable/ic_search.xml" value="0.22083333333333333" />
-        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/drawable/ic_vector.xml" value="0.38229166666666664" />
-        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_abcde.xml" value="0.2046875" />
-        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_fbtest.xml" value="0.27898550724637683" />
-        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_home.xml" value="0.322463768115942" />
-        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_intro.xml" value="0.2046875" />
         <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_login_f.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_login_test.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_main.xml" value="0.2046875" />
-        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_register_f.xml" value="0.2046875" />
-        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_register_f2.xml" value="0.2857789855072464" />
-        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_step.xml" value="0.33" />
-        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_timer.xml" value="0.33" />
-        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_wa_memo.xml" value="0.2046875" />
-        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_water.xml" value="0.33" />
-        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/custom_list.xml" value="0.27898550724637683" />
-        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/fragment_abcde.xml" value="0.2046875" />
-        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/fragment_list.xml" value="0.27898550724637683" />
-        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/fragment_profile.xml" value="0.27898550724637683" />
-        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/fragment_step.xml" value="0.322463768115942" />
-        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/menu/bottom_nav.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_step.xml" value="0.2046875" />
+        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_timer.xml" value="0.2046875" />
+        <entry key="app/src/main/res/layout/activity_fbtest.xml" value="0.34791666666666665" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.32563405797101447" />
+        <entry key="app/src/main/res/layout/activity_login_f.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.37268128161888703" />
+        <entry key="app/src/main/res/layout/activity_register_f.xml" value="0.1648148148148148" />
+        <entry key="app/src/main/res/layout/activity_register_f2.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_step.xml" value="0.1648148148148148" />
+        <entry key="app/src/main/res/layout/activity_test.xml" value="0.1816123188405797" />
+        <entry key="app/src/main/res/layout/activity_timer.xml" value="0.3976449275362319" />
+        <entry key="app/src/main/res/layout/activity_water.xml" value="0.21175278622087132" />
+        <entry key="app/src/main/res/layout/fragment_item_list.xml" value="0.3976449275362319" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
