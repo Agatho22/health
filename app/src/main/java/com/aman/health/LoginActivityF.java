@@ -44,12 +44,8 @@ public class LoginActivityF extends AppCompatActivity {
 
 
 
-
-
-
         appData = getSharedPreferences("appData", MODE_PRIVATE);
         load();
-
 
         mfirebaseAuth =  FirebaseAuth.getInstance();
 
@@ -121,11 +117,10 @@ public class LoginActivityF extends AppCompatActivity {
                                     FirebaseUser user = mfirebaseAuth.getCurrentUser();
                                     Intent intent = new Intent(getBaseContext(), MainActivity.class);
                                     Toast.makeText(getApplicationContext(),"로그인에 성공하였습니다.",Toast.LENGTH_SHORT).show();
+                                    save();
                                     startActivity(intent);
                                     finish();
-
                             }
-
                             else {
                             // 로그인 실패
                             Toast.makeText(LoginActivityF.this, "아이디 또는 비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
