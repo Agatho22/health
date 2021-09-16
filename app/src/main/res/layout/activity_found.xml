@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/back"
+    android:background="@drawable/login_bg"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".RegisterActivityF">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <!--큰 레이아웃 없으면 안됌. 스크롤뷰는 하나의 위젯만 있어야하기때문-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="108dp"
+                android:text="Forgot password?"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="34sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="#808080"
+                android:layout_marginTop="16dp"
+                android:text="또 까먹었냐\n\n병신"
+                android:textSize="17sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <!--아이디, 페스워드 시작-->
+
+                <EditText
+                    android:id="@+id/editTextUserEmail"
+                    style="@style/LoginText"
+                    android:layout_marginTop="40dp"
+                    android:layout_height="wrap_content"
+                    android:hint="이메일"
+                    android:inputType="textEmailAddress" />
+
+                <Button
+                    android:id="@+id/btn_continue"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="237dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/round_bg01"
+                    android:text="계속"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:id="@+id/back_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:text="아이디가 있으신가요?"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:textColor="#00498c"
+                    android:textSize="17sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
