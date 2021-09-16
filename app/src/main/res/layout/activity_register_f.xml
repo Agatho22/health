@@ -49,83 +49,61 @@
                 android:text="돌아오셨군요!\n로그인하여 다양한 컨텐츠를 누려보세요!"
                 android:textSize="17sp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginVertical="10dp"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <!--아이디, 페스워드 시작-->
-
-        <EditText
-            android:id="@+id/et_email"
-            style="@style/LoginText"
-            android:layout_marginTop="40dp"
-            android:layout_height="wrap_content"
-            android:hint="아이디"
-            android:inputType="textEmailAddress" />
-
-        <EditText
-            android:id="@+id/et_pwd"
-            style="@style/LoginText"
-            android:layout_marginTop="5dp"
-            android:hint="비밀번호"
-            android:inputType="textPassword"
-            app:passwordToggleEnabled="true" />
-
-        <EditText
-            android:id="@+id/et_pwd2"
-            style="@style/LoginText"
-            android:layout_marginTop="5dp"
-            android:hint="비밀번호 확인"
-            android:inputType="textPassword"
-            app:passwordToggleEnabled="false" />
-        </LinearLayout>
-
-
-
-        <Button
-            android:id="@+id/btn_registerf"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="230dp"
-            android:background="@drawable/round_bg01"
-            android:layout_marginTop="22dp"
-            android:text="JOIN"
-            android:textColor="#FFFFFF"
-            android:layout_gravity="center" />
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="10"
-                >
+                android:layout_height="match_parent"
+                android:layout_marginVertical="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <!--아이디, 페스워드 시작-->
+
+                <EditText
+                    android:id="@+id/et_email"
+                    style="@style/LoginText"
+                    android:layout_marginTop="40dp"
+                    android:layout_height="wrap_content"
+                    android:hint="아이디"
+                    android:inputType="textEmailAddress" />
+
+                <EditText
+                    android:id="@+id/et_pwd"
+                    style="@style/LoginText"
+                    android:layout_marginTop="5dp"
+                    android:hint="비밀번호"
+                    android:inputType="textPassword"
+                    app:passwordToggleEnabled="true" />
+
+                <EditText
+                    android:id="@+id/et_pwd2"
+                    style="@style/LoginText"
+                    android:layout_marginTop="5dp"
+                    android:hint="비밀번호 확인"
+                    android:inputType="textPassword"
+                    app:passwordToggleEnabled="false" />
+
+                <Button
+                    android:id="@+id/btn_registerf"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/round_bg01"
+                    android:text="JOIN"
+                    android:textColor="#FFFFFF" />
 
                 <TextView
-                    android:id="@+id/register"
+                    android:id="@+id/backagain"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_weight="5"
-                    android:textColor="#808080"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:text="아이디가 있으신가요?"
                     android:textStyle="bold"
-                    android:layout_marginTop="32dp"
-                    android:text="Create New ID"
-                    android:textSize="16dp"/>
-
-                <TextView
-                    android:id="@+id/forgotpw"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_weight="5"
+                    android:textAlignment="center"
                     android:textColor="#00498c"
-                    android:textStyle="bold"
-                    android:layout_marginTop="32dp"
-                    android:text="Forgot Password?"
-                    android:textSize="16dp"/>
+                    android:textSize="17sp" />
 
             </LinearLayout>
         </LinearLayout>
