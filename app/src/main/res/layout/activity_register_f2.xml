@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/back"
     android:background="@drawable/login_bg"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -10,8 +11,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <!--큰 레이아웃 없으면 안됌. 스크롤뷰는 하나의 위젯만 있어야하기때문-->
         <LinearLayout
@@ -61,43 +61,57 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/topVIew" />
 
+            <EditText
+                android:id="@+id/et_name"
+                style="@style/RegistarText"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/round_border"
+                android:hint="이름"
+                android:inputType="text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_name"
+                tools:ignore="TouchTargetSizeCheck" />
 
-        <EditText
-            android:id="@+id/et_height"
-            style="@style/RegistarText"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/round_border"
-            android:hint="키"
-            android:inputType="numberDecimal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_name" />
 
-        <EditText
-            android:id="@+id/et_weight"
-            style="@style/RegistarText"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/round_border"
-            android:hint="몸무게"
-            android:inputType="numberDecimal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_height" />
+            <EditText
+                android:id="@+id/et_height"
+                style="@style/RegistarText"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/round_border"
+                android:hint="키"
+                android:inputType="numberDecimal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_name"
+                tools:ignore="TouchTargetSizeCheck" />
 
-        <EditText
-            android:id="@+id/et_age"
-            style="@style/RegistarText"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/round_border"
-            android:hint="나이"
-            android:inputType="date"
-            android:clickable="true"
-            android:focusable="false"
-            android:editable="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_weight"
-            tools:ignore="Deprecated" />
+            <EditText
+                android:id="@+id/et_weight"
+                style="@style/RegistarText"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/round_border"
+                android:hint="몸무게"
+                android:inputType="numberDecimal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_height"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <EditText
+                android:id="@+id/et_age"
+                style="@style/RegistarText"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/round_border"
+                android:clickable="true"
+                android:editable="false"
+                android:focusable="false"
+                android:hint="나이"
+                android:inputType="date"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_weight"
+                tools:ignore="Deprecated,TouchTargetSizeCheck" />
 
         <RadioGroup
             android:id="@+id/rg_gender"
@@ -116,22 +130,23 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/round_border"
                 android:gravity="left|center"
-                android:text="male" />
+                android:text="male"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <RadioButton
                 android:id="@+id/rb_female"
                 android:layout_width="90dp"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="30dp"
                 android:background="@drawable/round_border"
                 android:padding="0dp"
-                android:layout_marginLeft="30dp"
-                android:text="female" />
+                android:text="female"
+                tools:ignore="TouchTargetSizeCheck" />
         </RadioGroup>
 
 
-
         <Button
-            android:id="@+id/btn_registerf"
+            android:id="@+id/btn_registerf2"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="230dp"
@@ -173,8 +188,10 @@
 
                 </RadioGroup>
         -->
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
 
 
 
-</androidx.core.widget.NestedScrollView>
+

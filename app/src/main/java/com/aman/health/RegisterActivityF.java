@@ -35,25 +35,8 @@ public class RegisterActivityF extends AppCompatActivity {
     private static final String TAG = "RegisterActivityF";
     private FirebaseAuth mfirebaseAuth; //파이어베이스 인증
     private DatabaseReference mDatabaseRef; //실시간 데이터베이스
-    private EditText mEtEmail, mEtpwd, mEtpwd2, mEtName, mEtAge, mEtheight, mEtweight; //회원가입 입력필드
-    private RadioGroup rg_gender;
-    private String gender;
+    private EditText mEtEmail, mEtpwd, mEtpwd2; //회원가입 입력필드
     private Button mBtnRegister;
-    int age= 0;
-
-    Calendar myCalendar = Calendar.getInstance();
-
-    DatePickerDialog.OnDateSetListener myDatePicker = new DatePickerDialog.OnDateSetListener() {
-        @Override
-        public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-            myCalendar.set(Calendar.YEAR, year);
-            myCalendar.set(Calendar.MONTH, month);
-            myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-            updateLabel();
-        }
-    };
-
-
 
 
 
@@ -66,13 +49,7 @@ public class RegisterActivityF extends AppCompatActivity {
         //파이어베이스 접근 설정
         mfirebaseAuth = mfirebaseAuth.getInstance();
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
-        mEtAge = findViewById(R.id.et_age);
-        mEtAge.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new DatePickerDialog(RegisterActivityF.this, myDatePicker, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show();
-            }
-        });
+
 
 
 
@@ -81,20 +58,11 @@ public class RegisterActivityF extends AppCompatActivity {
         mEtEmail = findViewById(R.id.et_email);
         mEtpwd = findViewById(R.id.et_pwd);
         mEtpwd2 = findViewById(R.id.et_pwd2);
-        mEtName = findViewById(R.id.et_name);
-        mEtheight = findViewById(R.id.et_height);
-        mEtweight = findViewById(R.id.et_weight);
-        rg_gender = findViewById(R.id.rg_gender);
+
         mBtnRegister = findViewById(R.id.btn_registerf);
 
 
-        rg_gender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
-                RadioButton genderButton = (RadioButton)findViewById(i);
-                gender = genderButton.getText().toString();
-            }
-        });
+
 
         mBtnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,32 +87,11 @@ public class RegisterActivityF extends AppCompatActivity {
                             mDialog.dismiss();
                             if (task.isSuccessful()) {
 
-                                java.util.Calendar cal = java.util.Calendar.getInstance();
 
-                                FirebaseUser user = mfirebaseAuth.getCurrentUser();
-                                String email = user.getEmail();
-                                String uid = user.getUid();
-                                String name = mEtName.getText().toString().trim();
-                                int age =cal.get (cal.YEAR)-myCalendar.get(Calendar.YEAR)+1;
-                                double height = Double.parseDouble(mEtheight.getText().toString());
-                                double weight = Double.parseDouble(mEtweight.getText().toString());
-
-                                //해쉬맵 테이블을 파이어베이스 데이터베이스에 저장
-                                HashMap<Object,String> hashMap = new HashMap<>();
-
-                                hashMap.put("Uid",uid);
-                                hashMap.put("Email",email);
-                                hashMap.put("Name",name);
-                                hashMap.put("Age",age+"");
-                                hashMap.put("Height",height+"");
-                                hashMap.put("Weight",weight+"");
-                                hashMap.put("Gender",gender);
-
-                                mDatabaseRef.child(uid).setValue(hashMap);
 
 
                                 //가입이 이루어져을시 가입 화면을 빠져나감.
-                                Intent intent = new Intent(RegisterActivityF.this, MainActivity.class);
+                                Intent intent = new Intent(RegisterActivityF.this, RegisterActivityF2.class);
                                 startActivity(intent);
                                 finish();
                                 Toast.makeText(RegisterActivityF.this, "회원가입에 성공하셨습니다.", Toast.LENGTH_SHORT).show();
@@ -169,18 +116,6 @@ public class RegisterActivityF extends AppCompatActivity {
 
     }
 
-    public boolean onSupportNavigateUp(){
-        onBackPressed();; // 뒤로가기 버튼이 눌렸을시
-        return super.onSupportNavigateUp(); // 뒤로가기 버튼
-    }
 
-    private void updateLabel() {
-        String myFormat = "yyyy/MM/dd";
-        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.KOREA);
-
-        EditText mEtAge = (EditText) findViewById(R.id.et_age);
-        mEtAge.setText(sdf.format(myCalendar.getTime()));
-
-    }
 
 }
