@@ -21,21 +21,13 @@
             android:focusable="true"
             android:focusableInTouchMode="true">
 
-            <!--회사 로고-->
-            <ImageView
-                android:id="@+id/CMYK"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginTop="80dp"
-                android:background="@drawable/cmyk"
-                android:layout_gravity="center"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="35dp"
-                android:text="Create account"
+                android:layout_marginTop="108dp"
+                android:text="Forgot password?"
                 android:textColor="#000000"
                 android:textStyle="bold"
                 android:textSize="34sp" />
@@ -46,7 +38,7 @@
                 android:textAlignment="center"
                 android:textColor="#808080"
                 android:layout_marginTop="16dp"
-                android:text="돌아오셨군요!\n로그인하여 다양한 컨텐츠를 누려보세요!"
+                android:text="또 까먹었냐\n\n병신"
                 android:textSize="17sp" />
 
             <LinearLayout
@@ -59,42 +51,26 @@
                 <!--아이디, 페스워드 시작-->
 
                 <EditText
-                    android:id="@+id/et_email"
+                    android:id="@+id/editTextUserEmail"
                     style="@style/LoginText"
                     android:layout_marginTop="40dp"
                     android:layout_height="wrap_content"
-                    android:hint="아이디"
+                    android:hint="이메일"
                     android:inputType="textEmailAddress" />
 
-                <EditText
-                    android:id="@+id/et_pwd"
-                    style="@style/LoginText"
-                    android:layout_marginTop="5dp"
-                    android:hint="비밀번호"
-                    android:inputType="textPassword"
-                    app:passwordToggleEnabled="true" />
-
-                <EditText
-                    android:id="@+id/et_pwd2"
-                    style="@style/LoginText"
-                    android:layout_marginTop="5dp"
-                    android:hint="비밀번호 확인"
-                    android:inputType="textPassword"
-                    app:passwordToggleEnabled="false" />
-
                 <Button
-                    android:id="@+id/btn_registerf"
+                    android:id="@+id/btn_continue"
                     android:layout_width="350dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="22dp"
+                    android:layout_marginTop="237dp"
                     android:layout_marginBottom="30dp"
                     android:background="@drawable/round_bg01"
-                    android:text="JOIN"
+                    android:text="계속"
                     android:textColor="#FFFFFF" />
 
                 <TextView
-                    android:id="@+id/backagain"
+                    android:id="@+id/back_login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

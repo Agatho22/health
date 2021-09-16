@@ -28,6 +28,7 @@ public class LoginActivityF extends AppCompatActivity {
     private EditText mEtEmail, mEtpwd; //로그인 입력필드
     private Button btn_login;
     private TextView register;
+    private TextView forgotpw;
     private CheckBox cb_auto;
     private SharedPreferences appData;
     private boolean saveLoginData;
@@ -54,6 +55,7 @@ public class LoginActivityF extends AppCompatActivity {
         mEtpwd = findViewById(R.id.et_pwd);
         btn_login = findViewById(R.id.btn_loginf);
         register = (TextView) findViewById(R.id.register);
+        forgotpw = (TextView) findViewById(R.id.forgotpw);
         cb_auto = (CheckBox) findViewById(R.id.cb_auto);
 
 
@@ -103,6 +105,16 @@ public class LoginActivityF extends AppCompatActivity {
             public void onClick(View v) {
                 //intent함수를 통해 register액티비티 함수를 호출한다.
                 startActivity(new Intent(LoginActivityF.this,RegisterActivityF.class));
+            }
+        });
+
+
+        //비밀번호찾기 버튼이 눌리면
+        forgotpw.setOnClickListener(new View.OnClickListener(){
+        @Override
+        public void onClick(View v) {
+            //intent함수를 통해 forgotpw액티비티 함수를 호출한다.
+            startActivity(new Intent(LoginActivityF.this,FoundActivityF.class));
             }
         });
     }

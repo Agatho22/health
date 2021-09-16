@@ -5,8 +5,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--헤더 시작-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/teal_200"
+            android:gravity="center">
+
+        </LinearLayout>
+
+    </LinearLayout>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview1"
+        android:layout_marginTop="60dp"
         app:cardCornerRadius="3dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
