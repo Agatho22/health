@@ -121,6 +121,7 @@ public class LoginActivityF extends AppCompatActivity {
                                     FirebaseUser user = mfirebaseAuth.getCurrentUser();
                                     Intent intent = new Intent(getBaseContext(), MainActivity.class);
                                     Toast.makeText(getApplicationContext(),"로그인에 성공하였습니다.",Toast.LENGTH_SHORT).show();
+                                    save();
                                     startActivity(intent);
                                     finish();
 
