@@ -64,14 +64,7 @@ public class RegisterActivityF extends AppCompatActivity {
         backagain = (TextView) findViewById(R.id.backagain);
         mBtnRegister = findViewById(R.id.btn_registerf);
 
-        //뒤로가기 버튼이 눌리면
-        backagain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(RegisterActivityF.this, LoginActivityF.class);
-                startActivity(intent);
-            }
-        });
+
 
 
 
