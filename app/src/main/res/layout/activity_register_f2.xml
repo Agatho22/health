@@ -47,7 +47,7 @@
                 android:textAlignment="center"
                 android:textColor="#808080"
                 android:layout_marginTop="16dp"
-                android:text="돌아오셨군요!\n로그인하여 다양한 컨텐츠를 누려보세요!"
+                android:text="마지막"
                 android:textSize="17sp" />
 
         <LinearLayout
