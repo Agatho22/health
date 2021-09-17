@@ -11,6 +11,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.IdRes;
@@ -37,7 +38,7 @@ public class RegisterActivityF extends AppCompatActivity {
     private DatabaseReference mDatabaseRef; //실시간 데이터베이스
     private EditText mEtEmail, mEtpwd, mEtpwd2; //회원가입 입력필드
     private Button mBtnRegister;
-
+    private TextView backagain;
 
 
     @Override
@@ -55,11 +56,22 @@ public class RegisterActivityF extends AppCompatActivity {
 
 
 
+
+
         mEtEmail = findViewById(R.id.et_email);
         mEtpwd = findViewById(R.id.et_pwd);
         mEtpwd2 = findViewById(R.id.et_pwd2);
-
+        backagain = (TextView) findViewById(R.id.backagain);
         mBtnRegister = findViewById(R.id.btn_registerf);
+
+        //뒤로가기 버튼이 눌리면
+        backagain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RegisterActivityF.this, LoginActivityF.class);
+                startActivity(intent);
+            }
+        });
 
 
 

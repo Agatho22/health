@@ -40,6 +40,15 @@ public class FoundActivityF extends AppCompatActivity implements View.OnClickLis
         back_login = (TextView) findViewById(R.id.back_login);
         btn_continue.setOnClickListener(this);
 
+        //뒤로가기 버튼이 눌리면
+        back_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(FoundActivityF.this, LoginActivityF.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override
@@ -63,14 +72,8 @@ public class FoundActivityF extends AppCompatActivity implements View.OnClickLis
                             progressDialog.dismiss();
                         }
                     });
-            //뒤로가기 버튼이 눌리면
-            back_login.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(FoundActivityF.this, LoginActivityF.class);
-                    startActivity(intent);
-                }
-            });
+
+
 
         }
     }
