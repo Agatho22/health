@@ -26,7 +26,7 @@ import java.util.List;
 public class Fbtest extends AppCompatActivity {
     private FirebaseAuth mfirebaseAuth; //파이어베이스 인증
     private DatabaseReference mDatabaseRef; //실시간 데이터베이스
-    private TextView textView2, textView4;
+    private TextView info_email, info_name, info_age, info_height, info_weight;
 
     private ListView listView;
     private ArrayAdapter<String> adapter;
@@ -37,8 +37,11 @@ public class Fbtest extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fbtest);
 
-        textView2 = findViewById(R.id.textView2);
-        textView4 = findViewById(R.id.textView4);
+        info_email = findViewById(R.id.info_email);
+        info_name = findViewById(R.id.info_name);
+        info_age = findViewById(R.id.info_age);
+        info_height = findViewById(R.id.info_height);
+        info_weight = findViewById(R.id.info_weight);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser(); // 로그인한 유저의 정보 가져오기
         String uid = user != null ? user.getUid() : null; // 로그인한 유저의 고유 uid 가져오기
@@ -49,6 +52,10 @@ public class Fbtest extends AppCompatActivity {
         mDatabaseRef = FirebaseDatabase.getInstance().getReference(); // 파이어베이스 realtime database 에서 정보 가져오기
         DatabaseReference email = mDatabaseRef.child("Users").child(uid).child("Email");    // 이메일
         DatabaseReference name = mDatabaseRef.child("Users").child(uid).child("Name");
+        DatabaseReference age = mDatabaseRef.child("Users").child(uid).child("Age");
+        DatabaseReference height = mDatabaseRef.child("Users").child(uid).child("Height");
+        DatabaseReference weight = mDatabaseRef.child("Users").child(uid).child("Weight");
+
         // uid = 파이어베이스 유저 고유 uid , nickname = 데이터 베이스 child 명
 
 
@@ -59,11 +66,11 @@ public class Fbtest extends AppCompatActivity {
 
 
         // 이메일 띄워줌
-        name.addValueEventListener(new ValueEventListener() {
+        email.addValueEventListener(new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot snapshot) {
-            String name = snapshot.getValue(String.class);
-            textView4.setText(name);
+            String value = snapshot.getValue(String.class);
+            info_email.setText(value);
             Log.e("test","나이 "+name);
         }
         @Override
@@ -72,16 +79,45 @@ public class Fbtest extends AppCompatActivity {
 
 
     // 이메일 띄워줌
-        email.addValueEventListener(new ValueEventListener() {
+        name.addValueEventListener(new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot snapshot) {
-            String name = snapshot.getValue(String.class);
-            textView2.setText(name);
-            Log.e("test","이름은 "+name);
+            String value = snapshot.getValue(String.class);
+            info_name.setText(value);
         }
         @Override
         public void onCancelled(@NonNull DatabaseError error) { }
     });
+
+        age.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String value = snapshot.getValue(String.class);
+                info_age.setText(value);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) { }
+        });
+
+        height.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String value = snapshot.getValue(String.class);
+                info_height.setText(value);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) { }
+        });
+
+        weight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String value = snapshot.getValue(String.class);
+                info_weight.setText(value);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) { }
+        });
 
 
 
