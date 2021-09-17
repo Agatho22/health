@@ -61,7 +61,7 @@ public class FoundActivityF extends AppCompatActivity implements View.OnClickLis
         back_login = (TextView) findViewById(R.id.back_login);
         btn_continue.setOnClickListener(this);
 
-        //뒤로가기 버튼이 눌리면
+        //아이디가 있으신가요 버튼이 눌리면
         back_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

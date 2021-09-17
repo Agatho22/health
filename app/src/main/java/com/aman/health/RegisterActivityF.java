@@ -41,6 +41,8 @@ public class RegisterActivityF extends AppCompatActivity {
     private TextView backagain;
     private long backKeyPressedTime = 0;
 
+
+
     @Override
     public void onBackPressed() {
         // 기존의 뒤로가기 버튼의 기능제거
@@ -61,6 +63,8 @@ public class RegisterActivityF extends AppCompatActivity {
             android.os.Process.killProcess(android.os.Process.myPid());
         }
     }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +88,15 @@ public class RegisterActivityF extends AppCompatActivity {
         mEtpwd2 = findViewById(R.id.et_pwd2);
         backagain = (TextView) findViewById(R.id.backagain);
         mBtnRegister = findViewById(R.id.btn_registerf);
+
+        //아이디가 있으신가요 버튼이 눌리면
+        backagain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RegisterActivityF.this, LoginActivityF.class);
+                startActivity(intent);
+            }
+        });
 
 
 
