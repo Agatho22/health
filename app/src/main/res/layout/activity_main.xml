@@ -412,12 +412,12 @@
                     android:layout_height="match_parent">
 
                     <Button
-                        android:id="@+id/btn_step"
+                        android:id="@+id/btn_profile"
                         style="@style/LoginButton"
                         android:layout_width="106dp"
                         android:layout_height="58dp"
                         android:background="@drawable/round_bg"
-                        android:text="걸어"
+                        android:text="내 정보"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
