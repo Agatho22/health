@@ -119,7 +119,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:layout_weight="5"
-                    android:textColor="#808080"
+                    android:textColor="#00498c"
                     android:textStyle="bold"
                     android:layout_marginTop="32dp"
                     android:text="Create New ID"
