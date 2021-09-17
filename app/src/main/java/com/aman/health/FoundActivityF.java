@@ -40,7 +40,11 @@ public class FoundActivityF extends AppCompatActivity implements View.OnClickLis
         }
         // 2초 이내에 뒤로가기 버튼을 한번 더 클릭시 finish()(앱 종료)
         if (System.currentTimeMillis() <= backKeyPressedTime + 2000) {
+            moveTaskToBack(true);
+
             finish();
+
+            android.os.Process.killProcess(android.os.Process.myPid());
         }
     }
 
@@ -68,6 +72,8 @@ public class FoundActivityF extends AppCompatActivity implements View.OnClickLis
 
     }
 
+
+
     @Override
     public void onClick(View view) {
         if (view == btn_continue) {
@@ -77,6 +83,7 @@ public class FoundActivityF extends AppCompatActivity implements View.OnClickLis
             String emailAddress = editTextUserEmail.getText().toString().trim();
             mfirebaseAuth.sendPasswordResetEmail(emailAddress)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
+
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
@@ -89,8 +96,6 @@ public class FoundActivityF extends AppCompatActivity implements View.OnClickLis
                             progressDialog.dismiss();
                         }
                     });
-
-
 
         }
     }
