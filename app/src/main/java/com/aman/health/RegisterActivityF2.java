@@ -40,6 +40,28 @@ public class RegisterActivityF2 extends AppCompatActivity {
     private String gender;
     private Button registerf2;
     int age= 0;
+    private long backKeyPressedTime = 0;
+
+    @Override
+    public void onBackPressed() {
+        // 기존의 뒤로가기 버튼의 기능제거
+        // super.onBackPressed();
+
+        // 2000 milliseconds = 2 seconds
+        if (System.currentTimeMillis() > backKeyPressedTime + 2000) {
+            backKeyPressedTime = System.currentTimeMillis();
+            Toast.makeText(this, "\'뒤로\' 버튼을 한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        // 2초 이내에 뒤로가기 버튼을 한번 더 클릭시 finish()(앱 종료)
+        if (System.currentTimeMillis() <= backKeyPressedTime + 2000) {
+            moveTaskToBack(true);
+
+            finish();
+
+            android.os.Process.killProcess(android.os.Process.myPid());
+        }
+    }
 
     Calendar myCalendar = Calendar.getInstance();
 

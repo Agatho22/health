@@ -3,14 +3,14 @@
 
     <item
         android:id="@+id/action_step"
-        android:title="Item"
+        android:title="맘부기"
         android:icon="@drawable/ic_home"/>
     <item
         android:id="@+id/action_profile"
-        android:title="Item"
+        android:title="내 정보"
         android:icon="@drawable/ic_person_pin"/>
     <item
         android:id="@+id/action_search"
-        android:title="Item"
+        android:title="운 동"
         android:icon="@drawable/ic_search"/>
 </menu>

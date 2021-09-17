@@ -25,7 +25,28 @@ public class FoundActivityF extends AppCompatActivity implements View.OnClickLis
     private Button btn_continue;
     private ProgressDialog progressDialog;
     private TextView back_login;
+    private long backKeyPressedTime = 0;
 
+    @Override
+    public void onBackPressed() {
+        // 기존의 뒤로가기 버튼의 기능제거
+        // super.onBackPressed();
+
+        // 2000 milliseconds = 2 seconds
+        if (System.currentTimeMillis() > backKeyPressedTime + 2000) {
+            backKeyPressedTime = System.currentTimeMillis();
+            Toast.makeText(this, "\'뒤로\' 버튼을 한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        // 2초 이내에 뒤로가기 버튼을 한번 더 클릭시 finish()(앱 종료)
+        if (System.currentTimeMillis() <= backKeyPressedTime + 2000) {
+            moveTaskToBack(true);
+
+            finish();
+
+            android.os.Process.killProcess(android.os.Process.myPid());
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +61,18 @@ public class FoundActivityF extends AppCompatActivity implements View.OnClickLis
         back_login = (TextView) findViewById(R.id.back_login);
         btn_continue.setOnClickListener(this);
 
+        //아이디가 있으신가요 버튼이 눌리면
+        back_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(FoundActivityF.this, LoginActivityF.class);
+                startActivity(intent);
+            }
+        });
+
     }
+
+
 
     @Override
     public void onClick(View view) {
@@ -51,6 +83,7 @@ public class FoundActivityF extends AppCompatActivity implements View.OnClickLis
             String emailAddress = editTextUserEmail.getText().toString().trim();
             mfirebaseAuth.sendPasswordResetEmail(emailAddress)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
+
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
@@ -63,14 +96,6 @@ public class FoundActivityF extends AppCompatActivity implements View.OnClickLis
                             progressDialog.dismiss();
                         }
                     });
-            //뒤로가기 버튼이 눌리면
-            back_login.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(FoundActivityF.this, LoginActivityF.class);
-                    startActivity(intent);
-                }
-            });
 
         }
     }

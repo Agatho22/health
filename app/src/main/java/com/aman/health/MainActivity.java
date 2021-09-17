@@ -3,6 +3,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Activity;
+import android.os.HardwarePropertiesManager;
 import android.view.View;
 import android.widget.Button;
 
@@ -11,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btn_water, btn_step, btn_timer, btn_logout, button1;
+    private Button btn_water, btn_profile, btn_timer, btn_logout, button1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         btn_water = findViewById(R.id.btn_water);
-        btn_step = findViewById(R.id.btn_step);
+        btn_profile = findViewById(R.id.btn_profile);
         btn_timer = findViewById(R.id.btn_timer);
         btn_logout = findViewById(R.id.btn_logout);
         button1 = findViewById(R.id.button1);
@@ -41,10 +42,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btn_step.setOnClickListener(new View.OnClickListener() { //걸어 버튼 클릭시 step 액티비티로 이동
+        btn_profile.setOnClickListener(new View.OnClickListener() { //걸어 버튼 클릭시 profile 액티비티로 이동
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, StepActivity.class);
+                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                 startActivity(intent);
             }
         });

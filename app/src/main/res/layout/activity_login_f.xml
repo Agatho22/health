@@ -66,29 +66,20 @@
                     android:layout_marginTop="40dp"
                     android:drawableStart="@drawable/ic_email"
                     android:hint="이메일"
-                    android:inputType="textEmailAddress"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/view" />
-
-
+                    android:inputType="textEmailAddress" />
                 <!--아이디 끝-->
 
                 <!--페스워드 시작-->
-                <!--페스워드 끝-->
-
-                <!--자동로그인 시작-->
                 <EditText
                     android:id="@+id/et_pwd"
                     style="@style/LoginText"
                     android:layout_marginTop="5dp"
                     android:drawableStart="@drawable/ic_lock"
                     android:hint="패스워드"
-                    android:inputType="textPassword"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/et_email" />
+                    android:inputType="textPassword" />
+                <!--페스워드 끝-->
 
+                <!--자동로그인 시작-->
                 <CheckBox
                     android:id="@+id/cb_auto"
                     android:layout_width="wrap_content"
@@ -128,7 +119,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:layout_weight="5"
-                    android:textColor="#808080"
+                    android:textColor="#00498c"
                     android:textStyle="bold"
                     android:layout_marginTop="32dp"
                     android:text="Create New ID"

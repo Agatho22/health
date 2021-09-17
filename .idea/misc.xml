@@ -7,17 +7,27 @@
         <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_login_test.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_step.xml" value="0.2046875" />
         <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_timer.xml" value="0.2046875" />
+        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable-v24/ic_launcher_background.xml" value="0.2171875" />
+        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable-xhdpi/ellipse2.xml" value="0.21822916666666667" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable-xxhdpi/circle.xml" value="0.23072916666666668" />
+        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable-xxhdpi/ic_baseline_account_circle_24.xml" value="0.2171875" />
+        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable-xxhdpi/ic_email.xml" value="0.221875" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable-xxhdpi/round_bg01.xml" value="0.23072916666666668" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.23072916666666668" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/activity_fbtest.xml" value="0.21458333333333332" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/activity_found.xml" value="0.25" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/activity_home.xml" value="0.33" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/activity_intro.xml" value="0.20260416666666667" />
-        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/activity_login_f.xml" value="0.33" />
+        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/activity_login_f.xml" value="0.22" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/activity_main.xml" value="0.20260416666666667" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/activity_register_f.xml" value="0.33" />
-        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/activity_register_f2.xml" value="0.20260416666666667" />
+        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/activity_register_f2.xml" value="0.33" />
+        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/activity_step.xml" value="0.20104166666666667" />
+        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/activity_timer.xml" value="0.20104166666666667" />
+        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/activity_water.xml" value="0.20104166666666667" />
+        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/custom_list.xml" value="0.20208333333333334" />
+        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/fragment_list.xml" value="0.20104166666666667" />
+        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/fragment_profile.xml" value="0.20104166666666667" />
         <entry key="app/src/main/res/layout/activity_fbtest.xml" value="0.34791666666666665" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.32563405797101447" />
         <entry key="app/src/main/res/layout/activity_login_f.xml" value="0.25" />
