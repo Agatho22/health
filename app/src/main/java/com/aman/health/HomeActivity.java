@@ -26,10 +26,10 @@ public class HomeActivity extends AppCompatActivity {
 
         navigationView.setOnNavigationItemSelectedListener((item) -> {
             switch (item.getItemId()){
-                case R.id.action_step:
+                case R.id.action_profile:
                     viewPager.setCurrentItem(0);
                     break;
-                case R.id.action_profile:
+                case R.id.action_step:
                     viewPager.setCurrentItem(1);
                     break;
                 case R.id.action_search:
@@ -54,10 +54,10 @@ public class HomeActivity extends AppCompatActivity {
             public void onPageSelected(int position) {
                 switch (position){
                     case 0:
-                        navigationView.getMenu().findItem(R.id.action_step).setChecked(true);
+                        navigationView.getMenu().findItem(R.id.action_profile).setChecked(true);
                         break;
                     case 1:
-                        navigationView.getMenu().findItem(R.id.action_profile).setChecked(true);
+                        navigationView.getMenu().findItem(R.id.action_step).setChecked(true);
                         break;
                     case 2:
                         navigationView.getMenu().findItem(R.id.action_search).setChecked(true);

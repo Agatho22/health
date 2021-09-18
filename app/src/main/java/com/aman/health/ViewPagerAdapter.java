@@ -18,13 +18,13 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                return new StepActivity();
-            case 1:
                 return new ProFileFragment();
+            case 1:
+                return new StepActivity();
             case 2:
                 return new SearchFragment();
             default:
-                return new StepActivity();
+                return new ProFileFragment();
         }
     }
 
