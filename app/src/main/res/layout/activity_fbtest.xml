@@ -15,19 +15,69 @@
 
         <!--Top Header Layout-->
         <LinearLayout
+            android:id="@+id/topbar"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="@color/teal_200"
-            android:gravity="center">
+            android:layout_height="wrap_content"
+            android:background="#fafafa"
+            android:gravity="center"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/back_arrow"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="10dp"
+
+                android:src="@drawable/ic_back" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profile"
+                android:textColor="#000000"
+                android:textSize="17dp"
+                android:textStyle="bold" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <RelativeLayout
+                android:layout_width="50dp"
+                android:layout_height="50dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerInParent="true"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_email" />
+
+
+            </RelativeLayout>
 
         </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:layout_below="@+id/topbar">
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginTop="200dp">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp">
 
 
 
@@ -73,7 +123,7 @@
                 android:layout_width="110dp"
                 android:layout_height="match_parent"
                 android:paddingEnd="10dp"
-                android:text="성명 :"
+                android:text="닉네임 :"
                 android:textAlignment="textEnd"
                 android:textSize="20sp" />
 
