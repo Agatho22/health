@@ -23,15 +23,7 @@ public class MainActivity extends AppCompatActivity {
         btn_profile = findViewById(R.id.btn_profile);
         btn_timer = findViewById(R.id.btn_timer);
         btn_logout = findViewById(R.id.btn_logout);
-        button1 = findViewById(R.id.button1);
 
-        button1.setOnClickListener(new View.OnClickListener() { //water 버튼 클릭시 water 액티비티로 이동
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-                startActivity(intent);
-            }
-        });
 
 
         btn_water.setOnClickListener(new View.OnClickListener() { //water 버튼 클릭시 water 액티비티로 이동

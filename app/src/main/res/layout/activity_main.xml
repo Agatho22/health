@@ -382,12 +382,12 @@
                     android:layout_height="match_parent">
 
                     <Button
-                        android:id="@+id/btn_water"
+                        android:id="@+id/btn_profile"
                         style="@style/LoginButton"
                         android:layout_width="106dp"
                         android:layout_height="58dp"
                         android:background="@drawable/round_bg"
-                        android:text="WATER"
+                        android:text="로비"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -412,12 +412,12 @@
                     android:layout_height="match_parent">
 
                     <Button
-                        android:id="@+id/btn_profile"
+                        android:id="@+id/btn_water"
                         style="@style/LoginButton"
                         android:layout_width="106dp"
                         android:layout_height="58dp"
                         android:background="@drawable/round_bg"
-                        android:text="내 정보"
+                        android:text="WATER"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -513,16 +513,6 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Button"
-            app:layout_constraintBottom_toTopOf="@+id/mcard1"
-            app:layout_constraintEnd_toStartOf="@+id/btn_logout"
-            app:layout_constraintStart_toEndOf="@+id/textView3"
-            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
