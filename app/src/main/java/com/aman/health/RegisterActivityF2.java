@@ -117,10 +117,7 @@ public class RegisterActivityF2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
-
                 Calendar cal = Calendar.getInstance();
-
                 FirebaseUser user = mfirebaseAuth.getCurrentUser();
                 String email = user.getEmail();
                 String uid = user.getUid();
@@ -129,9 +126,8 @@ public class RegisterActivityF2 extends AppCompatActivity {
                 double height = Double.parseDouble(mEtheight.getText().toString());
                 double weight = Double.parseDouble(mEtweight.getText().toString());
                 //해쉬맵 테이블을 파이어베이스 데이터베이스에 저장
+
                 HashMap<Object,String> hashMap = new HashMap<>();
-
-
                 hashMap.put("Uid",uid);
                 hashMap.put("Email",email);
                 hashMap.put("Name",name);
