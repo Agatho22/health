@@ -43,6 +43,7 @@
                 android:background="@drawable/whitecircle" />
 
             <ProgressBar
+                android:layout_gravity="center"
                 android:id="@+id/circularProgressbar"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="400dp"
