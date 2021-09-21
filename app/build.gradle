@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'com.google.gms.google-services'
+    //코틀린
+    id 'kotlin-android'
 }
 
 android {
@@ -34,6 +36,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    //코틀린
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
     repositories {
         maven { url 'https://jitpack.io' }
     }
@@ -64,4 +70,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    //코틀린
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+
 }
