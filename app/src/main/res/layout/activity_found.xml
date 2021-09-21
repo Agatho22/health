@@ -38,7 +38,7 @@
                 android:textAlignment="center"
                 android:textColor="#808080"
                 android:layout_marginTop="16dp"
-                android:text="또 까먹었냐\n\n병신"
+                android:text="비밀번호를 잊으셨군요\n이메일을 입력하여 비밀번호 찾기를 진행하세요"
                 android:textSize="17sp" />
 
             <LinearLayout
@@ -67,6 +67,7 @@
                     android:layout_marginBottom="30dp"
                     android:background="@drawable/round_bg01"
                     android:text="계속"
+                    android:soundEffectsEnabled="false"
                     android:textColor="#FFFFFF" />
 
                 <TextView
@@ -79,6 +80,7 @@
                     android:textStyle="bold"
                     android:textAlignment="center"
                     android:textColor="#00498c"
+                    android:soundEffectsEnabled="false"
                     android:textSize="17sp" />
 
             </LinearLayout>

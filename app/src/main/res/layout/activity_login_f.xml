@@ -91,6 +91,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/et_pwd"
+                    android:soundEffectsEnabled="false"
                     tools:ignore="TouchTargetSizeCheck" />
                 <!--자동로그인 끝-->
 
@@ -104,6 +105,7 @@
                 android:layout_marginTop="22dp"
                 android:background="@drawable/round_bg01"
                 android:text="로그인"
+                android:soundEffectsEnabled="false"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -123,6 +125,7 @@
                     android:textStyle="bold"
                     android:layout_marginTop="32dp"
                     android:text="Create New ID"
+                    android:soundEffectsEnabled="false"
                     android:textSize="16dp"/>
 
                 <TextView
@@ -135,6 +138,7 @@
                     android:textStyle="bold"
                     android:layout_marginTop="32dp"
                     android:text="Forgot Password?"
+                    android:soundEffectsEnabled="false"
                     android:textSize="16dp"/>
 
                     </LinearLayout>
