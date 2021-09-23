@@ -33,7 +33,7 @@
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.32563405797101447" />
         <entry key="app/src/main/res/layout/activity_login_f.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.37268128161888703" />
-        <entry key="app/src/main/res/layout/activity_register_f.xml" value="0.1648148148148148" />
+        <entry key="app/src/main/res/layout/activity_register_f.xml" value="0.331263124750945" />
         <entry key="app/src/main/res/layout/activity_register_f2.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_step.xml" value="0.1648148148148148" />
         <entry key="app/src/main/res/layout/activity_test.xml" value="0.1816123188405797" />
@@ -45,7 +45,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

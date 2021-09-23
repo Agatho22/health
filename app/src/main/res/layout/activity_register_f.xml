@@ -82,6 +82,13 @@
                     android:inputType="textPassword"
                     app:passwordToggleEnabled="false" />
 
+                <ImageView
+                    android:id="@+id/iv_profile"
+                    android:layout_width="147dp"
+                    android:layout_height="85dp"
+                    app:srcCompat="@drawable/whitecircle"
+                    tools:srcCompat="@tools:sample/avatars" />
+
                 <Button
                     android:id="@+id/btn_registerf"
                     android:layout_width="350dp"

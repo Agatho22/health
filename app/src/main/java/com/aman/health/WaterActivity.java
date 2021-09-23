@@ -26,6 +26,8 @@ public class WaterActivity extends AppCompatActivity {
         btn_clear = findViewById(R.id.btn_clear);
         et_water =(EditText)findViewById(R.id.et_water);
         btn_wa_memo = findViewById(R.id.btn_wa_memo);
+
+
         btn_select.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 int i_water = Integer.parseInt(et_water.getText().toString());
