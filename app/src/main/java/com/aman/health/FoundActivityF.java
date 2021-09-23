@@ -69,18 +69,25 @@ public class FoundActivityF extends AppCompatActivity implements View.OnClickLis
                 startActivity(intent);
             }
         });
-
     }
 
 
 
     @Override
     public void onClick(View view) {
+        String emailAddress = editTextUserEmail.getText().toString().trim();
+        if(!android.util.Patterns.EMAIL_ADDRESS.matcher(emailAddress).matches())
+        {
+            Toast.makeText(FoundActivityF.this,"이메일 형식이 아닙니다",Toast.LENGTH_SHORT).show();
+            progressDialog.dismiss();
+            return;
+        }
+
         if (view == btn_continue) {
             progressDialog.setMessage("처리중입니다. 잠시 기다려 주세요...");
             progressDialog.show();
             //비밀번호 재설정 이메일 보내기
-            String emailAddress = editTextUserEmail.getText().toString().trim();
+
             mfirebaseAuth.sendPasswordResetEmail(emailAddress)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
 
