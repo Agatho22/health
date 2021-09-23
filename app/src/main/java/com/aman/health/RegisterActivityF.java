@@ -46,8 +46,6 @@ public class RegisterActivityF extends AppCompatActivity {
 
     public class UserModel {
         // 사용자 기본정보
-
-        public String userName; // 사용자 이름(닉네임)
         public String profileImageUrl; // 사용자 프로필사진
         public String uid; // 현재 사용자(로그인한)
 //    public String pushToken;
@@ -183,7 +181,7 @@ public class RegisterActivityF extends AppCompatActivity {
                                         userModel.profileImageUrl = imageUrl.getResult().toString();
 
                                         // database에 저장
-                                        mDatabase.getReference().child("users").child(uid)
+                                        mDatabase.getReference().child("Users").child(uid)
                                                 .setValue(userModel);
                                     }
 
@@ -248,7 +246,6 @@ public class RegisterActivityF extends AppCompatActivity {
 
     // uri 절대경로 가져오기
     public String getPath(Uri uri) {
-
         String[] proj = {MediaStore.Images.Media.DATA};
         CursorLoader cursorLoader = new CursorLoader(this, uri, proj, null, null, null);
 
@@ -264,6 +261,4 @@ public class RegisterActivityF extends AppCompatActivity {
         intent.setType(MediaStore.Images.Media.CONTENT_TYPE);
         startActivityForResult(intent, PICK_FROM_ALBUM);
     }
-
-
 }
