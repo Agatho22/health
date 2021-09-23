@@ -16,6 +16,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class FoundActivityF extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "LoginActivityF";
@@ -76,7 +79,10 @@ public class FoundActivityF extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View view) {
         String emailAddress = editTextUserEmail.getText().toString().trim();
-        if(!android.util.Patterns.EMAIL_ADDRESS.matcher(emailAddress).matches())
+        Pattern p = Pattern.compile("^[_a-zA-Z0-9-\\.]+@[\\.a-zA-Z0-9-]+\\.[a-zA-Z]+$");
+        Matcher m = p.matcher(emailAddress);
+
+        if(!m.matches())
         {
             Toast.makeText(FoundActivityF.this,"이메일 형식이 아닙니다",Toast.LENGTH_SHORT).show();
             progressDialog.dismiss();
