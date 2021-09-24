@@ -32,17 +32,18 @@
         <activity
             android:name=".RegisterActivityF2"
             android:windowSoftInputMode="adjustPan" >
-
-
-
         </activity>
+
+        <activity
+            android:name=".WellcomeActivity"
+            android:windowSoftInputMode="adjustPan">
+        </activity>
+
         <activity
             android:name=".MainActivity"
             android:windowSoftInputMode="adjustPan" >
-
         </activity>
-
-
+        
         <activity
             android:name=".LoginActivityF"
             android:windowSoftInputMode="adjustPan">

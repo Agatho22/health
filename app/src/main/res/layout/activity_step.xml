@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".StepActivity"
+    android:fitsSystemWindows="true"
     android:orientation="vertical">
 
     <!--메인페이지 시작-->
