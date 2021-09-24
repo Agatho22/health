@@ -97,13 +97,6 @@
                     android:textSize="15sp"/>
 
             </LinearLayout>
-            <!--걸음 끝-->
-
         </LinearLayout>
-        <!--걸음, km, 칼로리 끝-->
-
-
     </LinearLayout>
-    <!--메인페이지 끝-->
-
 </RelativeLayout>
