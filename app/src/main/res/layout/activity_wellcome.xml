@@ -36,7 +36,7 @@
         android:layout_alignParentBottom="true"
         android:background="@null"
         android:text="next"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         tools:ignore="RelativeOverlap" />
 
     <Button
@@ -48,5 +48,5 @@
         android:layout_alignParentBottom="true"
         android:background="@null"
         android:text="skip"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/black" />
 </RelativeLayout>

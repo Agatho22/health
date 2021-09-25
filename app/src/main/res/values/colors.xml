@@ -13,6 +13,10 @@
     <color name="colorAccent">#D81B60</color>
     <color name="gray">#808080</color>
     <color name="bncolor">#ececed</color>
+    <color name="cyan">#00FFFF</color>
+    <color name="magenta">#ff0090</color>
+    <color name="yellow">#FFE302</color>
+
 
     <!-- dots active colors -->
     <color name="dot_light_screen1">#8D6E63</color>
