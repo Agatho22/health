@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight="1"
-    android:background="@color/yellow"
+    android:background="@color/white"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Screen Three"
-        android:textColor="@android:color/white"
+        android:textColor="@color/mint"
         android:textSize="30sp"
         android:textStyle="bold" />
 
@@ -28,7 +28,7 @@
         android:layout_margin="20dp"
         android:text="Customize your screen as per requirement"
         android:textAlignment="center"
-        android:textColor="@android:color/white"
+        android:textColor="@color/mint"
         android:textSize="20sp"
         android:textStyle="normal" />
 
