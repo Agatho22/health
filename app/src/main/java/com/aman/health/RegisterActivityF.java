@@ -26,6 +26,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.loader.content.CursorLoader;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -110,9 +112,6 @@ public class RegisterActivityF extends AppCompatActivity {
 
 
 
-
-
-
         mEtEmail = findViewById(R.id.et_email);
         mEtpwd = findViewById(R.id.et_pwd);
         mEtpwd2 = findViewById(R.id.et_pwd2);
@@ -168,15 +167,15 @@ public class RegisterActivityF extends AppCompatActivity {
                                 final Uri file = Uri.fromFile(new File(pathUri)); // path
 
                                 StorageReference storageReference = mStorage.getReference()
-                                        .child("usersprofileImages").child("uid/"+file.getLastPathSegment());
+                                        .child("UsersprofileImages").child("uid/"+uid);
+
                                 storageReference.putFile(imageUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
                                         final Task<Uri> imageUrl = task.getResult().getStorage().getDownloadUrl();
-                                        while (!imageUrl.isComplete()) ;
+                                        while (!imageUrl.isComplete());
 
                                         UserModel userModel = new UserModel();
-
                                         userModel.uid = uid;
                                         userModel.profileImageUrl = imageUrl.getResult().toString();
 
@@ -184,7 +183,6 @@ public class RegisterActivityF extends AppCompatActivity {
                                         mDatabase.getReference().child("Users").child(uid)
                                                 .setValue(userModel);
                                     }
-
                                 });
 
                                 //가입이 이루어져을시 가입 화면을 빠져나감.
@@ -196,21 +194,18 @@ public class RegisterActivityF extends AppCompatActivity {
                             } else {
                                 Toast.makeText(RegisterActivityF.this, "이미 존재하는 아이디 입니다.", Toast.LENGTH_SHORT).show();
                                 return;  //해당 메소드 진행을 멈추고 빠져나감.
-
                             }
-
                         }
                     });
 
                     //비밀번호 오류시
-                }else{
+                } else {
 
                     Toast.makeText(RegisterActivityF.this, "비밀번호가 틀렸습니다. 다시 입력해 주세요.", Toast.LENGTH_SHORT).show();
                     return;
                 }
             }
         });
-
     }
 
 

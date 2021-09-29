@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Fbtest">
+    tools:context=".ProFileFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -85,6 +85,13 @@
                 android:paddingTop="10dp"
                 android:paddingRight="20dp">
 
+
+                <ImageView
+                    android:id="@+id/iv_pfimg"
+                    android:layout_width="240dp"
+                    android:layout_height="240dp"
+                    android:layout_gravity="center"
+                    tools:src="@tools:sample/avatars" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"

@@ -135,7 +135,7 @@ public class RegisterActivityF2 extends AppCompatActivity {
                 hashMap.put("Height",height+"");
                 hashMap.put("Weight",weight+"");
                 hashMap.put("Gender",gender);
-                mDatabaseRef.child(uid).setValue(hashMap);
+                mDatabaseRef.child(uid).child("profile").setValue(hashMap);
 
                 //가입이 이루어져을시 가입 화면을 빠져나감.
                 Intent intent = new Intent(RegisterActivityF2.this, WellcomeActivity.class);
