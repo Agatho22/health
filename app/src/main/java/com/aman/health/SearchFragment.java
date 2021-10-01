@@ -95,7 +95,7 @@ public class SearchFragment extends Fragment {
             holder.tv2.setText(items.get(position).getText());
             holder.iv.setImageResource(items.get(position).getImage());
 
-            holder.btn1.setOnClickListener(new View.OnClickListener() {
+            holder.iv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(context, ExecDetailActivity.class);
@@ -120,7 +120,6 @@ public class SearchFragment extends Fragment {
         public class MyViewHolder extends RecyclerView.ViewHolder {
             public ImageView iv;
             public TextView tv, tv2;
-            public Button btn1;
 
             public MyViewHolder(View itemView) {
                 super(itemView);
@@ -128,7 +127,6 @@ public class SearchFragment extends Fragment {
                 tv =  itemView.findViewById(R.id.tv);
                 iv =  itemView.findViewById(R.id.iv);
                 tv2 =  itemView.findViewById(R.id.tv2);
-                btn1 = itemView.findViewById(R.id.btn1);
             }
 
         }

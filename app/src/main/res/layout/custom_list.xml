@@ -32,7 +32,7 @@
                 <TextView
                     android:id="@+id/tv"
                     android:layout_width="wrap_content"
-                    android:layout_height="25dp"
+                    android:layout_height="35dp"
                     android:layout_weight="2"
                     android:gravity="center"
                     android:text="운동" />
@@ -40,18 +40,11 @@
                 <TextView
                     android:id="@+id/tv2"
                     android:layout_width="wrap_content"
-                    android:layout_height="25dp"
+                    android:layout_height="35dp"
                     android:layout_weight="2"
                     android:gravity="center"
                     android:text="응원" />
-                <Button
-                    android:id="@+id/btn1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_below="@id/tv2"
 
-                    android:text="자세히"
-                    android:textSize="15dp" />
 
             </LinearLayout>
 
