@@ -79,19 +79,12 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingLeft="20dp"
                 android:paddingTop="10dp"
                 android:paddingRight="20dp">
 
-                <!--Top Profile Section -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="16dp">
 
                 <ImageView
                     android:id="@+id/iv_pfimg"
@@ -102,37 +95,26 @@
                     tools:src="@tools:sample/avatars" />
 
 
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
                     <TextView
                         android:id="@+id/info_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="280dp"
+                        android:layout_height="match_parent"
                         android:textAlignment="center"
-                        android:layout_marginTop="10dp"
                         android:textColor="@color/black"
+                        android:layout_gravity="center"
                         android:textSize="21dp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/info_email"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="250dp"
+                        android:layout_height="match_parent"
                         android:textAlignment="center"
                         android:textColor="@color/black"
-                        android:textSize="14dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_gravity="center"
+                        android:textSize="12dp"
                         android:textStyle="bold" />
-
-
-                </LinearLayout>
-
-
-
-
 
 
                 <LinearLayout
@@ -234,7 +216,7 @@
                         android:textAlignment="textStart"
                         android:textSize="20sp" />
 
-                </LinearLayout>
+
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>
