@@ -46,6 +46,10 @@ public class SearchFragment extends Fragment {
         items.add(exercise1);
         Exercise exercise2 = new Exercise(R.drawable.lunge, "lunge", "fighting2");
         items.add(exercise2);
+        Exercise exercise3 = new Exercise(R.drawable.lunge, "lunge", "fighting2");
+        items.add(exercise3);
+        Exercise exercise4 = new Exercise(R.drawable.lunge, "lunge", "fighting2");
+        items.add(exercise4);
 
 
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(items);

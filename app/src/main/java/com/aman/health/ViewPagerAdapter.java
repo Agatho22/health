@@ -22,7 +22,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
             case 1:
                 return new StepActivity();
             case 2:
-                return new SearchFragment();
+                return new ExerciseFragment();
             default:
                 return new ProFileFragment();
         }
