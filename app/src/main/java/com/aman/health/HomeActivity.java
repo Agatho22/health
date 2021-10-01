@@ -32,7 +32,7 @@ public class HomeActivity extends AppCompatActivity {
                 case R.id.action_step:
                     viewPager.setCurrentItem(1);
                     break;
-                case R.id.action_search:
+                case R.id.action_exercise:
                     viewPager.setCurrentItem(2);
                     break;
             }
@@ -60,7 +60,7 @@ public class HomeActivity extends AppCompatActivity {
                         navigationView.getMenu().findItem(R.id.action_step).setChecked(true);
                         break;
                     case 2:
-                        navigationView.getMenu().findItem(R.id.action_search).setChecked(true);
+                        navigationView.getMenu().findItem(R.id.action_exercise).setChecked(true);
                         break;
                 }
 

@@ -16,6 +16,9 @@
         <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_timer.xml" value="0.2046875" />
         <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_wellcome.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/custom_list.xml" value="0.25" />
+        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/fragment_exercise.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/fragment_item.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/fragment_item_list.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/fragment_list.xml" value="0.17806484295845998" />
         <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/fragment_profile.xml" value="0.17806484295845998" />
         <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/wellcome_screen_one.xml" value="0.36614583333333334" />
@@ -47,10 +50,14 @@
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/custom_list.xml" value="0.20208333333333334" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/fragment_exercise.xml" value="0.20625" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/fragment_list.xml" value="0.20104166666666667" />
+<<<<<<< HEAD
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/fragment_profile.xml" value="0.33" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/wellcome_screen_one.xml" value="0.1816123188405797" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/wellcome_screen_three.xml" value="0.1816123188405797" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/wellcome_screen_two.xml" value="0.20104166666666667" />
+=======
+        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/fragment_profile.xml" value="0.20104166666666667" />
+>>>>>>> cfc9ddd7f56aeb9445a347c742c3113f7b99c874
         <entry key="app/src/main/res/layout/activity_fbtest.xml" value="0.34791666666666665" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.32563405797101447" />
         <entry key="app/src/main/res/layout/activity_login_f.xml" value="0.25" />

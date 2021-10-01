@@ -10,7 +10,7 @@
         android:title="만보기"
         android:icon="@drawable/ic_person_pin"/>
     <item
-        android:id="@+id/action_search"
+        android:id="@+id/action_exercise"
         android:title="운 동"
         android:icon="@drawable/ic_search"/>
 </menu>
