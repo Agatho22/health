@@ -2,9 +2,13 @@ package com.aman.health;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -45,6 +49,7 @@ public class LoginActivityF extends AppCompatActivity {
     private long backKeyPressedTime = 0;
 
 
+
     @Override
     public void onBackPressed() {
         // 기존의 뒤로가기 버튼의 기능제거
@@ -66,6 +71,8 @@ public class LoginActivityF extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_f);
+
+        getWindow().setStatusBarColor(ContextCompat.getColor(LoginActivityF.this,R.color.white));
 
 
 

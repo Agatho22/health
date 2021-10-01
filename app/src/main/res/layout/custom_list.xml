@@ -5,25 +5,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <!--헤더 시작-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="@color/teal_200"
-            android:gravity="center">
-
-        </LinearLayout>
-
-    </LinearLayout>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview1"
-        android:layout_marginTop="60dp"
         app:cardCornerRadius="3dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,7 +32,7 @@
                 <TextView
                     android:id="@+id/tv"
                     android:layout_width="wrap_content"
-                    android:layout_height="35dp"
+                    android:layout_height="25dp"
                     android:layout_weight="2"
                     android:gravity="center"
                     android:text="운동" />
@@ -56,10 +40,18 @@
                 <TextView
                     android:id="@+id/tv2"
                     android:layout_width="wrap_content"
-                    android:layout_height="35dp"
+                    android:layout_height="25dp"
                     android:layout_weight="2"
                     android:gravity="center"
                     android:text="응원" />
+                <Button
+                    android:id="@+id/btn1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_below="@id/tv2"
+
+                    android:text="자세히"
+                    android:textSize="15dp" />
 
             </LinearLayout>
 
