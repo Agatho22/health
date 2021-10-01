@@ -1,15 +1,10 @@
 package com.aman.health;
 
 public class Exercise {
-    private String name;
-    private String text;
-    private int image;
+    public String name;
+    public String text;
+    public int image;
 
-    public Exercise(int image, String name, String text) {
-        this.image = image;
-        this.name = name;
-        this.text = text;
-    }
 
     public String getName() {
         return name;
