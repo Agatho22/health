@@ -2,9 +2,13 @@ package com.aman.health;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,10 +19,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class LoginActivityF extends AppCompatActivity {
 
@@ -29,11 +40,14 @@ public class LoginActivityF extends AppCompatActivity {
     private Button btn_login;
     private TextView register;
     private TextView forgotpw;
+    private FirebaseFirestore db;
+
     private CheckBox cb_auto;
     private SharedPreferences appData;
     private boolean saveLoginData;
     private String sv_email,sv_pwd;
     private long backKeyPressedTime = 0;
+
 
 
     @Override
@@ -57,6 +71,11 @@ public class LoginActivityF extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_f);
+
+        getWindow().setStatusBarColor(ContextCompat.getColor(LoginActivityF.this,R.color.white));
+
+
+
 
 
 
@@ -88,6 +107,8 @@ public class LoginActivityF extends AppCompatActivity {
 
 
         }
+
+
 
 
 

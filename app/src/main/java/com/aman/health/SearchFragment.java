@@ -1,12 +1,10 @@
 package com.aman.health;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -41,6 +39,7 @@ public class SearchFragment extends Fragment {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 2);
         recyclerView.setLayoutManager(gridLayoutManager);
 
+
         items = new ArrayList<>();
 
         Exercise exercise1 = new Exercise(R.drawable.pushup, "pushup", "fighting1");
@@ -49,7 +48,7 @@ public class SearchFragment extends Fragment {
         items.add(exercise2);
 
 
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(items, context);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(items);
         recyclerView.setAdapter(adapter);
 
         return view;

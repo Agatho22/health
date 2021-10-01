@@ -6,6 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:fitsSystemWindows="true"
     tools:context=".RegisterActivityF">
 
     <ScrollView
@@ -84,10 +85,12 @@
 
                 <ImageView
                     android:id="@+id/iv_profile"
-                    android:layout_width="147dp"
-                    android:layout_height="85dp"
-                    app:srcCompat="@drawable/whitecircle"
-                    tools:srcCompat="@tools:sample/avatars" />
+                    android:layout_width="105dp"
+                    android:layout_height="34dp"
+                    android:outlineAmbientShadowColor="@color/black"
+                    android:src="@drawable/ellipse2"
+
+                    />
 
                 <Button
                     android:id="@+id/btn_registerf"

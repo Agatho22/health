@@ -7,6 +7,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:fitsSystemWindows="true"
     tools:context=".RegisterActivityF2">
 
     <ScrollView
@@ -90,6 +91,9 @@
                 android:layout_marginTop="5dp"
                 android:hint="나이"
                 android:inputType="date"
+                android:clickable="true"
+                android:focusable="false"
+                android:editable="false"
                 tools:ignore="Deprecated,TouchTargetSizeCheck"  />
 
             <RadioGroup

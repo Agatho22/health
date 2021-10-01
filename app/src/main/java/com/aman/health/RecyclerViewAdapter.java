@@ -1,13 +1,11 @@
 package com.aman.health;
 
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,11 +16,9 @@ import java.util.ArrayList;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
     private ArrayList<Exercise> items;
-    Context context;
 
-    public RecyclerViewAdapter(ArrayList<Exercise> exerciselist, Context context) {
+    public RecyclerViewAdapter(ArrayList<Exercise> exerciselist) {
         this.items = exerciselist;
-        this.context = context;
     }
 
     @NonNull
@@ -40,10 +36,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.tv.setText(items.get(position).getName());
         holder.tv2.setText(items.get(position).getText());
         holder.iv.setImageResource(items.get(position).getImage());
-        holder.btn1.setOnClickListener((v) -> {
-            Intent intent = new Intent(context, TimerActivity.class);
-            context.startActivity(intent);
-        });
 
         Log.e("Viewpager", "onBindViewHolder" + exercise);
     }
@@ -56,7 +48,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         public ImageView iv;
         public TextView tv, tv2;
-        public Button btn1;
 
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -64,7 +55,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             tv = (TextView) itemView.findViewById(R.id.tv);
             iv = (ImageView) itemView.findViewById(R.id.iv);
             tv2 = (TextView) itemView.findViewById(R.id.tv2);
-            btn1 = (Button) itemView.findViewById(R.id.btn1);
         }
 
     }
