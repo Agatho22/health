@@ -94,131 +94,204 @@
                     android:layout_marginTop="12dp"
                     tools:src="@tools:sample/avatars" />
 
-
+                <!--이름-->
                     <TextView
                         android:id="@+id/info_name"
-                        android:layout_width="280dp"
-                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
-                        android:textSize="21dp"
+                        android:textSize="23dp"
+                        android:layout_marginTop="10dp"
                         android:textStyle="bold" />
+                <!--이메일-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:background="@drawable/ic_email">
+                    </ImageView>
 
                     <TextView
                         android:id="@+id/info_email"
-                        android:layout_width="250dp"
-                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:layout_marginTop="3dp"
                         android:layout_gravity="center"
-                        android:textSize="12dp"
-                        android:textStyle="bold" />
-
-
-                <LinearLayout
-                    android:layout_width="360dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:paddingVertical="5dp">
-
-                    <TextView
-                        android:layout_width="110dp"
-                        android:layout_height="match_parent"
-                        android:paddingEnd="10dp"
-                        android:text="나이 :"
-                        android:textAlignment="textEnd"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:id="@+id/info_age"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:textAlignment="textEnd"
-                        android:textColor="@android:color/holo_green_light"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:paddingEnd="10dp"
-                        android:text=" 세"
-                        android:textAlignment="textStart"
-                        android:textSize="20sp" />
-
-
+                        android:textSize="14dp" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="360dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:paddingVertical="5dp">
+                    android:layout_marginTop="10dp">
 
-                    <TextView
-                        android:layout_width="110dp"
-                        android:layout_height="match_parent"
-                        android:paddingEnd="10dp"
-                        android:text="키 :"
-                        android:textAlignment="textEnd"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:id="@+id/info_height"
+                    <!--키 시작-->
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:textAlignment="textEnd"
-                        android:textColor="@android:color/holo_green_light"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:padding="8dp">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:paddingEnd="10dp"
-                        android:text=" CM"
-                        android:textAlignment="textStart"
-                        android:textSize="20sp" />
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:background="@drawable/ellipse"
+                            android:padding="10dp" />
 
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:orientation="vertical">
 
-                </LinearLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Height"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
 
-                <LinearLayout
-                    android:layout_width="360dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:paddingVertical="5dp">
+                            <!--키 내용-->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
 
-                    <TextView
-                        android:layout_width="110dp"
-                        android:layout_height="match_parent"
-                        android:paddingEnd="10dp"
-                        android:text="체중 :"
-                        android:textAlignment="textEnd"
-                        android:textSize="20sp" />
+                            <TextView
+                                android:id="@+id/info_height"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:textAlignment="textEnd"
+                                android:textColor="@android:color/holo_green_light"
+                                android:textSize="12dp"
+                                android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/info_weight"
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:paddingEnd="10dp"
+                                android:text=" CM"
+                                android:textAlignment="textStart"
+                                android:textSize="12dp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!--몸무개 시작-->
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:textAlignment="textEnd"
-                        android:textColor="@android:color/holo_green_light"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:padding="8dp">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:paddingEnd="10dp"
-                        android:text=" KG"
-                        android:textAlignment="textStart"
-                        android:textSize="20sp" />
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:background="@drawable/ellipse"
+                            android:padding="10dp" />
 
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:orientation="vertical">
 
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Weight"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+
+                            <!--몸무개 내용-->
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/info_weight"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAlignment="textEnd"
+                                android:textColor="@android:color/holo_green_light"
+                                android:textSize="12dp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:paddingEnd="12dp"
+                                android:text=" KG"
+                                android:textAlignment="textStart"
+                                android:textSize="12dp" />
+
+                            </LinearLayout>
+                            <!--몸무개 끝-->
+                        </LinearLayout>
+                    </LinearLayout>
+                    <!--나이 시작-->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:padding="8dp">
+
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:background="@drawable/ellipse"
+                            android:padding="10dp" />
+
+                        <!--나이 내용-->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="age"
+                                android:textSize="12dp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/info_age"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:textAlignment="textEnd"
+                                android:textColor="@android:color/holo_green_light"
+                                android:textSize="12dp"
+                                android:textStyle="bold" />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text=" 세"
+                                    android:textAlignment="textStart"
+                                    android:textSize="12dp" />
+                            </LinearLayout>
+                            <!--나이 끝-->
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
-        </ScrollView>
-    </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
 </RelativeLayout>
