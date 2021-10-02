@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -41,7 +42,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.tv2.setText(items.get(position).getText());
         holder.iv.setImageResource(items.get(position).getImage());
 
-        holder.iv.setOnClickListener(new View.OnClickListener() {
+        holder.btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ExecDetailActivity.class);
@@ -67,6 +68,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         public ImageView iv;
         public TextView tv, tv2;
+        public Button btn1;
 
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -74,6 +76,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             tv = (TextView) itemView.findViewById(R.id.tv);
             iv = (ImageView) itemView.findViewById(R.id.iv);
             tv2 = (TextView) itemView.findViewById(R.id.tv2);
+            btn1 = (Button) itemView.findViewById(R.id.btn1);
         }
 
     }
