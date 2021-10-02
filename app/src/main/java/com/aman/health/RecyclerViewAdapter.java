@@ -1,6 +1,7 @@
 package com.aman.health;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,10 +17,13 @@ import java.util.ArrayList;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
     private ArrayList<Exercise> items;
+    Context context;
 
-    public RecyclerViewAdapter(ArrayList<Exercise> exerciselist) {
-        this.items = exerciselist;
+    public RecyclerViewAdapter(ArrayList<Exercise> items, Context context) {
+        this.context = context;
+        this.items = items;
     }
+
 
     @NonNull
     @Override
@@ -36,6 +40,21 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.tv.setText(items.get(position).getName());
         holder.tv2.setText(items.get(position).getText());
         holder.iv.setImageResource(items.get(position).getImage());
+
+        holder.iv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ExecDetailActivity.class);
+
+                intent.putExtra("getName", items.get(position).getName());
+                intent.putExtra("getImage", items.get(position).getImage());
+                intent.putExtra("getText", items.get(position).getText());
+
+
+                context.startActivity(intent);
+            }
+        });
+
 
         Log.e("Viewpager", "onBindViewHolder" + exercise);
     }

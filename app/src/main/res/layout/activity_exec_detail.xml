@@ -6,34 +6,152 @@
     android:layout_height="match_parent"
     tools:context=".ExecDetailActivity">
 
-    <TextView
-        android:id="@+id/text1"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:text="운 동"
-        android:textSize="30dp" />
+        android:orientation="vertical">
 
+        <!--타이머 시작-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/image2"
-        android:layout_width="400dp"
-        android:layout_height="400dp"
-        android:layout_below="@+id/text1"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/pushup" />
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/backbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/image2"
-        android:layout_marginTop="10dp"
-        android:nextFocusRight="@color/colorPrimary"
-        android:text="back"
-        android:textSize="20dp" />
+                <ImageView
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/whitecircle" />
 
+                <ProgressBar
+                    android:id="@+id/circularProgressbar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="400dp"
+                    android:layout_height="250dp"
+                    android:layout_gravity="center"
+                    android:indeterminate="false"
+                    android:max="100"
+                    android:progress="0"
+                    android:progressDrawable="@drawable/circular"
+                    android:secondaryProgress="100" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+
+                    <EditText
+                        android:id="@+id/time_out_min"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:maxLength="2"
+                        android:maxLines="1"
+                        android:selectAllOnFocus="true"
+                        android:text="00"
+                        android:textSize="40dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text=":"
+                        android:textSize="40dp" />
+
+                    <EditText
+                        android:id="@+id/time_out_sec"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:imeOptions="actionDone"
+                        android:inputType="number"
+                        android:maxLength="2"
+                        android:maxLines="1"
+                        android:selectAllOnFocus="true"
+                        android:text="00"
+                        android:textSize="40dp" />
+
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+
+        <!--버튼-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/circularProgressbar"
+                android:layout_toStartOf="@+id/btn_reset"
+                android:layout_weight="1"
+                android:text="시작" />
+
+            <Button
+                android:id="@+id/btn_reset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/circularProgressbar"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:text="리셋" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="436dp">
+
+            <ImageView
+                android:id="@+id/image2"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_below="@+id/text1"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="56dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="53dp"
+                android:src="@drawable/pushup" />
+
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="174dp"
+                android:layout_marginEnd="174dp"
+                android:layout_marginBottom="377dp"
+                android:text="운 동"
+                android:textSize="30dp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/backbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="-41dp"
+            android:layout_marginRight="12dp"
+            android:nextFocusRight="@color/colorPrimary"
+            android:text="back"
+            android:textSize="20dp" />
+
+    </LinearLayout>
 
 </RelativeLayout>

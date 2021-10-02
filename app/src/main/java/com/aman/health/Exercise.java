@@ -5,7 +5,6 @@ public class Exercise {
     public String text;
     public int image;
 
-
     public String getName() {
         return name;
     }

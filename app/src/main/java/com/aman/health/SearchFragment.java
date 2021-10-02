@@ -10,18 +10,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.aman.health.Exercise;
-import com.aman.health.R;
-import com.aman.health.RecyclerViewAdapter;
 
 import java.util.ArrayList;
 
 public class SearchFragment extends Fragment {
 
     private ArrayList<Exercise> items;
+    private Exercise save;
 
     public SearchFragment() {
 
@@ -30,6 +26,7 @@ public class SearchFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_list, container, false);
 
         Context context = view.getContext();
@@ -39,18 +36,33 @@ public class SearchFragment extends Fragment {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 2);
         recyclerView.setLayoutManager(gridLayoutManager);
 
-
         items = new ArrayList<>();
-
-        Exercise exercise1 = new Exercise(R.drawable.pushup, "pushup", "fighting1");
-        items.add(exercise1);
-        Exercise exercise2 = new Exercise(R.drawable.lunge, "lunge", "fighting2");
-        items.add(exercise2);
+        values();
 
 
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(items);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(items, context);
         recyclerView.setAdapter(adapter);
 
         return view;
     }
+
+    private void values() {
+
+        save = new Exercise();
+
+        save.setName("pushup");
+        save.setText("fighting1");
+        save.setImage(R.drawable.pushup);
+
+        items.add(save);
+
+        save = new Exercise();
+
+        save.setName("lunge");
+        save.setText("fighting2");
+        save.setImage(R.drawable.lunge);
+
+        items.add(save);
+    }
+
 }
