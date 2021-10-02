@@ -12,6 +12,13 @@
         <item name="android:windowTranslucentNavigation">true</item>
     </style>
 
+    <style name="MyTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@color/white</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+
     <style name="link">
         <item name="android:textSize">15sp</item>
         <item name="android:letterSpacing">-0.02</item>

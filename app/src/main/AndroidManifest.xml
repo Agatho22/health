@@ -15,28 +15,37 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".ExecDetailActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/MyTheme"/>
         <activity
             android:name=".Fbtest"
             android:exported="true" />
         <activity
             android:name=".RegisterActivityF"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan"
+            android:theme="@style/MyTheme"
+            ></activity>
         <activity
             android:name=".FoundActivityF"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan"
+            android:theme="@style/MyTheme"></activity>
         <activity
             android:name=".RegisterActivityF2"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan"
+            android:theme="@style/MyTheme"></activity>
         <activity
             android:name=".WellcomeActivity"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan"
+            android:theme="@style/MyTheme"></activity>
         <activity
             android:name=".MainActivity"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan"
+            android:theme="@style/MyTheme"></activity>
+
         <activity
             android:name=".LoginActivityF"
-            android:windowSoftInputMode="adjustPan">
+            android:windowSoftInputMode="adjustPan"
+            android:theme="@style/MyTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -45,13 +54,23 @@
         </activity>
         <activity
             android:name=".IntroActivity"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan"
+            android:theme="@style/MyTheme">
+
+        </activity>
         <activity
             android:name=".HomeActivity"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan"
+            android:theme="@style/MyTheme"
+            >
+        </activity>
+
         <activity
             android:name=".WaterActivity"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan"
+            android:theme="@style/MyTheme">
+        </activity>
+
         <activity
             android:name=".TimerActivity"
             android:windowSoftInputMode="adjustPan"></activity>

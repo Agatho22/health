@@ -50,6 +50,8 @@ public class LoginActivityF extends AppCompatActivity {
 
 
 
+
+
     @Override
     public void onBackPressed() {
         // 기존의 뒤로가기 버튼의 기능제거
@@ -71,13 +73,6 @@ public class LoginActivityF extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_f);
-
-        getWindow().setStatusBarColor(ContextCompat.getColor(LoginActivityF.this,R.color.white));
-
-
-
-
-
 
         appData = getSharedPreferences("appData", MODE_PRIVATE);
         load();
