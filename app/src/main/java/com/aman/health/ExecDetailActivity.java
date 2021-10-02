@@ -145,7 +145,7 @@ public class ExecDetailActivity extends AppCompatActivity {
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ExecDetailActivity.this, SearchFragment.class);
+                Intent intent = new Intent(ExecDetailActivity.this, HomeActivity.class);
                 startActivity(intent);
             }
         });
