@@ -9,10 +9,6 @@
     android:fitsSystemWindows="true"
     tools:context=".RegisterActivityF">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
 
         <!--큰 레이아웃 없으면 안됌. 스크롤뷰는 하나의 위젯만 있어야하기때문-->
         <LinearLayout
@@ -45,7 +41,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginVertical="10dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -54,8 +49,6 @@
                 <EditText
                     android:id="@+id/editTextUserEmail"
                     style="@style/LoginText"
-                    android:layout_marginTop="40dp"
-                    android:layout_height="wrap_content"
                     android:hint="이메일"
                     android:inputType="textEmailAddress" />
 
@@ -64,8 +57,7 @@
                     android:layout_width="350dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="237dp"
-                    android:layout_marginBottom="30dp"
+                    android:layout_marginTop="200dp"
                     android:background="@drawable/round_bg01"
                     android:text="계속"
                     android:soundEffectsEnabled="false"
@@ -76,7 +68,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="0dp"
+                    android:layout_marginTop="30dp"
                     android:text="아이디가 있으신가요?"
                     android:textStyle="bold"
                     android:textAlignment="center"
@@ -86,5 +78,4 @@
 
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
 </LinearLayout>

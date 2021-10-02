@@ -1,11 +1,17 @@
 package com.aman.health;
 
+import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +20,12 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
-public class StepActivity extends Fragment implements SensorEventListener{
+
+public class StepActivity extends Fragment   implements SensorEventListener {
 
     //센서기능 변수 시작
     private long lastTime;
@@ -30,14 +40,17 @@ public class StepActivity extends Fragment implements SensorEventListener{
     public Sensor accelerormeterSensor;
 
     public int sensitive=150;
+
+    private static SharedPreferences pref;
+    private static SharedPreferences.Editor editor;
     //센서기능 변수 끝
 
 
     //만보계 변수 시작
-    public static int cnt = 0;
-    public int resultcnt=0;
+    public static int resultcnt=0;
 
     public TextView walkcnt;
+
 
     //만보계 변수 끝
 
@@ -46,14 +59,20 @@ public class StepActivity extends Fragment implements SensorEventListener{
     }
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         View view = inflater.inflate(R.layout.activity_step, container, false);
 
+        pref = getActivity().getSharedPreferences("pref", Activity.MODE_PRIVATE);
+        editor = pref.edit();
+
+        resultcnt = pref.getInt("walkcount", 0);
 
         walkcnt = (TextView)view.findViewById(R.id.walkcnt);
-        walkcnt.setText("" + cnt);
+        walkcnt.setText("" + resultcnt);
+        resetAlarm(getActivity());
         return view;
     }
 
@@ -62,7 +81,6 @@ public class StepActivity extends Fragment implements SensorEventListener{
     public void onActivityCreated(Bundle savedInstanceState)
     {
         super.onActivityCreated(savedInstanceState);
-
 
         sensorManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
         accelerormeterSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
@@ -73,6 +91,7 @@ public class StepActivity extends Fragment implements SensorEventListener{
     @Override
     public void onStart() {
         super.onStart();
+        Log.d("걸음 수", "" + resultcnt);
 
         if (accelerormeterSensor != null)
             sensorManager.registerListener(this, accelerormeterSensor,
@@ -84,6 +103,9 @@ public class StepActivity extends Fragment implements SensorEventListener{
     @Override
     public void onStop() {
         super.onStop();
+
+        editor.putInt("walkcount", resultcnt);
+        editor.apply();
 
         if (sensorManager != null)
             sensorManager.unregisterListener(this);
@@ -114,7 +136,7 @@ public class StepActivity extends Fragment implements SensorEventListener{
                     //속도가 800이상일 때 흔들림을 감지한다.
                     // 이벤트발생!!
 
-                    resultcnt = (++cnt);
+                    resultcnt = (++resultcnt);
 
                     walkcnt.setText(""+resultcnt);
 
@@ -130,10 +152,53 @@ public class StepActivity extends Fragment implements SensorEventListener{
 
         }
 
+        
+
+    }
+
+    public void resetAlarm(Context context){
+        AlarmManager resetAlarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
+        Intent resetIntent = new Intent(context,MyReceiver.class);
+        pref = getActivity().getSharedPreferences("pref", Activity.MODE_PRIVATE);
+        editor = pref.edit();
+        editor.clear();
+        editor.commit();
+        resetIntent.putExtra("walkcountdata",resultcnt);
+
+        PendingIntent resetSender = PendingIntent.getBroadcast(context, 0, resetIntent, 0);
+        // 자정 시간
+        Calendar resetCal = Calendar.getInstance();
+        resetCal.setTimeInMillis(System.currentTimeMillis());
+        resetCal.set(Calendar.HOUR_OF_DAY, 0);
+        resetCal.set(Calendar.MINUTE,0);
+        resetCal.set(Calendar.SECOND, 0);
+
+        //다음날 0시에 맞추기 위해 24시간을 뜻하는 상수인 AlarmManager.INTERVAL_DAY를 더해줌.
+        resetAlarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, resetCal.getTimeInMillis()
+                +AlarmManager.INTERVAL_DAY, AlarmManager.INTERVAL_DAY, resetSender);
+
+        SimpleDateFormat format = new SimpleDateFormat("MM/dd kk:mm:ss");
+        String setResetTime = format.format(new Date(resetCal.getTimeInMillis()+AlarmManager.INTERVAL_DAY));
+
+        Log.d("resetAlarm", "ResetHour : " + setResetTime);
+    }
+    
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        editor.putInt("walkcount", resultcnt);
+        editor.apply(); // 저장
     }
 
     //sensoreventlistener에 필수
     @Override
     public void onAccuracyChanged(android.hardware.Sensor sensor, int i) {
     }
+
+    
+
+
+
+
 }

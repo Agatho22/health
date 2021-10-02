@@ -136,8 +136,7 @@ public class ProFileFragment extends Fragment {
     /**이미지 (파이어베이스 스토리지에서 가져오기) */
     private void getFireBaseProfileImage(String uid) {
         //우선 디렉토리 파일 하나만든다.
-        File file = getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES + "/uid"); //이미지를 저장할 수 있는 디렉토리
-        //구분할 수 있게 /toolbar_images폴더에 넣어준다.
+        File file = getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES + "/uid");
         //이 파일안에 저 디렉토리가 있는지 확인
         if (!file.isDirectory()) { //디렉토리가 없으면,
             file.mkdir(); //디렉토리를 만든다.

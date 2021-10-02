@@ -9,7 +9,7 @@
     android:fitsSystemWindows="true"
     tools:context=".LoginActivityF">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
@@ -27,7 +27,7 @@
                 android:id="@+id/CMYK"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="50dp"
                 android:background="@drawable/cmyk"
                 android:layout_gravity="center"/>
 
@@ -54,7 +54,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="300dp"
                 android:layout_marginVertical="10dp"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -64,7 +64,7 @@
                     android:id="@+id/et_email"
                     style="@style/LoginText"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="10dp"
                     android:drawableStart="@drawable/ic_email"
                     android:hint="이메일"
                     android:inputType="textEmailAddress" />
@@ -94,25 +94,26 @@
                     app:layout_constraintTop_toBottomOf="@+id/et_pwd"
                     android:soundEffectsEnabled="false"
                     tools:ignore="TouchTargetSizeCheck" />
+
+                <Button
+                    android:id="@+id/btn_loginf"
+                    style="@style/LoginButton"
+                    android:layout_width="350dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="22dp"
+                    android:background="@drawable/round_bg01"
+                    android:soundEffectsEnabled="false"
+                    android:text="로그인"
+                    android:textStyle="bold" />
                 <!--자동로그인 끝-->
 
             </LinearLayout>
-
-            <Button
-                android:id="@+id/btn_loginf"
-                style="@style/LoginButton"
-                android:layout_width="350dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="22dp"
-                android:background="@drawable/round_bg01"
-                android:text="로그인"
-                android:soundEffectsEnabled="false"
-                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:layout_marginTop="10dp"
                 android:weightSum="10"
                 >
 
@@ -124,7 +125,7 @@
                     android:layout_weight="5"
                     android:textColor="#00498c"
                     android:textStyle="bold"
-                    android:layout_marginTop="32dp"
+
                     android:text="Create New ID"
                     android:soundEffectsEnabled="false"
                     android:textSize="16dp"/>
@@ -137,12 +138,11 @@
                     android:layout_weight="5"
                     android:textColor="#00498c"
                     android:textStyle="bold"
-                    android:layout_marginTop="32dp"
                     android:text="Forgot Password?"
                     android:soundEffectsEnabled="false"
                     android:textSize="16dp"/>
 
                     </LinearLayout>
                   </LinearLayout>
-             </ScrollView>
+             </LinearLayout>
         </LinearLayout>
