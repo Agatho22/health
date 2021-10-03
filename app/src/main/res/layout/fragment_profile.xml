@@ -146,7 +146,7 @@
                         <ImageView
                             android:layout_width="35dp"
                             android:layout_height="35dp"
-                            android:background="@drawable/ellipse"
+                            android:background="@drawable/ic_height"
                             android:padding="10dp" />
 
                         <LinearLayout
@@ -200,7 +200,7 @@
                         <ImageView
                             android:layout_width="35dp"
                             android:layout_height="35dp"
-                            android:background="@drawable/ellipse"
+                            android:background="@drawable/ic_weight"
                             android:padding="10dp" />
 
                         <LinearLayout
@@ -253,7 +253,7 @@
                         <ImageView
                             android:layout_width="35dp"
                             android:layout_height="35dp"
-                            android:background="@drawable/ellipse"
+                            android:background="@drawable/ic_age"
                             android:padding="10dp" />
 
                         <!--나이 내용-->
@@ -290,10 +290,17 @@
                                     android:textSize="12dp" />
                             </LinearLayout>
                             <!--나이 끝-->
+
                             </LinearLayout>
+
                         </LinearLayout>
+
                     </LinearLayout>
+
                 </LinearLayout>
+
             </ScrollView>
+
         </LinearLayout>
+
 </RelativeLayout>
