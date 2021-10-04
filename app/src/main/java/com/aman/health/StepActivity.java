@@ -32,7 +32,7 @@ public class StepActivity extends Fragment   implements SensorEventListener {
     //센서기능 변수 시작
     private long lastTime;
     private float speed, lastX, lastY, lastZ, x, y, z;
-    private static final int SHAKE_THRESHOLD = 800;    //속도가 800
+    private static final int SHAKE_THRESHOLD = 400;    //속도가 400
 
     public static final int DATA_X = SensorManager.DATA_X;
     public static final int DATA_Y = SensorManager.DATA_Y;
@@ -41,7 +41,7 @@ public class StepActivity extends Fragment   implements SensorEventListener {
     public SensorManager sensorManager;
     public Sensor accelerormeterSensor;
 
-    public int sensitive=150;
+    public int sensitive=400;
 
     private static SharedPreferences pref;
     private static SharedPreferences.Editor editor;
@@ -126,7 +126,7 @@ public class StepActivity extends Fragment   implements SensorEventListener {
 
         if (accelerormeterSensor != null)
             sensorManager.registerListener(this, accelerormeterSensor,
-                    SensorManager.SENSOR_DELAY_GAME);
+                    SensorManager.SENSOR_DELAY_UI);
 
     }
 
@@ -163,7 +163,7 @@ public class StepActivity extends Fragment   implements SensorEventListener {
             //현재시간-측정시간
 
             if (gabOfTime > sensitive) {
-                //현재시간-측정시간이 0.14초 이상되었을때, 흔들림 감지
+                //현재시간-측정시간이 0.4초 이상되었을때, 흔들림 감지
                 lastTime = currentTime;
                 x = event.values[SensorManager.DATA_X];
                 y = event.values[SensorManager.DATA_Y];
@@ -172,7 +172,7 @@ public class StepActivity extends Fragment   implements SensorEventListener {
                 speed = Math.abs(x + y + z - lastX - lastY - lastZ) / gabOfTime * 10000;
 
                 if (speed > SHAKE_THRESHOLD) {
-                    //속도가 800이상일 때 흔들림을 감지한다.
+                    //속도가 400이상일 때 흔들림을 감지한다.
                     // 이벤트발생!!
 
                     resultcnt = (++resultcnt);
