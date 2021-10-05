@@ -22,7 +22,8 @@ public class MyReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         this.context = context;
 
-        Log.d("가나다라마바다사람낭ㄹㅁㄴ어ㅏㄹ머ㅏㄴㅇ라ㅏㅇ라", "제발");
+        int wal = intent.getIntExtra("walk",250);
+        Log.d("만보기 값", ""+wal);
         Intent mServiceintent = new Intent(context, MyService.class);
         context.startService(mServiceintent);
 /*

@@ -1,12 +1,11 @@
 package com.aman.health;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorEventListener;
@@ -17,7 +16,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -27,7 +25,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 
-public class StepActivity extends Fragment   implements SensorEventListener {
+public class StepActivity extends Fragment implements SensorEventListener {
 
     //센서기능 변수 시작
     private long lastTime;
@@ -39,7 +37,7 @@ public class StepActivity extends Fragment   implements SensorEventListener {
     public static final int DATA_Z = SensorManager.DATA_Z;
 
     public SensorManager sensorManager;
-    public Sensor accelerormeterSensor;
+    public Sensor accelerometerSensor;
 
     public int sensitive=400;
 
@@ -49,13 +47,11 @@ public class StepActivity extends Fragment   implements SensorEventListener {
 
 
     //만보계 변수 시작
-    public static int resultcnt=0;
+    public int resultcnt=0;
 
     public TextView walkcnt;
 
-    AlarmManager resetAlarmManager;
-    PendingIntent resetSender;
-    BroadcastReceiver br;
+    public String walkcount ="walk";
 
 
     //만보계 변수 끝
@@ -71,39 +67,16 @@ public class StepActivity extends Fragment   implements SensorEventListener {
     {
         View view = inflater.inflate(R.layout.activity_step, container, false);
 
-
-
         pref = getActivity().getSharedPreferences("pref", Activity.MODE_PRIVATE);
         editor = pref.edit();
-        resultcnt = pref.getInt("walkcount", 0);
-        walkcnt = (TextView)view.findViewById(R.id.walkcnt);
+        resultcnt = pref.getInt(walkcount, 0);
+
+        walkcnt = (TextView) view.findViewById(R.id.walkcnt);
         walkcnt.setText("" + resultcnt);
 
-        resetAlarmManager = (AlarmManager)getActivity().getSystemService(Context.ALARM_SERVICE);
-        Intent resetIntent = new Intent(getActivity(),MyReceiver.class);
+        //resetAlarm(getActivity());
 
 
-        pref = getActivity().getSharedPreferences("pref", Activity.MODE_PRIVATE);
-        editor = pref.edit();
-        editor.clear();
-        editor.commit();
-        resetIntent.putExtra("walkcount",resultcnt);
-        resetSender = PendingIntent.getBroadcast(getActivity(), 0, resetIntent, 0);
-        // 자정 시간
-        Calendar resetCal = Calendar.getInstance();
-        //resetCal.setTimeInMillis(System.currentTimeMillis());
-        resetCal.set(Calendar.HOUR_OF_DAY, 03);
-        resetCal.set(Calendar.MINUTE,00);
-        resetCal.set(Calendar.SECOND, 0);
-
-        //다음날 0시에 맞추기 위해 24시간을 뜻하는 상수인 AlarmManager.INTERVAL_DAY를 더해줌.
-        resetAlarmManager.set(AlarmManager.RTC_WAKEUP, resetCal.getTimeInMillis(), resetSender);
-
-        SimpleDateFormat format = new SimpleDateFormat("MM/dd kk:mm:ss");
-        String setResetTime = format.format(new Date(resetCal.getTimeInMillis()));
-
-        Log.d("알람 리셋", "ResetHour : " + setResetTime);
-        Log.d("알람메소드", "실행됌~~~~~~~~~~~~~~~~~~");
         return view;
     }
 
@@ -114,7 +87,7 @@ public class StepActivity extends Fragment   implements SensorEventListener {
         super.onActivityCreated(savedInstanceState);
 
         sensorManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
-        accelerormeterSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        accelerometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
     }
 
@@ -124,10 +97,17 @@ public class StepActivity extends Fragment   implements SensorEventListener {
         super.onStart();
         Log.d("걸음 수", "" + resultcnt);
 
-        if (accelerormeterSensor != null)
-            sensorManager.registerListener(this, accelerormeterSensor,
+        if (accelerometerSensor != null)
+            sensorManager.registerListener(this, accelerometerSensor,
                     SensorManager.SENSOR_DELAY_UI);
 
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        editor.putInt(walkcount, resultcnt);
+        editor.commit();
     }
 
 
@@ -136,8 +116,8 @@ public class StepActivity extends Fragment   implements SensorEventListener {
     public void onStop() {
         super.onStop();
 
-        editor.putInt("walkcount", resultcnt);
-        editor.apply();
+        editor.putInt(walkcount, resultcnt);
+        editor.commit();
 
         if (sensorManager != null)
             sensorManager.unregisterListener(this);
@@ -148,7 +128,10 @@ public class StepActivity extends Fragment   implements SensorEventListener {
     public void onResume()
     {
         super.onResume();
+        resultcnt = pref.getInt(walkcount, 1);
         resetAlarm(getActivity());
+        Log.d("넣은 값", "키 : " + walkcount + "   값:" +resultcnt);
+
     }
 
 
@@ -177,7 +160,7 @@ public class StepActivity extends Fragment   implements SensorEventListener {
 
                     resultcnt = (++resultcnt);
 
-                    walkcnt.setText(""+resultcnt);
+                    walkcnt.setText(String.valueOf(resultcnt));
 
 
 
@@ -195,16 +178,41 @@ public class StepActivity extends Fragment   implements SensorEventListener {
 
     }
 
+    @SuppressLint("ShortAlarm")
     public void resetAlarm(Context context){
+        AlarmManager resetAlarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
+        Intent resetIntent = new Intent(getActivity(), MyReceiver.class);
+
+        resetIntent.putExtra(walkcount, resultcnt);
+        Log.d("넣은 값 리셋 알람", "키 : " + walkcount + "값:" + resultcnt);
+
+        editor.clear();
+        editor.commit();
+
+        PendingIntent resetSender = PendingIntent.getBroadcast(getActivity(), 0, resetIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        // 자정 시간
+        Calendar resetCal = Calendar.getInstance();
+        resetCal.setTimeInMillis(System.currentTimeMillis());
+        resetCal.set(Calendar.HOUR_OF_DAY, 18);
+        resetCal.set(Calendar.MINUTE, 8);
+        resetCal.set(Calendar.SECOND, 10);
+
+        //다음날 0시에 맞추기 위해 24시간을 뜻하는 상수인 AlarmManager.INTERVAL_DAY를 더해줌.
+        resetAlarmManager.setRepeating(AlarmManager.RTC_WAKEUP, resetCal.getTimeInMillis(), 1000 * 60, resetSender);
+
+        SimpleDateFormat format = new SimpleDateFormat("MM/dd kk:mm:ss");
+        String setResetTime = format.format(new Date(resetCal.getTimeInMillis()));
+
+        Log.d("알람 리셋", "ResetHour : " + setResetTime);
+        Log.d("알람메소드", "실행됌~~~~~~~~~~~~~~~~~~");
+        // 원래 알람메소드 자리
 
     }
-
-
 
     @Override
     public void onDestroy(){
         super.onDestroy();
-        editor.putInt("walkcount", resultcnt);
+        editor.putInt(walkcount, resultcnt);
         editor.apply(); // 저장
     }
 
@@ -212,10 +220,4 @@ public class StepActivity extends Fragment   implements SensorEventListener {
     @Override
     public void onAccuracyChanged(android.hardware.Sensor sensor, int i) {
     }
-
-    
-
-
-
-
 }

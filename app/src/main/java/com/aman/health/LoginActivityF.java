@@ -192,7 +192,7 @@ public class LoginActivityF extends AppCompatActivity {
 
     // 설정값을 불러오는 함수
     private void load() {
-        // SharedPreferences 객체.get타입( 저장된 이름, 기본값 )
+        // SharedPreferences 객체get타입( 저장된 이름, 기본값 )
         // 저장된 이름이 존재하지 않을 시 기본값
         saveLoginData = appData.getBoolean("SAVE_LOGIN_DATA", false);
         sv_email = appData.getString("ID", "");
