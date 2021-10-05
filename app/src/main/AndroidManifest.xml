@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+
         <service
             android:name=".MyService"
             android:enabled="true"
@@ -47,7 +48,8 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/MyTheme"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".LoginActivityF"
             android:theme="@style/MyTheme"
