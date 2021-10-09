@@ -15,6 +15,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -112,7 +113,7 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="436dp">
+            android:layout_height="350dp">
 
             <ImageView
                 android:id="@+id/image2"
@@ -140,18 +141,19 @@
                 android:textSize="30dp" />
 
         </LinearLayout>
-
-        <Button
-            android:id="@+id/backbtn"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="-41dp"
-            android:layout_marginRight="12dp"
-            android:nextFocusRight="@color/colorPrimary"
-            android:text="back"
-            android:textSize="20dp" />
-
+            android:gravity="right">
+            <Button
+                android:id="@+id/backbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:nextFocusRight="@color/colorPrimary"
+                android:text="back"
+                android:textSize="20dp" />
+        </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>
