@@ -112,33 +112,17 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="350dp">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/image2"
-                android:layout_width="300dp"
+                android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:layout_below="@+id/text1"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="56dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="53dp"
+                android:layout_gravity="center"
                 android:src="@drawable/pushup" />
 
-            <TextView
-                android:id="@+id/text1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="174dp"
-                android:layout_marginEnd="174dp"
-                android:layout_marginBottom="377dp"
-                android:text="운 동"
-                android:textSize="30dp" />
 
         </LinearLayout>
         <LinearLayout
