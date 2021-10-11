@@ -21,12 +21,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 
 
-
 public class ExecDetailActivity extends AppCompatActivity {
 
     ProgressBar progressBar;
-    EditText time_out_min,time_out_sec;
-    Button btn_start,btn_reset;
+    EditText time_out_min, time_out_sec;
+    Button btn_start, btn_reset;
     InputMethodManager imm;
     ArrayList<Exercise> item;
     ImageView imageView;
@@ -35,19 +34,19 @@ public class ExecDetailActivity extends AppCompatActivity {
         public void handleMessage(Message msg) {
             String time = getTimeout();
             //0초가 되었을때
-            if(time.equals("00:00")) {
+            if (time.equals("00:00")) {
                 reset(); //타이머 초기화
-            } else{ //0초가 아닐때
+            } else { //0초가 아닐때
                 handler.sendEmptyMessage(0);
             }
         }
     };
 
-    final static int INIT=0;
-    final static int RUN=1;
-    final static int PAUSE=2;
+    final static int INIT = 0;
+    final static int RUN = 1;
+    final static int PAUSE = 2;
 
-    int Pstatus=INIT;
+    int Pstatus = INIT;
 
     long baseTime;
     long pauseTime;
@@ -58,7 +57,7 @@ public class ExecDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exec_detail);
 
-        imm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+        imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
         progressBar = findViewById(R.id.circularProgressbar);
 
         time_out_min = findViewById(R.id.time_out_min);
@@ -71,9 +70,9 @@ public class ExecDetailActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(time_out_min.hasFocus() && getEditTime() != 0) { //EditText에 입력된 시간이 0초 이상일 경우 미리 시간 세팅
+                if (time_out_min.hasFocus() && getEditTime() != 0) { //EditText에 입력된 시간이 0초 이상일 경우 미리 시간 세팅
                     setTime();
-                    Log.d("ProgressTest","setTime = "+setTime);
+                    Log.d("ProgressTest", "setTime = " + setTime);
                 }
             }
 
@@ -93,9 +92,9 @@ public class ExecDetailActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(time_out_sec.hasFocus() && getEditTime() != 0) { //EditText에 입력된 시간이 0초 이상일 경우 미리 시간 세팅
+                if (time_out_sec.hasFocus() && getEditTime() != 0) { //EditText에 입력된 시간이 0초 이상일 경우 미리 시간 세팅
                     setTime();
-                    Log.d("ProgressTest","setTime = "+setTime);
+                    Log.d("ProgressTest", "setTime = " + setTime);
                 }
             }
 
@@ -111,10 +110,10 @@ public class ExecDetailActivity extends AppCompatActivity {
         btn_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(getEditTime() != 0) { //시간이 0이 아닐 경우
+                if (getEditTime() != 0) { //시간이 0이 아닐 경우
                     hideKeyboard(); //키보드 숨기기
                     start(Pstatus);
-                } else{ //시간이 0일 경우
+                } else { //시간이 0일 경우
                     Toast.makeText(ExecDetailActivity.this, "시간을 입력하세요", Toast.LENGTH_SHORT).show();
                     time_out_min.requestFocus();
                 }
@@ -129,12 +128,11 @@ public class ExecDetailActivity extends AppCompatActivity {
         });
 
         Intent intent = getIntent();
-        Exercise save= new Exercise();
+        Exercise save = new Exercise();
 
         save.setName(intent.getExtras().getString("getName"));
         save.setText(intent.getExtras().getString("getText"));
         save.setImage(intent.getExtras().getInt("getImage"));
-
 
 
         imageView = findViewById(R.id.image2);
@@ -153,8 +151,8 @@ public class ExecDetailActivity extends AppCompatActivity {
 
     public void reset() {
         handler.removeCallbacksAndMessages(null); //핸들러 메시지 전달 종료
-        Pstatus=INIT; //상태 변수 초기화
-        setTime=0; //long형으로 변환할 변후 초기화
+        Pstatus = INIT; //상태 변수 초기화
+        setTime = 0; //long형으로 변환할 변후 초기화
         time_out_min.setText("00");
         time_out_min.setEnabled(true);
         time_out_sec.setText("00");
@@ -163,14 +161,16 @@ public class ExecDetailActivity extends AppCompatActivity {
         btn_reset.setEnabled(false); //초기화 버튼 비활성화
         progressBar.setProgress(0); //프로그레스 초기화
     }
+
     public void hideKeyboard() { //키보드 숨기기
-        imm.hideSoftInputFromWindow(time_out_min.getWindowToken(),0);
-        imm.hideSoftInputFromWindow(time_out_sec.getWindowToken(),0);
+        imm.hideSoftInputFromWindow(time_out_min.getWindowToken(), 0);
+        imm.hideSoftInputFromWindow(time_out_sec.getWindowToken(), 0);
     }
+
     public long getEditTime() {
-        long min = Long.parseLong(time_out_min.getText().toString())*1000*60;
-        long sec = Long.parseLong(time_out_sec.getText().toString())*1000;
-        return min+sec;
+        long min = Long.parseLong(time_out_min.getText().toString()) * 1000 * 60;
+        long sec = Long.parseLong(time_out_sec.getText().toString()) * 1000;
+        return min + sec;
     }
 
     public void start(int status) {
@@ -205,31 +205,31 @@ public class ExecDetailActivity extends AppCompatActivity {
     public String getTimeout() { //핸들러 안에서 EditText의 시간을 return해주고 프로그레스를 세팅
         long now = SystemClock.elapsedRealtime();
         long outTime = baseTime - now + setTime;
-        long sec = outTime/1000%60;
-        long min = outTime/1000/60;
+        long sec = outTime / 1000 % 60;
+        long min = outTime / 1000 / 60;
 
-        if(outTime%1000/10 != 0 && sec < 60){
+        if (outTime % 1000 / 10 != 0 && sec < 60) {
             sec += 1;
-            if(sec == 60){
+            if (sec == 60) {
                 sec = 0;
                 min += 1;
             }
         }
 
-        String easy_outTime = String.format("%02d:%02d",min,sec);
+        String easy_outTime = String.format("%02d:%02d", min, sec);
         String[] times = easy_outTime.split(":");
 
         time_out_min.setText(times[0]);
         time_out_sec.setText(times[1]);
 
-        progressBar.setProgress((int)((now-baseTime)+(setTime/1000)));
+        progressBar.setProgress((int) ((now - baseTime) + (setTime / 1000)));
         return easy_outTime;
     }
 
     public void setTime() { //프로그레스바 최대치 세팅
-        setTime = Long.parseLong(time_out_min.getText().toString())*1000*60 +
-                Long.parseLong(time_out_sec.getText().toString())*1000;
-        progressBar.setMax((int)setTime);
+        setTime = Long.parseLong(time_out_min.getText().toString()) * 1000 * 60 +
+                Long.parseLong(time_out_sec.getText().toString()) * 1000;
+        progressBar.setMax((int) setTime);
     }
 
 }

@@ -45,11 +45,8 @@ public class LoginActivityF extends AppCompatActivity {
     private CheckBox cb_auto;
     private SharedPreferences appData;
     private boolean saveLoginData;
-    private String sv_email,sv_pwd;
+    private String sv_email, sv_pwd;
     private long backKeyPressedTime = 0;
-
-
-
 
 
     @Override
@@ -77,7 +74,7 @@ public class LoginActivityF extends AppCompatActivity {
         appData = getSharedPreferences("appData", MODE_PRIVATE);
         load();
 
-        mfirebaseAuth =  FirebaseAuth.getInstance();
+        mfirebaseAuth = FirebaseAuth.getInstance();
 
         //버튼 등록하기
         mEtEmail = findViewById(R.id.et_email);
@@ -86,7 +83,6 @@ public class LoginActivityF extends AppCompatActivity {
         register = (TextView) findViewById(R.id.register);
         forgotpw = (TextView) findViewById(R.id.forgotpw);
         cb_auto = (CheckBox) findViewById(R.id.cb_auto);
-
 
 
         // 이전에 로그인 정보를 저장시킨 기록이 있다면
@@ -104,14 +100,8 @@ public class LoginActivityF extends AppCompatActivity {
         }
 
 
-
-
-
-
-
-
         //로그인 버튼이 눌리면
-        btn_login.setOnClickListener(new View.OnClickListener(){
+        btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = mEtEmail.getText().toString().trim();
@@ -130,21 +120,21 @@ public class LoginActivityF extends AppCompatActivity {
 
 
         //가입 버튼이 눌리면
-        register.setOnClickListener(new View.OnClickListener(){
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //intent함수를 통해 register액티비티 함수를 호출한다.
-                startActivity(new Intent(LoginActivityF.this,RegisterActivityF.class));
+                startActivity(new Intent(LoginActivityF.this, RegisterActivityF.class));
             }
         });
 
 
         //비밀번호찾기 버튼이 눌리면
-        forgotpw.setOnClickListener(new View.OnClickListener(){
-        @Override
-        public void onClick(View v) {
-            //intent함수를 통해 forgotpw액티비티 함수를 호출한다.
-            startActivity(new Intent(LoginActivityF.this,FoundActivityF.class));
+        forgotpw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //intent함수를 통해 forgotpw액티비티 함수를 호출한다.
+                startActivity(new Intent(LoginActivityF.this, FoundActivityF.class));
             }
         });
     }
@@ -156,19 +146,18 @@ public class LoginActivityF extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Log.d(TAG, "로그인 정보: " + email + " , " + password);
                         if (task.isSuccessful()) {
-                                    FirebaseUser user = mfirebaseAuth.getCurrentUser();
-                                    Intent intent = new Intent(getBaseContext(), MainActivity.class);
-                                    Toast.makeText(getApplicationContext(),"로그인에 성공하였습니다.",Toast.LENGTH_SHORT).show();
-                                    save();
-                                    startActivity(intent);
-                                    finish();
-                            }
-                            else {
+                            FirebaseUser user = mfirebaseAuth.getCurrentUser();
+                            Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                            Toast.makeText(getApplicationContext(), "로그인에 성공하였습니다.", Toast.LENGTH_SHORT).show();
+                            save();
+                            startActivity(intent);
+                            finish();
+                        } else {
                             // 로그인 실패
                             Toast.makeText(LoginActivityF.this, "아이디 또는 비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
-                             }
-
                         }
+
+                    }
                 });
     }
 
@@ -183,7 +172,7 @@ public class LoginActivityF extends AppCompatActivity {
         editor.putString("ID", mEtEmail.getText().toString().trim());
         editor.putString("PWD", mEtpwd.getText().toString().trim());
 
-        if (cb_auto.isChecked() == false){
+        if (cb_auto.isChecked() == false) {
             editor.clear();
         }
         // apply, commit 을 안하면 변경된 내용이 저장되지 않음
@@ -201,19 +190,22 @@ public class LoginActivityF extends AppCompatActivity {
 
     // 자동로그인
     private void autologin() {
-        if(mEtEmail !=null && mEtpwd != null) {
-            if(mEtEmail.getText().toString().equals(sv_email) && mEtpwd.getText().toString().equals(sv_pwd)) {
+        if (mEtEmail != null && mEtpwd != null) {
+            if (mEtEmail.getText().toString().equals(sv_email) && mEtpwd.getText().toString().equals(sv_pwd)) {
 
-                Toast.makeText(LoginActivityF.this, sv_email +"님 자동로그인 입니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivityF.this, sv_email + "님 자동로그인 입니다.", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(LoginActivityF.this, MainActivity.class);
                 startActivity(intent);
                 finish();
 
+            } else {
+                Toast.makeText(LoginActivityF.this, "아이디 비밀번호 불일치", Toast.LENGTH_SHORT).show();
             }
-            else { Toast.makeText(LoginActivityF.this, "아이디 비밀번호 불일치", Toast.LENGTH_SHORT).show(); }
 
 
-        } else { Toast.makeText(LoginActivityF.this, sv_email +"아이디 비밀번호 = null", Toast.LENGTH_SHORT).show(); }
+        } else {
+            Toast.makeText(LoginActivityF.this, sv_email + "아이디 비밀번호 = null", Toast.LENGTH_SHORT).show();
+        }
 
     }
 }

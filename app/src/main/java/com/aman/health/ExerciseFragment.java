@@ -2,6 +2,7 @@ package com.aman.health;
 
 
 import androidx.fragment.app.Fragment;
+
 import android.os.Bundle;
 import android.view.View;
 
@@ -13,10 +14,10 @@ public class ExerciseFragment extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
+
     @Override
     public android.view.View onCreateView(android.view.LayoutInflater inflater, android.view.ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_exercise, container, false);

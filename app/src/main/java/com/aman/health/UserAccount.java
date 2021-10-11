@@ -13,21 +13,36 @@ public class UserAccount {
     private double height;
     private double weight;
 
-    public UserAccount() { }
+    public UserAccount() {
+    }
 
-    public String getIdToken() { return idToken; }
+    public String getIdToken() {
+        return idToken;
+    }
 
-    public void setIdToken(String idToken) { this.idToken = idToken; }
+    public void setIdToken(String idToken) {
+        this.idToken = idToken;
+    }
 
-    public String getEmailId() { return emailId; }
+    public String getEmailId() {
+        return emailId;
+    }
 
-    public void setEmailId(String emailId) { this.emailId = emailId; }
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
+    }
 
-    public String getPassword() { return  password; }
+    public String getPassword() {
+        return password;
+    }
 
-    public void setPassword(String password) { this.password = password; }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-    public String getName() { return name; }
+    public String getName() {
+        return name;
+    }
 
     public void setName(String name) {
         this.name = name;

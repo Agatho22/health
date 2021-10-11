@@ -1,4 +1,5 @@
 package com.aman.health;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
 
     private Button btn_water, btn_profile, btn_timer, btn_logout, button1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         btn_profile = findViewById(R.id.btn_profile);
         btn_timer = findViewById(R.id.btn_timer);
         btn_logout = findViewById(R.id.btn_logout);
-
 
 
         btn_water.setOnClickListener(new View.OnClickListener() { //water 버튼 클릭시 water 액티비티로 이동
@@ -65,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
-
 
 
     }

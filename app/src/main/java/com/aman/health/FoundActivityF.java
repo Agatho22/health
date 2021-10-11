@@ -75,16 +75,14 @@ public class FoundActivityF extends AppCompatActivity implements View.OnClickLis
     }
 
 
-
     @Override
     public void onClick(View view) {
         String emailAddress = editTextUserEmail.getText().toString().trim();
         Pattern p = Pattern.compile("^[_a-zA-Z0-9-\\.]+@[\\.a-zA-Z0-9-]+\\.[a-zA-Z]+$");
         Matcher m = p.matcher(emailAddress);
 
-        if(!m.matches())
-        {
-            Toast.makeText(FoundActivityF.this,"이메일 형식이 아닙니다",Toast.LENGTH_SHORT).show();
+        if (!m.matches()) {
+            Toast.makeText(FoundActivityF.this, "이메일 형식이 아닙니다", Toast.LENGTH_SHORT).show();
             progressDialog.dismiss();
             return;
         }

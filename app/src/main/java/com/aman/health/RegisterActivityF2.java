@@ -39,7 +39,7 @@ public class RegisterActivityF2 extends AppCompatActivity {
     private RadioGroup rg_gender;
     private String gender;
     private Button registerf2;
-    int age= 0;
+    int age = 0;
     private long backKeyPressedTime = 0;
 
     @Override
@@ -50,7 +50,7 @@ public class RegisterActivityF2 extends AppCompatActivity {
         // 2000 milliseconds = 2 seconds
         if (System.currentTimeMillis() > backKeyPressedTime + 2000) {
             backKeyPressedTime = System.currentTimeMillis();
-            Toast.makeText(this, "\'뒤로\' 버튼을 한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "'뒤로' 버튼을 한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT).show();
             return;
         }
         // 2초 이내에 뒤로가기 버튼을 한번 더 클릭시 finish()(앱 종료)
@@ -74,9 +74,6 @@ public class RegisterActivityF2 extends AppCompatActivity {
             updateLabel();
         }
     };
-
-
-
 
 
     @Override
@@ -108,7 +105,7 @@ public class RegisterActivityF2 extends AppCompatActivity {
         rg_gender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
-                RadioButton genderButton = (RadioButton)findViewById(i);
+                RadioButton genderButton = (RadioButton) findViewById(i);
                 gender = genderButton.getText().toString();
             }
         });
@@ -122,19 +119,19 @@ public class RegisterActivityF2 extends AppCompatActivity {
                 String email = user.getEmail();
                 String uid = user.getUid();
                 String name = mEtName.getText().toString().trim();
-                int age =cal.get (cal.YEAR)-myCalendar.get(Calendar.YEAR)+1;
+                int age = cal.get(cal.YEAR) - myCalendar.get(Calendar.YEAR) + 1;
                 double height = Double.parseDouble(mEtheight.getText().toString());
                 double weight = Double.parseDouble(mEtweight.getText().toString());
                 //해쉬맵 테이블을 파이어베이스 데이터베이스에 저장
 
-                HashMap<Object,String> hashMap = new HashMap<>();
-                hashMap.put("Uid",uid);
-                hashMap.put("Email",email);
-                hashMap.put("Name",name);
-                hashMap.put("Age",age+"");
-                hashMap.put("Height",height+"");
-                hashMap.put("Weight",weight+"");
-                hashMap.put("Gender",gender);
+                HashMap<Object, String> hashMap = new HashMap<>();
+                hashMap.put("Uid", uid);
+                hashMap.put("Email", email);
+                hashMap.put("Name", name);
+                hashMap.put("Age", age + "");
+                hashMap.put("Height", height + "");
+                hashMap.put("Weight", weight + "");
+                hashMap.put("Gender", gender);
                 mDatabaseRef.child(uid).child("profile").setValue(hashMap);
 
                 //가입이 이루어져을시 가입 화면을 빠져나감.
@@ -148,8 +145,9 @@ public class RegisterActivityF2 extends AppCompatActivity {
 
     }
 
-    public boolean onSupportNavigateUp(){
-        onBackPressed();; // 뒤로가기 버튼이 눌렸을시
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        ; // 뒤로가기 버튼이 눌렸을시
         return super.onSupportNavigateUp(); // 뒤로가기 버튼
     }
 

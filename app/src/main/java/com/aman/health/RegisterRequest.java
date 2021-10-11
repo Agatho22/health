@@ -1,4 +1,5 @@
 package com.aman.health;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
@@ -13,11 +14,11 @@ public class RegisterRequest extends StringRequest {
     private Map<String, String> map;
 
 
-    public RegisterRequest(String userID, String userPassword, String userName, int userAge, double userHeight, double userWeight,String userGender, Response.Listener<String> listener) {
+    public RegisterRequest(String userID, String userPassword, String userName, int userAge, double userHeight, double userWeight, String userGender, Response.Listener<String> listener) {
         super(Method.POST, URL, listener, null);
 
         map = new HashMap<>();
-        map.put("userID",userID);
+        map.put("userID", userID);
         map.put("userPassword", userPassword);
         map.put("userName", userName);
         map.put("userAge", userAge + "");

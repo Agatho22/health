@@ -71,7 +71,6 @@ public class RegisterActivityF extends AppCompatActivity {
     private File tempFile;
 
 
-
     @Override
     public void onBackPressed() {
         // 기존의 뒤로가기 버튼의 기능제거
@@ -94,7 +93,6 @@ public class RegisterActivityF extends AppCompatActivity {
     }
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,10 +104,6 @@ public class RegisterActivityF extends AppCompatActivity {
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
         mDatabase = FirebaseDatabase.getInstance();
         mStorage = FirebaseStorage.getInstance();
-
-
-
-
 
 
         mEtEmail = findViewById(R.id.et_email);
@@ -136,11 +130,6 @@ public class RegisterActivityF extends AppCompatActivity {
         });
 
 
-
-
-
-
-
         mBtnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -149,7 +138,7 @@ public class RegisterActivityF extends AppCompatActivity {
                 String strPwd = mEtpwd.getText().toString().trim();
                 String strPwd2 = mEtpwd2.getText().toString().trim();
 
-                if(strPwd.equals(strPwd2)) {
+                if (strPwd.equals(strPwd2)) {
                     Log.d(TAG, "등록 버튼 " + strEmail + " , " + strPwd);
                     final ProgressDialog mDialog = new ProgressDialog(RegisterActivityF.this);
                     mDialog.setMessage("가입중입니다...");
@@ -167,13 +156,13 @@ public class RegisterActivityF extends AppCompatActivity {
                                 final Uri file = Uri.fromFile(new File(pathUri)); // path
 
                                 StorageReference storageReference = mStorage.getReference()
-                                        .child("UsersprofileImages").child("uid/"+uid);
+                                        .child("UsersprofileImages").child("uid/" + uid);
 
                                 storageReference.putFile(imageUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
                                         final Task<Uri> imageUrl = task.getResult().getStorage().getDownloadUrl();
-                                        while (!imageUrl.isComplete());
+                                        while (!imageUrl.isComplete()) ;
 
                                         UserModel userModel = new UserModel();
                                         userModel.uid = uid;
@@ -207,8 +196,6 @@ public class RegisterActivityF extends AppCompatActivity {
             }
         });
     }
-
-
 
 
     @SuppressLint("MissingSuperCall")

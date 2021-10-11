@@ -10,6 +10,7 @@ public class IntroThread extends Thread {
     public IntroThread(Handler handler) {
         this.handler = handler;
     }
+
     @Override
     public void run() {
         super.run();

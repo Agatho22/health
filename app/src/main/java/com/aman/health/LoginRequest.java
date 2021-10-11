@@ -1,4 +1,5 @@
 package com.aman.health;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
@@ -17,7 +18,7 @@ public class LoginRequest extends StringRequest {
         super(Method.POST, URL, listener, null);
 
         map = new HashMap<>();
-        map.put("userID",userID);
+        map.put("userID", userID);
         map.put("userPassword", userPassword);
 
     }

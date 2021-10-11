@@ -23,6 +23,7 @@ import androidx.fragment.app.Fragment;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Objects;
 
 
 public class StepActivity extends Fragment implements SensorEventListener {
@@ -39,7 +40,7 @@ public class StepActivity extends Fragment implements SensorEventListener {
     public SensorManager sensorManager;
     public Sensor accelerometerSensor;
 
-    public int sensitive=400;
+    public int sensitive = 400;
 
     private static SharedPreferences pref;
     private static SharedPreferences.Editor editor;
@@ -47,43 +48,34 @@ public class StepActivity extends Fragment implements SensorEventListener {
 
 
     //만보계 변수 시작
-    public int resultcnt=0;
-
+    public int resultcnt = 0;
     public TextView walkcnt;
-
-    public String walkcount ="walk";
+    public String walkcount = "walk";
 
 
     //만보계 변수 끝
 
     public StepActivity() {
-
     }
 
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-    {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_step, container, false);
 
-        pref = getActivity().getSharedPreferences("pref", Activity.MODE_PRIVATE);
+        pref = Objects.requireNonNull(getActivity()).getSharedPreferences("pref", Activity.MODE_PRIVATE);
         editor = pref.edit();
         resultcnt = pref.getInt(walkcount, 0);
 
         walkcnt = (TextView) view.findViewById(R.id.walkcnt);
         walkcnt.setText("" + resultcnt);
 
-        //resetAlarm(getActivity());
-
-
         return view;
     }
 
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState)
-    {
+    public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
         sensorManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
@@ -95,7 +87,9 @@ public class StepActivity extends Fragment implements SensorEventListener {
     @Override
     public void onStart() {
         super.onStart();
-        Log.d("걸음 수", "" + resultcnt);
+        resultcnt = pref.getInt(walkcount, 1);
+        Log.d("OnSTART", "" + resultcnt);
+        resetAlarm(getActivity());
 
         if (accelerometerSensor != null)
             sensorManager.registerListener(this, accelerometerSensor,
@@ -106,18 +100,13 @@ public class StepActivity extends Fragment implements SensorEventListener {
     @Override
     public void onPause() {
         super.onPause();
-        editor.putInt(walkcount, resultcnt);
-        editor.commit();
     }
-
 
 
     @Override
     public void onStop() {
         super.onStop();
 
-        editor.putInt(walkcount, resultcnt);
-        editor.commit();
 
         if (sensorManager != null)
             sensorManager.unregisterListener(this);
@@ -125,13 +114,10 @@ public class StepActivity extends Fragment implements SensorEventListener {
     }
 
     @Override
-    public void onResume()
-    {
+    public void onResume() {
         super.onResume();
         resultcnt = pref.getInt(walkcount, 1);
-        resetAlarm(getActivity());
-        Log.d("넣은 값", "키 : " + walkcount + "   값:" +resultcnt);
-
+        Log.d("넣은 값", "키 : " + walkcount + "   값:" + resultcnt);
     }
 
 
@@ -159,61 +145,50 @@ public class StepActivity extends Fragment implements SensorEventListener {
                     // 이벤트발생!!
 
                     resultcnt = (++resultcnt);
-
                     walkcnt.setText(String.valueOf(resultcnt));
-
-
-
-
+                    editor.putInt(walkcount, resultcnt);
+                    editor.commit(); // 저장
                 }
 
                 lastX = event.values[DATA_X];
                 lastY = event.values[DATA_Y];
                 lastZ = event.values[DATA_Z];
             }
-
         }
-
-        
-
     }
 
-    @SuppressLint("ShortAlarm")
-    public void resetAlarm(Context context){
+    public void resetAlarm(Context context) {
         AlarmManager resetAlarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
         Intent resetIntent = new Intent(getActivity(), MyReceiver.class);
 
         resetIntent.putExtra(walkcount, resultcnt);
         Log.d("넣은 값 리셋 알람", "키 : " + walkcount + "값:" + resultcnt);
 
-        editor.clear();
-        editor.commit();
-
         PendingIntent resetSender = PendingIntent.getBroadcast(getActivity(), 0, resetIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         // 자정 시간
         Calendar resetCal = Calendar.getInstance();
         resetCal.setTimeInMillis(System.currentTimeMillis());
-        resetCal.set(Calendar.HOUR_OF_DAY, 18);
-        resetCal.set(Calendar.MINUTE, 8);
-        resetCal.set(Calendar.SECOND, 10);
+        resetCal.set(Calendar.HOUR_OF_DAY, 2);
+        resetCal.set(Calendar.MINUTE, 53);
+        resetCal.set(Calendar.SECOND, 0);
 
         //다음날 0시에 맞추기 위해 24시간을 뜻하는 상수인 AlarmManager.INTERVAL_DAY를 더해줌.
-        resetAlarmManager.setRepeating(AlarmManager.RTC_WAKEUP, resetCal.getTimeInMillis(), 1000 * 60, resetSender);
+        resetAlarmManager.setRepeating(AlarmManager.RTC_WAKEUP, resetCal.getTimeInMillis(), 1000, resetSender);
+        //resetAlarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, resetCal.getTimeInMillis()+AlarmManager.INTERVAL_DAY, AlarmManager.INTERVAL_DAY, resetSender);
 
+        @SuppressLint("SimpleDateFormat")
         SimpleDateFormat format = new SimpleDateFormat("MM/dd kk:mm:ss");
         String setResetTime = format.format(new Date(resetCal.getTimeInMillis()));
 
-        Log.d("알람 리셋", "ResetHour : " + setResetTime);
-        Log.d("알람메소드", "실행됌~~~~~~~~~~~~~~~~~~");
+        Log.d("알람 시간", "ResetHour : " + setResetTime);
+        Log.d("반복 시간", "ResetHour : " + AlarmManager.INTERVAL_FIFTEEN_MINUTES / 15);
         // 원래 알람메소드 자리
 
     }
 
     @Override
-    public void onDestroy(){
+    public void onDestroy() {
         super.onDestroy();
-        editor.putInt(walkcount, resultcnt);
-        editor.apply(); // 저장
     }
 
     //sensoreventlistener에 필수
