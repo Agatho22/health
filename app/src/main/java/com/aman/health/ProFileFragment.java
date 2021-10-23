@@ -55,7 +55,6 @@ public class ProFileFragment extends Fragment {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser(); // 로그인한 유저의 정보 가져오기
         String uid = user != null ? user.getUid() : null; // 로그인한 유저의 고유 uid 가져오기
-        Log.e("test", "아이 " + uid);
 
 
         mfirebaseAuth = mfirebaseAuth.getInstance();
@@ -161,7 +160,6 @@ public class ProFileFragment extends Fragment {
             @Override
             public void onSuccess(Uri uri) {
                 //성공시
-                Log.d("프로필사진 보이나 ?", String.valueOf(uri));
                 Glide.with(getContext()).load(uri).circleCrop().into(iv_pfimg);
             }
         }).addOnFailureListener(new OnFailureListener() {

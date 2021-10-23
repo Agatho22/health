@@ -20,6 +20,9 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -62,7 +65,7 @@ public class StepActivity extends Fragment implements SensorEventListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_step, container, false);
-
+        resetAlarm(getActivity());
         pref = Objects.requireNonNull(getActivity()).getSharedPreferences("pref", Activity.MODE_PRIVATE);
         editor = pref.edit();
         resultcnt = pref.getInt(walkcount, 0);
@@ -88,8 +91,6 @@ public class StepActivity extends Fragment implements SensorEventListener {
     public void onStart() {
         super.onStart();
         resultcnt = pref.getInt(walkcount, 1);
-        Log.d("OnSTART", "" + resultcnt);
-        resetAlarm(getActivity());
 
         if (accelerometerSensor != null)
             sensorManager.registerListener(this, accelerometerSensor,
@@ -161,15 +162,12 @@ public class StepActivity extends Fragment implements SensorEventListener {
         AlarmManager resetAlarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
         Intent resetIntent = new Intent(getActivity(), MyReceiver.class);
 
-        resetIntent.putExtra(walkcount, resultcnt);
-        Log.d("넣은 값 리셋 알람", "키 : " + walkcount + "값:" + resultcnt);
-
         PendingIntent resetSender = PendingIntent.getBroadcast(getActivity(), 0, resetIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         // 자정 시간
         Calendar resetCal = Calendar.getInstance();
         resetCal.setTimeInMillis(System.currentTimeMillis());
-        resetCal.set(Calendar.HOUR_OF_DAY, 2);
-        resetCal.set(Calendar.MINUTE, 53);
+        resetCal.set(Calendar.HOUR_OF_DAY, 0);
+        resetCal.set(Calendar.MINUTE, 54);
         resetCal.set(Calendar.SECOND, 0);
 
         //다음날 0시에 맞추기 위해 24시간을 뜻하는 상수인 AlarmManager.INTERVAL_DAY를 더해줌.

@@ -83,7 +83,7 @@ public class RegisterActivityF2 extends AppCompatActivity {
 
 
         //파이어베이스 접근 설정
-        mfirebaseAuth = mfirebaseAuth.getInstance();
+        mfirebaseAuth = FirebaseAuth.getInstance();
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
         mEtAge = findViewById(R.id.et_age);
 
