@@ -1,10 +1,11 @@
 package com.aman.health;
 
 import static java.lang.Integer.parseInt;
-import static java.util.Objects.isNull;
+import static java.lang.Integer.valueOf;
+import static java.lang.String.format;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -17,16 +18,24 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
+import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.AxisBase;
+import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.formatter.IAxisValueFormatter;
+import com.github.mikephil.charting.formatter.IValueFormatter;
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserInfo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,23 +45,18 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 //MPAndroidChart import
-import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.XAxis;
-import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
-import com.github.mikephil.charting.utils.ColorTemplate;
-import com.github.mikephil.charting.charts.LineChart;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
+import java.util.Objects;
 
 public class ProFileFragment extends Fragment {
 
@@ -60,14 +64,10 @@ public class ProFileFragment extends Fragment {
     private DatabaseReference mDatabasePFRef; //실시간 데이터베이스
     private TextView info_email, info_name, info_age, info_height, info_weight;
     private ImageView iv_pfimg;
-    private LineChart linechart;
-    private int i=1;
+    private BarChart barchart;
 
 
     DatabaseReference mDatabaseRef = null;
-    HashMap<String, Object> childUpdates = null;
-    Map<String, Object> userValue = null;
-    UserInfo userInfo = null;
 
     @SuppressLint("SimpleDateFormat")
     @Nullable
@@ -78,30 +78,83 @@ public class ProFileFragment extends Fragment {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser(); // 로그인한 유저의 정보 가져오기
         String uid = user != null ? user.getUid() : null; // 로그인한 유저의 고유 uid 가져오기
 
+        assert uid != null;
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users").child(uid).child("walkcount");
+        barchart = view.findViewById(R.id.barchart);
+        List<BarEntry> entry_chart = new ArrayList<>();
 
-        childUpdates = new HashMap<>();
-        linechart = (LineChart) view.findViewById(R.id.linechart);
-        LineData chartData = new LineData();
-        ArrayList<Entry> entry_chart = new ArrayList<>();
+
 
 
         mDatabaseRef.limitToFirst(7).addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
-                    int key = Integer.parseInt(snapshot.getKey().substring(4,8));
-
-                    long count = snapshot.getValue(long.class);
-                    entry_chart.add(new Entry(key, count));
+                    int key = Integer.parseInt(Objects.requireNonNull(snapshot.getKey()).substring(4,8));
+                    entry_chart.add(new BarEntry(key, snapshot.getValue(long.class)));
+                    //entry_chart.add(new Entry(key, snapshot.getValue(long.class)));
                     Log.d("차트", ""+ key);
-                }
 
+                }
                 Log.d("차트", ""+ entry_chart);
-                LineDataSet lineDataSet = new LineDataSet(entry_chart, "Water Intake");
-                chartData.addDataSet(lineDataSet);
-                linechart.setData(chartData);
-                linechart.invalidate();
+
+                BarDataSet barDataSet = new BarDataSet(entry_chart, "Step");
+                //여기에 lineDataSet 설정
+                barDataSet.setColor(Color.parseColor("#3F52E3"));
+                barDataSet.setValueTextSize(10f);
+
+
+                BarData barData = new BarData();
+                barData.setDrawValues(false);
+                barData.setBarWidth(0.6f);
+
+                barData.addDataSet(barDataSet);
+
+                XAxis xAxis = barchart.getXAxis(); // x 축 설정
+                xAxis.setPosition(XAxis.XAxisPosition.BOTTOM); //x 축 표시에 대한 위치 설정
+                xAxis.setValueFormatter(new ValueFormatter() {
+                        @Override
+                        public String getFormattedValue(float value)
+
+                        {
+                            /*
+                            Date date = new Date((long)value);
+                            Log.d("날짜", ""+ date);
+                            Log.d("날짜", ""+ (long)value);
+                            //Specify the format you'd like
+                            @SuppressLint("SimpleDateFormat")
+                            SimpleDateFormat sdf = new SimpleDateFormat("MM-dd");
+                             */
+                            return String.valueOf(value).substring(0, 2) + "/" + String.valueOf(value).substring(2, 4);
+                            //return sdf.format((long)value);
+                        }
+                    });
+                xAxis.setDrawLabels(true);
+                xAxis.setDrawGridLines(false);
+                xAxis.setDrawAxisLine(true);
+
+                YAxis yAxisLeft = barchart.getAxisLeft(); //Y축의 왼쪽면 설정
+                yAxisLeft.setDrawGridLines(false);
+                yAxisLeft.setTextColor(Color.BLACK); //Y축 텍스트 컬러 설정
+                yAxisLeft.setAxisMinimum(0f);
+                yAxisLeft.setAxisMaximum(10000f);
+                yAxisLeft.setGranularity(5000f);
+                yAxisLeft.setDrawAxisLine(false);
+
+                //오른쪽 축 비활성화
+                YAxis yAxisRight = barchart.getAxisRight();
+                yAxisRight.setDrawLabels(false);
+                yAxisRight.setDrawAxisLine(false);
+                yAxisRight.setDrawGridLines(false);
+
+
+                barchart.setData(barData);
+                barchart.setDescription(null);
+                barchart.setPinchZoom(false);
+                barchart.animateY(1000);
+                barchart.setTouchEnabled(false);
+                barchart.invalidate();
+                barchart.setDrawGridBackground(false);
             }
 
             @Override
@@ -109,10 +162,6 @@ public class ProFileFragment extends Fragment {
                 Log.w("Database", "Failed to read value.", error.toException());
             }
         });
-
-
-
-
 
         /*
         for(int a=1, b=1; a<11; a++, b+=2) {
@@ -122,9 +171,6 @@ public class ProFileFragment extends Fragment {
 
         /* 만약 (2, 3) add하고 (2, 5)한다고해서
         기존 (2, 3)이 사라지는게 아니라 x가 2인곳에 y가 3, 5의 점이 찍힘 */
-
-
-
 
         info_email = view.findViewById(R.id.info_email);
         info_name = view.findViewById(R.id.info_name);
@@ -215,21 +261,46 @@ public class ProFileFragment extends Fragment {
 
         return view;
     }
-    long now = System.currentTimeMillis();
 
-    Date date = new Date(now);
-    public static final String DATE_FORMAT_INT = "yyyyMMdd";
 
-    public static String format(Date date, String format) {
-        return isNull(date) ?
-                null : new SimpleDateFormat(format).format(date);
+    public class MyXAxisValueFormatter implements IAxisValueFormatter {
+
+        private String[] mValues;
+
+        public MyXAxisValueFormatter(String[] values) {
+            this.mValues = values;
+        }
+
+        @Override
+        public String getFormattedValue(float value, AxisBase axis) {
+            // "value" represents the position of the label on the axis (x or y)
+            return mValues[(int) value];
+        }
     }
 
-    public static Integer getDateInt(Date date) {
-        if (isNull(date)) {
-            throw new IllegalArgumentException("Date must not be NULL");
+
+
+    public class TheFormatYouWant extends ValueFormatter implements IAxisValueFormatter {
+        @Override
+        public String getFormattedValue(float value, AxisBase axis) {
+
+            Date date = new Date((long)value);
+            //Specify the format you'd like
+            @SuppressLint("SimpleDateFormat")
+            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd");
+            return sdf.format(date);
+
         }
-        return parseInt(format(date, DATE_FORMAT_INT));
+    }
+
+
+    public static class MyValueFormatter extends ValueFormatter implements IValueFormatter {
+
+        private SimpleDateFormat mFormat;
+        @SuppressLint("SimpleDateFormat")
+        public MyValueFormatter() {
+            mFormat = new SimpleDateFormat("MM-dd"); // use one decimal
+        }
     }
 
     /**
