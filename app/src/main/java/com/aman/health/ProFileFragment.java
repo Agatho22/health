@@ -263,22 +263,6 @@ public class ProFileFragment extends Fragment {
     }
 
 
-    public class MyXAxisValueFormatter implements IAxisValueFormatter {
-
-        private String[] mValues;
-
-        public MyXAxisValueFormatter(String[] values) {
-            this.mValues = values;
-        }
-
-        @Override
-        public String getFormattedValue(float value, AxisBase axis) {
-            // "value" represents the position of the label on the axis (x or y)
-            return mValues[(int) value];
-        }
-    }
-
-
 
     public class TheFormatYouWant extends ValueFormatter implements IAxisValueFormatter {
         @Override
@@ -290,16 +274,6 @@ public class ProFileFragment extends Fragment {
             SimpleDateFormat sdf = new SimpleDateFormat("MM/dd");
             return sdf.format(date);
 
-        }
-    }
-
-
-    public static class MyValueFormatter extends ValueFormatter implements IValueFormatter {
-
-        private SimpleDateFormat mFormat;
-        @SuppressLint("SimpleDateFormat")
-        public MyValueFormatter() {
-            mFormat = new SimpleDateFormat("MM-dd"); // use one decimal
         }
     }
 
