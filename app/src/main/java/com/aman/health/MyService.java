@@ -20,7 +20,7 @@ import java.util.Objects;
 
 public class MyService extends Service {
     protected Context context;
-    private int wal;
+    private int wal, watco;
     private static SharedPreferences pref;
     protected static SharedPreferences.Editor editor;
     private DatabaseReference mDatabaseRef; //실시간 데이터베이스
@@ -44,23 +44,26 @@ public class MyService extends Service {
         long now = System.currentTimeMillis();
         Date mDate = new Date(now);
         @SuppressLint("SimpleDateFormat")
-        SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        SimpleDateFormat simpleDate = new SimpleDateFormat("yyyyMMdd");
         String getTime = simpleDate.format(mDate);
 
 
         pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
         editor = pref.edit();
         wal = pref.getInt("walk", 250);
+        watco = pref.getInt("watercount", 5000);
         editor.clear();
         editor.commit();
-
         Log.d("서비스 만보기 값", "" + wal);
+        Log.d("서비스 물섭취 값", "" + watco);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
 
 
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
         mDatabaseRef.child(uid).child("walkcount").child(getTime).setValue(wal);
+        mDatabaseRef.child(uid).child("watercount").child(getTime).setValue(watco);
+
 
         return super.onStartCommand(intent, flags, startId);
     }

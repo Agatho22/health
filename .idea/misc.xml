@@ -57,9 +57,13 @@
         <entry key="app/src/main/res/layout/activity_test.xml" value="0.1816123188405797" />
         <entry key="app/src/main/res/layout/activity_timer.xml" value="0.3976449275362319" />
         <entry key="app/src/main/res/layout/activity_water.xml" value="0.21175278622087132" />
+        <entry key="app/src/main/res/layout/activity_wellcome.xml" value="0.315625" />
+        <entry key="app/src/main/res/layout/custom_list.xml" value="0.3867753623188406" />
+        <entry key="app/src/main/res/layout/fragment_exercise.xml" value="0.315625" />
         <entry key="app/src/main/res/layout/fragment_item_list.xml" value="0.3976449275362319" />
         <entry key="app/src/main/res/layout/fragment_list.xml" value="0.15670289855072464" />
-        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.15670289855072464" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/wellcome_screen_one.xml" value="0.20742753623188406" />
       </map>
     </option>
   </component>

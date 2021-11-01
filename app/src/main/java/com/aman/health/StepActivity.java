@@ -1,5 +1,7 @@
 package com.aman.health;
 
+import static com.aman.health.FbData.*;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlarmManager;
@@ -34,7 +36,7 @@ public class StepActivity extends Fragment implements SensorEventListener {
     //센서기능 변수 시작
     private long lastTime;
     private float speed, lastX, lastY, lastZ, x, y, z;
-    private static final int SHAKE_THRESHOLD = 400;    //속도가 400
+    private static final int SHAKE_THRESHOLD = 300;    //속도가 400
 
     public static final int DATA_X = SensorManager.DATA_X;
     public static final int DATA_Y = SensorManager.DATA_Y;
@@ -43,7 +45,7 @@ public class StepActivity extends Fragment implements SensorEventListener {
     public SensorManager sensorManager;
     public Sensor accelerometerSensor;
 
-    public int sensitive = 400;
+    public int sensitive = 300;
 
     private static SharedPreferences pref;
     private static SharedPreferences.Editor editor;
@@ -65,7 +67,7 @@ public class StepActivity extends Fragment implements SensorEventListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_step, container, false);
-        resetAlarm(getActivity());
+
         pref = Objects.requireNonNull(getActivity()).getSharedPreferences("pref", Activity.MODE_PRIVATE);
         editor = pref.edit();
         resultcnt = pref.getInt(walkcount, 0);
@@ -158,31 +160,6 @@ public class StepActivity extends Fragment implements SensorEventListener {
         }
     }
 
-    public void resetAlarm(Context context) {
-        AlarmManager resetAlarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
-        Intent resetIntent = new Intent(getActivity(), MyReceiver.class);
-
-        PendingIntent resetSender = PendingIntent.getBroadcast(getActivity(), 0, resetIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-        // 자정 시간
-        Calendar resetCal = Calendar.getInstance();
-        resetCal.setTimeInMillis(System.currentTimeMillis());
-        resetCal.set(Calendar.HOUR_OF_DAY, 0);
-        resetCal.set(Calendar.MINUTE, 54);
-        resetCal.set(Calendar.SECOND, 0);
-
-        //다음날 0시에 맞추기 위해 24시간을 뜻하는 상수인 AlarmManager.INTERVAL_DAY를 더해줌.
-        resetAlarmManager.setRepeating(AlarmManager.RTC_WAKEUP, resetCal.getTimeInMillis(), 1000, resetSender);
-        //resetAlarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, resetCal.getTimeInMillis()+AlarmManager.INTERVAL_DAY, AlarmManager.INTERVAL_DAY, resetSender);
-
-        @SuppressLint("SimpleDateFormat")
-        SimpleDateFormat format = new SimpleDateFormat("MM/dd kk:mm:ss");
-        String setResetTime = format.format(new Date(resetCal.getTimeInMillis()));
-
-        Log.d("알람 시간", "ResetHour : " + setResetTime);
-        Log.d("반복 시간", "ResetHour : " + AlarmManager.INTERVAL_FIFTEEN_MINUTES / 15);
-        // 원래 알람메소드 자리
-
-    }
 
     @Override
     public void onDestroy() {
