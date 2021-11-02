@@ -60,17 +60,14 @@ import java.util.Objects;
 
 public class ProFileFragment extends Fragment {
 
-    private FirebaseAuth mfirebaseAuth; //파이어베이스 인증
     private DatabaseReference mDatabasePFRef; //실시간 데이터베이스
     private TextView info_email, info_name, info_age, info_height, info_weight;
     private ImageView iv_pfimg;
-    private BarChart barchart;
+    private BarChart barchart, waterbarchart;
 
 
     DatabaseReference mDatabaseRef = null;
 
-    @SuppressLint("SimpleDateFormat")
-    @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
@@ -79,86 +76,46 @@ public class ProFileFragment extends Fragment {
         String uid = user != null ? user.getUid() : null; // 로그인한 유저의 고유 uid 가져오기
 
         assert uid != null;
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users").child(uid).child("walkcount");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users").child(uid);
         barchart = view.findViewById(R.id.barchart);
-        List<BarEntry> entry_chart = new ArrayList<>();
+        waterbarchart = view.findViewById(R.id.Waterbarchart);
+        List<BarEntry> step_value = new ArrayList<>();
+        List<BarEntry> water_value = new ArrayList<>();
 
 
-
-
-        mDatabaseRef.limitToFirst(7).addValueEventListener(new ValueEventListener() {
+        mDatabaseRef.child("walkcount").limitToFirst(7).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
-                    int key = Integer.parseInt(Objects.requireNonNull(snapshot.getKey()).substring(4,8));
-                    entry_chart.add(new BarEntry(key, snapshot.getValue(long.class)));
-                    //entry_chart.add(new Entry(key, snapshot.getValue(long.class)));
-                    Log.d("차트", ""+ key);
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    int key = parseInt(Objects.requireNonNull(snapshot.getKey()).substring(4, 8));
+                    step_value.add(new BarEntry(key, snapshot.getValue(long.class)));
+                    Log.d("차트", "" + key);
 
                 }
-                Log.d("차트", ""+ entry_chart);
-
-                BarDataSet barDataSet = new BarDataSet(entry_chart, "Step");
-                //여기에 lineDataSet 설정
-                barDataSet.setColor(Color.parseColor("#3F52E3"));
-                barDataSet.setValueTextSize(10f);
-
-
-                BarData barData = new BarData();
-                barData.setDrawValues(false);
-                barData.setBarWidth(0.6f);
-
-                barData.addDataSet(barDataSet);
-
-                XAxis xAxis = barchart.getXAxis(); // x 축 설정
-                xAxis.setPosition(XAxis.XAxisPosition.BOTTOM); //x 축 표시에 대한 위치 설정
-                xAxis.setValueFormatter(new ValueFormatter() {
-                        @Override
-                        public String getFormattedValue(float value)
-
-                        {
-                            /*
-                            Date date = new Date((long)value);
-                            Log.d("날짜", ""+ date);
-                            Log.d("날짜", ""+ (long)value);
-                            //Specify the format you'd like
-                            @SuppressLint("SimpleDateFormat")
-                            SimpleDateFormat sdf = new SimpleDateFormat("MM-dd");
-                             */
-                            return String.valueOf(value).substring(0, 2) + "/" + String.valueOf(value).substring(2, 4);
-                            //return sdf.format((long)value);
-                        }
-                    });
-                xAxis.setDrawLabels(true);
-                xAxis.setDrawGridLines(false);
-                xAxis.setDrawAxisLine(true);
-
-                YAxis yAxisLeft = barchart.getAxisLeft(); //Y축의 왼쪽면 설정
-                yAxisLeft.setDrawGridLines(false);
-                yAxisLeft.setTextColor(Color.BLACK); //Y축 텍스트 컬러 설정
-                yAxisLeft.setAxisMinimum(0f);
-                yAxisLeft.setAxisMaximum(10000f);
-                yAxisLeft.setGranularity(5000f);
-                yAxisLeft.setDrawAxisLine(false);
-
-                //오른쪽 축 비활성화
-                YAxis yAxisRight = barchart.getAxisRight();
-                yAxisRight.setDrawLabels(false);
-                yAxisRight.setDrawAxisLine(false);
-                yAxisRight.setDrawGridLines(false);
-
-
-                barchart.setData(barData);
-                barchart.setDescription(null);
-                barchart.setPinchZoom(false);
-                barchart.animateY(1000);
-                barchart.setTouchEnabled(false);
-                barchart.invalidate();
-                barchart.setDrawGridBackground(false);
+                Log.d("차트", "" + step_value);
+                FbData.StepChartset(step_value, barchart);
             }
 
             @Override
-            public void onCancelled(DatabaseError error) {
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w("Database", "Failed to read value.", error.toException());
+            }
+        });
+
+        mDatabaseRef.child("watercount").limitToFirst(7).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    int key = parseInt(Objects.requireNonNull(snapshot.getKey()).substring(4, 8));
+                    water_value.add(new BarEntry(key, snapshot.getValue(long.class)));
+
+                }
+                Log.d("차트", "" + water_value);
+                FbData.WaterChartset(water_value, waterbarchart);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
                 Log.w("Database", "Failed to read value.", error.toException());
             }
         });
@@ -180,9 +137,6 @@ public class ProFileFragment extends Fragment {
         iv_pfimg = view.findViewById(R.id.iv_pfimg);
 
 
-
-
-        mfirebaseAuth = mfirebaseAuth.getInstance();
         mDatabasePFRef = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("profile"); // 파이어베이스 realtime database 에서 정보 가져오기
         DatabaseReference email = mDatabasePFRef.child("Email");    // 이메일
         DatabaseReference name = mDatabasePFRef.child("Name");
@@ -263,17 +217,10 @@ public class ProFileFragment extends Fragment {
     }
 
 
-
-    public class TheFormatYouWant extends ValueFormatter implements IAxisValueFormatter {
+    public static class MyValueformatter extends ValueFormatter implements IAxisValueFormatter {
         @Override
-        public String getFormattedValue(float value, AxisBase axis) {
-
-            Date date = new Date((long)value);
-            //Specify the format you'd like
-            @SuppressLint("SimpleDateFormat")
-            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd");
-            return sdf.format(date);
-
+        public String getFormattedValue(float value) {
+            return String.valueOf(value).substring(0, 2) + "/" + String.valueOf(value).substring(2, 4);
         }
     }
 

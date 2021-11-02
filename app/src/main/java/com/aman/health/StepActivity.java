@@ -68,7 +68,7 @@ public class StepActivity extends Fragment implements SensorEventListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_step, container, false);
 
-        pref = Objects.requireNonNull(getActivity()).getSharedPreferences("pref", Activity.MODE_PRIVATE);
+        pref = getActivity().getSharedPreferences("pref", Activity.MODE_PRIVATE);
         editor = pref.edit();
         resultcnt = pref.getInt(walkcount, 0);
 

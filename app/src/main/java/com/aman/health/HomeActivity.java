@@ -4,11 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -18,6 +16,7 @@ public class HomeActivity extends AppCompatActivity {
     private ViewPager viewPager;
     public static Context mContext;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,9 +25,11 @@ public class HomeActivity extends AppCompatActivity {
 
         navigationView = findViewById(R.id.bottom_nav);
         viewPager = findViewById(R.id.view_pager);
-        FbData.resetAlarm(mContext);
-        Log.d("메인화면", "메인화면 시작" );
 
+        FbData.resetAlarm(mContext, MyReceiver.class, 0, 0, 0);
+
+
+        Log.d("메인화면", "메인화면 시작");
 
         setViewPager();
 
@@ -47,6 +48,7 @@ public class HomeActivity extends AppCompatActivity {
             return true;
         });
     }
+
 
     private void setViewPager() {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);

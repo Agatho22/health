@@ -15,6 +15,7 @@ public class MyReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         this.context = context;
 
+
         Intent mServiceintent = new Intent(context, MyService.class);
         context.startService(mServiceintent);
 

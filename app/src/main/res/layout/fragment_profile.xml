@@ -9,6 +9,7 @@
     tools:context=".ProFileFragment">
 
     <LinearLayout
+        android:id="@+id/toplayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -28,14 +29,14 @@
                 android:layout_gravity="center"
                 android:paddingVertical="5dp">
 
-            <ImageView
-                android:id="@+id/back_arrow"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:padding="10dp"
-                android:src="@drawable/ic_arrow_left" />
+                <ImageView
+                    android:id="@+id/back_arrow"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_arrow_left" />
 
-                </LinearLayout>
+            </LinearLayout>
 
             <Space
                 android:layout_width="wrap_content"
@@ -75,8 +76,8 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="none"
-            android:layout_below="@+id/topbar">
+            android:layout_below="@+id/topbar"
+            android:scrollbars="none">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -94,38 +95,37 @@
                     tools:src="@tools:sample/avatars" />
 
                 <!--이름-->
-                    <TextView
-                        android:id="@+id/info_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:layout_gravity="center"
-                        android:textSize="23dp"
-                        android:layout_marginTop="10dp"
-                        android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/info_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="23dp"
+                    android:textStyle="bold" />
                 <!--이메일-->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:layout_gravity="center">
+                    android:layout_gravity="center"
+                    android:layout_marginTop="3dp">
 
                     <ImageView
                         android:layout_width="14dp"
                         android:layout_height="14dp"
                         android:layout_gravity="center"
                         android:layout_marginRight="3dp"
-                        android:background="@drawable/ic_email">
-                    </ImageView>
+                        android:background="@drawable/ic_email"></ImageView>
 
                     <TextView
                         android:id="@+id/info_email"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:textAlignment="center"
                         android:textColor="@color/black"
-                        android:layout_gravity="center"
                         android:textSize="14dp" />
                 </LinearLayout>
 
@@ -162,25 +162,25 @@
                                 android:textStyle="bold" />
 
                             <!--키 내용-->
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:id="@+id/info_height"
+                            <LinearLayout
                                 android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:textAlignment="textEnd"
-                                android:textColor="@android:color/holo_green_light"
-                                android:textSize="12dp"
-                                android:textStyle="bold" />
+                                android:layout_height="wrap_content">
 
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text=" CM"
-                                android:textAlignment="textStart"
-                                android:textSize="12dp" />
+                                <TextView
+                                    android:id="@+id/info_height"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:textAlignment="textEnd"
+                                    android:textColor="@android:color/holo_green_light"
+                                    android:textSize="12dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text=" CM"
+                                    android:textAlignment="textStart"
+                                    android:textSize="12dp" />
                             </LinearLayout>
 
                         </LinearLayout>
@@ -219,21 +219,21 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
 
-                            <TextView
-                                android:id="@+id/info_weight"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textAlignment="textEnd"
-                                android:textColor="@android:color/holo_green_light"
-                                android:textSize="12dp"
-                                android:textStyle="bold" />
+                                <TextView
+                                    android:id="@+id/info_weight"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAlignment="textEnd"
+                                    android:textColor="@android:color/holo_green_light"
+                                    android:textSize="12dp"
+                                    android:textStyle="bold" />
 
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text=" KG"
-                                android:textAlignment="textStart"
-                                android:textSize="12dp" />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text=" KG"
+                                    android:textAlignment="textStart"
+                                    android:textSize="12dp" />
 
                             </LinearLayout>
                             <!--몸무개 끝-->
@@ -271,14 +271,15 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
 
-                            <TextView
-                                android:id="@+id/info_age"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:textAlignment="textEnd"
-                                android:textColor="@android:color/holo_green_light"
-                                android:textSize="12dp"
-                                android:textStyle="bold" />
+                                <TextView
+                                    android:id="@+id/info_age"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:textAlignment="textEnd"
+                                    android:textColor="@android:color/holo_green_light"
+                                    android:textSize="12dp"
+                                    android:textStyle="bold" />
+
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
@@ -288,28 +289,29 @@
                             </LinearLayout>
                             <!--나이 끝-->
 
-                            </LinearLayout>
-
                         </LinearLayout>
 
                     </LinearLayout>
 
                 </LinearLayout>
 
-            </ScrollView>
+            </LinearLayout>
 
-        <LinearLayout
+        </ScrollView>
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/barchart"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:orientation="vertical">
+            android:layout_height="120dp" />
 
-            <com.github.mikephil.charting.charts.BarChart
-                android:id="@+id/barchart"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </LinearLayout>
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/Waterbarchart"
+            android:layout_width="match_parent"
+            android:layout_height="120dp" />
 
     </LinearLayout>
+
+
 
 
 </RelativeLayout>

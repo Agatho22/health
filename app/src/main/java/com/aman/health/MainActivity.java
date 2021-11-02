@@ -1,7 +1,14 @@
 package com.aman.health;
 
+
+import static com.aman.health.HomeActivity.mContext;
+
+import android.annotation.SuppressLint;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
@@ -9,15 +16,23 @@ import android.widget.Button;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btn_water, btn_profile, btn_timer, btn_logout, button1;
+    private Button btn_water, btn_profile, btn_timer, btn_logout;
+
+    private NotificationCompat.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        createNotificationChannel();
+        FbData.resetAlarm(getApplicationContext(), MyReceiver2.class, 4, 21, 30);
+        Button btn1 = findViewById(R.id.btn1);
 
 
         btn_water = findViewById(R.id.btn_water);
@@ -69,4 +84,21 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    @SuppressLint("ObsoleteSdkInt")
+    private void createNotificationChannel() {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {  //SDK_INT 버전에서 조건에 의해 차단
+            CharSequence name = "MyChannel"; //채널이름
+            String description = "channel_description"; //채널설명
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel("Channel_Id", name, importance);
+            channel.setDescription(description);
+
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
+
+
 }
