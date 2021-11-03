@@ -36,7 +36,7 @@ public class StepActivity extends Fragment implements SensorEventListener {
     //센서기능 변수 시작
     private long lastTime;
     private float speed, lastX, lastY, lastZ, x, y, z;
-    private static final int SHAKE_THRESHOLD = 300;    //속도가 400
+    private static final int SHAKE_THRESHOLD = 300;    //속도가 300
 
     public static final int DATA_X = SensorManager.DATA_X;
     public static final int DATA_Y = SensorManager.DATA_Y;
@@ -144,8 +144,8 @@ public class StepActivity extends Fragment implements SensorEventListener {
                 speed = Math.abs(x + y + z - lastX - lastY - lastZ) / gabOfTime * 10000;
 
                 if (speed > SHAKE_THRESHOLD) {
-                    //속도가 400이상일 때 흔들림을 감지한다.
-                    // 이벤트발생!!
+                    // 속도가 300이상일 때 흔들림을 감지
+                    // 이벤트발생
 
                     resultcnt = (++resultcnt);
                     walkcnt.setText(String.valueOf(resultcnt));

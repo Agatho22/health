@@ -47,7 +47,7 @@
                 android:textAlignment="center"
                 android:textColor="#808080"
                 android:layout_marginTop="16dp"
-                android:text="어서오세요!\n회원 가입"
+                android:text="어서오세요"
                 android:textSize="17sp" />
 
             <LinearLayout
@@ -57,8 +57,15 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <!--아이디, 페스워드 시작-->
 
+                <ImageView
+                    android:id="@+id/iv_profile"
+                    android:layout_width="105dp"
+                    android:layout_height="34dp"
+                    android:outlineAmbientShadowColor="@color/black"
+                    android:src="@drawable/ellipse2" />
+
+                <!--아이디, 페스워드 시작-->
                 <EditText
                     android:id="@+id/et_email"
                     style="@style/LoginText"
@@ -83,14 +90,7 @@
                     android:inputType="textPassword"
                     app:passwordToggleEnabled="false" />
 
-                <ImageView
-                    android:id="@+id/iv_profile"
-                    android:layout_width="105dp"
-                    android:layout_height="34dp"
-                    android:outlineAmbientShadowColor="@color/black"
-                    android:src="@drawable/ellipse2"
 
-                    />
 
                 <Button
                     android:id="@+id/btn_registerf"

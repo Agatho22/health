@@ -142,11 +142,6 @@
                         android:gravity="center"
                         android:padding="8dp">
 
-                        <ImageView
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:background="@drawable/ic_height"
-                            android:padding="10dp" />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -195,11 +190,6 @@
                         android:gravity="center"
                         android:padding="8dp">
 
-                        <ImageView
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:background="@drawable/ic_weight"
-                            android:padding="10dp" />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -247,11 +237,6 @@
                         android:gravity="center"
                         android:padding="8dp">
 
-                        <ImageView
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:background="@drawable/ic_age"
-                            android:padding="10dp" />
 
                         <!--나이 내용-->
                         <LinearLayout
