@@ -23,33 +23,6 @@
             android:gravity="center"
             android:padding="16dp">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingVertical="5dp">
-
-                <ImageView
-                    android:id="@+id/back_arrow"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:padding="10dp"
-                    android:src="@drawable/ic_arrow_left" />
-
-            </LinearLayout>
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Profile"
-                android:textColor="#000000"
-                android:textSize="20dp"
-                android:textStyle="bold" />
 
             <Space
                 android:layout_width="wrap_content"

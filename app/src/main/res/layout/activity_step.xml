@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".StepActivity"
+    android:background="@color/white"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
@@ -18,7 +19,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="@color/teal_200"
+            android:background="@color/white"
             android:gravity="center">
 
 
@@ -56,8 +57,6 @@
                         android:textSize="35sp" />
                 </LinearLayout>
 
-
-
             </FrameLayout>
 
         </LinearLayout>
@@ -78,8 +77,7 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:paddingVertical="5dp"
-                android:layout_gravity="center"
-                >
+                android:layout_gravity="center">
 
                 <TextView
                     android:id="@+id/walkcnt1"
@@ -98,6 +96,39 @@
                     android:textSize="15sp"/>
 
             </LinearLayout>
+
+            <!-- 칼로리 시작-->
+            <LinearLayout
+                android:layout_width="290dp"
+                android:layout_height="wrap_content"
+                android:paddingVertical="5dp"
+                android:layout_gravity="center"
+                >
+
+                <TextView
+                    android:id="@+id/calori"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="10dp"
+                    android:text="0000.00"
+                    android:textAlignment="textEnd"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:text=" cal "
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:text=" 소모했습니다."
+                    android:textSize="15sp"/>
+            </LinearLayout>
+            <!-- 칼로리 끝 -->
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
