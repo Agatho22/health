@@ -1,9 +1,6 @@
 package com.aman.health;
 
-import static java.lang.Integer.parseInt;
-
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -12,32 +9,21 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.util.Log;
 
-import androidx.annotation.NonNull;
-
 import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.data.ChartData;
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import android.content.SharedPreferences;
+import com.google.firebase.storage.FirebaseStorage;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Objects;
 
 public class FbData {
 
@@ -46,6 +32,7 @@ public class FbData {
     public static String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
     public static DatabaseReference mDatabaseRefU = FirebaseDatabase.getInstance().getReference("Users").child(uid); //실시간 데이터베이스
     public static FirebaseDatabase mDatabase;
+    public static FirebaseStorage mStorage;
 
 
 

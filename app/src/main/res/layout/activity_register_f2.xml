@@ -23,6 +23,7 @@
             android:focusableInTouchMode="true">
 
             <!--회사 로고-->
+
             <ImageView
                 android:id="@+id/CMYK"
                 android:layout_width="80dp"
@@ -41,20 +42,10 @@
                 android:textStyle="bold"
                 android:textSize="34sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textAlignment="center"
-                android:textColor="#808080"
-                android:layout_marginTop="16dp"
-                android:text="마지막"
-                android:textSize="17sp" />
 
-        <LinearLayout
+            <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginVertical="10dp"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -96,7 +87,14 @@
                 android:editable="false"
                 tools:ignore="Deprecated,TouchTargetSizeCheck"  />
 
-            <RadioGroup
+                <ImageView
+                    android:id="@+id/iv_profile"
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
+                    app:srcCompat="@drawable/cmyk"
+                    tools:srcCompat="@drawable/ellipse2" />
+
+                <RadioGroup
                 android:id="@+id/rg_gender"
                 android:layout_width="300dp"
                 android:layout_height="40dp"
@@ -125,18 +123,18 @@
                     tools:ignore="TouchTargetSizeCheck" />
             </RadioGroup>
 
-        </LinearLayout>
+                <Button
+                    android:id="@+id/btn_registerf2"
+                    style="@style/LoginButton"
+                    android:layout_width="350dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/round_bg01"
+                    android:text="가입 하기"
+                    android:textStyle="bold" />
 
+            </LinearLayout>
 
-            <Button
-                android:id="@+id/btn_registerf2"
-                style="@style/LoginButton"
-                android:layout_width="350dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/round_bg01"
-                android:text="가입 하기"
-                android:textStyle="bold" />
 
         </LinearLayout>
     </ScrollView>
