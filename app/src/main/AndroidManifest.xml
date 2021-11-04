@@ -13,10 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <receiver
-            android:name=".MyReceiver2"
-            android:enabled="true"
-            android:exported="true"></receiver>
 
         <service
             android:name=".MyService"
@@ -26,7 +22,9 @@
         <receiver
             android:name=".MyReceiver"
             android:enabled="true"
-            android:exported="true"></receiver>
+            android:exported="true">
+
+        </receiver>
 
         <activity
             android:name=".ExecDetailActivity"
@@ -57,16 +55,20 @@
             android:name=".LoginActivityF"
             android:theme="@style/MyTheme"
             android:windowSoftInputMode="adjustPan">
+
+        </activity>
+        <activity
+            android:name=".IntroActivity"
+            android:theme="@style/MyTheme"
+            android:windowSoftInputMode="adjustPan" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
-        <activity
-            android:name=".IntroActivity"
-            android:theme="@style/MyTheme"
-            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".HomeActivity"
             android:theme="@style/MyTheme"

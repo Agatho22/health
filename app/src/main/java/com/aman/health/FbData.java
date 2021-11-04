@@ -3,10 +3,12 @@ package com.aman.health;
 import static java.lang.Integer.parseInt;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.util.Log;
 
@@ -22,9 +24,13 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.ChartData;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.interfaces.datasets.IDataSet;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import android.content.SharedPreferences;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -34,9 +40,28 @@ import java.util.List;
 import java.util.Objects;
 
 public class FbData {
-    public static void resetAlarm(Context context, Class receiver, int H, int M, int S) {
+
+    public static Context mContext;
+
+    public static String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+    public static DatabaseReference mDatabaseRefU = FirebaseDatabase.getInstance().getReference("Users").child(uid); //실시간 데이터베이스
+    public static FirebaseDatabase mDatabase;
+
+
+
+    public static SharedPreferences pref;
+    public static SharedPreferences.Editor editor;
+
+
+    final static String wtdayaction = "com.aman.health.waterintakeday";
+    final static String wtweekaction= "com.aman.health.waterintakeweek";
+    final static String Alarm = "com.aman.health.alarm";
+
+
+    public static void resetAlarm(Context context, Class receiver, String action, int H,long repeat) {
         AlarmManager resetAlarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent resetIntent = new Intent(context, receiver);
+        resetIntent.setAction(action);
 
         @SuppressLint("UnspecifiedImmutableFlag")
         PendingIntent resetSender = PendingIntent.getBroadcast(context, 0, resetIntent, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -44,11 +69,11 @@ public class FbData {
         Calendar resetCal = Calendar.getInstance();
         resetCal.setTimeInMillis(System.currentTimeMillis());
         resetCal.set(Calendar.HOUR_OF_DAY, H);
-        resetCal.set(Calendar.MINUTE, M);
-        resetCal.set(Calendar.SECOND, S);
+        resetCal.set(Calendar.MINUTE, 0);
+        resetCal.set(Calendar.SECOND, 0);
 
         //다음날 0시에 맞추기 위해 24시간을 뜻하는 상수인 AlarmManager.INTERVAL_DAY를 더해줌.
-        resetAlarmManager.setRepeating(AlarmManager.RTC_WAKEUP, resetCal.getTimeInMillis(), 1000, resetSender); //테스트용
+        resetAlarmManager.setRepeating(AlarmManager.RTC_WAKEUP, resetCal.getTimeInMillis(), repeat, resetSender); //테스트용
         //resetAlarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,resetCal.getTimeInMillis()+AlarmManager.INTERVAL_DAY, AlarmManager.INTERVAL_DAY, resetSender); //실사용
 
         @SuppressLint("SimpleDateFormat")

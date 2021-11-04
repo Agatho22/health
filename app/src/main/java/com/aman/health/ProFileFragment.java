@@ -83,6 +83,7 @@ public class ProFileFragment extends Fragment {
         List<BarEntry> water_value = new ArrayList<>();
 
 
+
         mDatabaseRef.child("walkcount").limitToFirst(7).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

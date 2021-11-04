@@ -4,6 +4,7 @@ package com.aman.health;
 import static com.aman.health.HomeActivity.mContext;
 
 import android.annotation.SuppressLint;
+import android.app.AlarmManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Intent;
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button btn_water, btn_profile, btn_timer, btn_logout;
 
-    private NotificationCompat.Builder builder;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +32,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         createNotificationChannel();
-        FbData.resetAlarm(getApplicationContext(), MyReceiver2.class, 4, 21, 30);
-        Button btn1 = findViewById(R.id.btn1);
+
+//        FbData.resetAlarm(getApplicationContext(), MyReceiver.class, FbData.Alarm, 0, AlarmManager.INTERVAL_DAY);
+//        FbData.resetAlarm(getApplicationContext(), MyReceiver.class, FbData.wtdayaction, 8, AlarmManager.INTERVAL_DAY);
+        FbData.resetAlarm(getApplicationContext(), MyReceiver.class, FbData.wtweekaction, 0, 1000);
+
 
 
         btn_water = findViewById(R.id.btn_water);

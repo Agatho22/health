@@ -119,7 +119,7 @@ public class RegisterActivityF2 extends AppCompatActivity {
                 String email = user.getEmail();
                 String uid = user.getUid();
                 String name = mEtName.getText().toString().trim();
-                int age = cal.get(cal.YEAR) - myCalendar.get(Calendar.YEAR) + 1;
+                int age = cal.get(Calendar.YEAR) - myCalendar.get(Calendar.YEAR) + 1;
                 double height = Double.parseDouble(mEtheight.getText().toString());
                 double weight = Double.parseDouble(mEtweight.getText().toString());
                 //해쉬맵 테이블을 파이어베이스 데이터베이스에 저장
@@ -147,7 +147,6 @@ public class RegisterActivityF2 extends AppCompatActivity {
 
     public boolean onSupportNavigateUp() {
         onBackPressed();
-        ; // 뒤로가기 버튼이 눌렸을시
         return super.onSupportNavigateUp(); // 뒤로가기 버튼
     }
 

@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.annotation.SuppressLint;
+import android.app.AlarmManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +19,8 @@ public class HomeActivity extends AppCompatActivity {
     public static Context mContext;
 
 
+
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +30,6 @@ public class HomeActivity extends AppCompatActivity {
         navigationView = findViewById(R.id.bottom_nav);
         viewPager = findViewById(R.id.view_pager);
 
-        FbData.resetAlarm(mContext, MyReceiver.class, 0, 0, 0);
 
 
         Log.d("메인화면", "메인화면 시작");
@@ -44,6 +47,8 @@ public class HomeActivity extends AppCompatActivity {
                 case R.id.action_exercise:
                     viewPager.setCurrentItem(2);
                     break;
+                case R.id.test:
+                    viewPager.setCurrentItem(3);
             }
             return true;
         });
@@ -72,6 +77,8 @@ public class HomeActivity extends AppCompatActivity {
                     case 2:
                         navigationView.getMenu().findItem(R.id.action_exercise).setChecked(true);
                         break;
+                    case 3:
+                        navigationView.getMenu().findItem(R.id.test).setChecked(true);
                 }
 
             }

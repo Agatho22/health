@@ -23,6 +23,8 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
                 return new StepActivity();
             case 2:
                 return new ExerciseFragment();
+            case 3:
+                return new testFragment();
             default:
                 return new ProFileFragment();
         }
@@ -30,6 +32,6 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return 4;
     }
 }

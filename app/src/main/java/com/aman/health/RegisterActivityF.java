@@ -3,6 +3,7 @@ package com.aman.health;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -39,6 +40,10 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -100,7 +105,7 @@ public class RegisterActivityF extends AppCompatActivity {
 
 
         //파이어베이스 접근 설정
-        mfirebaseAuth = mfirebaseAuth.getInstance();
+        mfirebaseAuth = FirebaseAuth.getInstance();
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
         mDatabase = FirebaseDatabase.getInstance();
         mStorage = FirebaseStorage.getInstance();
@@ -112,6 +117,9 @@ public class RegisterActivityF extends AppCompatActivity {
         backagain = (TextView) findViewById(R.id.backagain);
         mBtnRegister = findViewById(R.id.btn_registerf);
         mEtProfile = findViewById(R.id.iv_profile);
+
+
+
 
         //아이디가 있으신가요 버튼이 눌리면
         backagain.setOnClickListener(new View.OnClickListener() {
@@ -125,6 +133,37 @@ public class RegisterActivityF extends AppCompatActivity {
         mEtProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                /*
+
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                String uid = user.getUid();
+
+                StorageReference storageReference = mStorage.getReference().child("UsersprofileImages").child("uid/" + uid);
+                final File fileLog = new File("resource://com.aman.health/2131230847");
+
+
+                Task<UploadTask.TaskSnapshot> task = storageReference.putFile(as);
+
+                storageReference.putFile(imageUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+
+                        final Task<Uri> imageUrl = task.getResult().getStorage().getDownloadUrl();
+                        while (!imageUrl.isComplete()) {
+
+                            UserModel userModel = new UserModel();
+                            userModel.uid = uid;
+                            userModel.profileImageUrl = imageUrl.getResult().toString();
+                            // database에 저장
+                            mDatabase.getReference().child("Users").child(uid)
+                                    .setValue(userModel);
+                        }
+                    }
+                });
+
+                */
+
                 gotoAlbum();
             }
         });
@@ -155,22 +194,31 @@ public class RegisterActivityF extends AppCompatActivity {
                                 final String uid = task.getResult().getUser().getUid();
                                 final Uri file = Uri.fromFile(new File(pathUri)); // path
 
-                                StorageReference storageReference = mStorage.getReference()
-                                        .child("UsersprofileImages").child("uid/" + uid);
+                                StorageReference storageReference = mStorage.getReference().child("UsersprofileImages").child("uid/" + uid);
+
+
+                                    //imageUri = Uri.parse("android.resource://" + R.class.getPackage().getName() + "/" + R.drawable.ellipse);
+                               // imageUri = Uri.parse("content://com.google.android.apps.photos.contentprovider/-1/1/content%3A%2F%2Fmedia%2Fexternal%2Fimages%2Fmedia%2F13/ORIGINAL/NONE/596537642");
+
+
+
 
                                 storageReference.putFile(imageUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+
+                                        Log.d(TAG, "이게 uri:   " + imageUri);
+
                                         final Task<Uri> imageUrl = task.getResult().getStorage().getDownloadUrl();
-                                        while (!imageUrl.isComplete()) ;
+                                        while (!imageUrl.isComplete()) {
 
-                                        UserModel userModel = new UserModel();
-                                        userModel.uid = uid;
-                                        userModel.profileImageUrl = imageUrl.getResult().toString();
-
-                                        // database에 저장
-                                        mDatabase.getReference().child("Users").child(uid)
-                                                .setValue(userModel);
+                                            UserModel userModel = new UserModel();
+                                            userModel.uid = uid;
+                                            userModel.profileImageUrl = imageUrl.getResult().toString();
+                                            // database에 저장
+                                            mDatabase.getReference().child("Users").child(uid)
+                                                    .setValue(userModel);
+                                        }
                                     }
                                 });
 
@@ -182,7 +230,7 @@ public class RegisterActivityF extends AppCompatActivity {
 
                             } else {
                                 Toast.makeText(RegisterActivityF.this, "이미 존재하는 아이디 입니다.", Toast.LENGTH_SHORT).show();
-                                return;  //해당 메소드 진행을 멈추고 빠져나감.
+                                //해당 메소드 진행을 멈추고 빠져나감.
                             }
                         }
                     });
@@ -191,7 +239,6 @@ public class RegisterActivityF extends AppCompatActivity {
                 } else {
 
                     Toast.makeText(RegisterActivityF.this, "비밀번호가 틀렸습니다. 다시 입력해 주세요.", Toast.LENGTH_SHORT).show();
-                    return;
                 }
             }
         });
@@ -220,9 +267,11 @@ public class RegisterActivityF extends AppCompatActivity {
                 imageUri = data.getData();
                 pathUri = getPath(data.getData());
                 Log.d(TAG, "PICK_FROM_ALBUM photoUri : " + imageUri);
+                Log.d(TAG, "PICK_FROM_ALBUM photopath : " + pathUri);
                 mEtProfile.setImageURI(imageUri); // 이미지 띄움
                 break;
             }
+
         }
     }
 
