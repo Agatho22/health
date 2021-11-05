@@ -117,7 +117,7 @@ public class WellcomeActivity extends AppCompatActivity {
 
     private void launchHomeScreen() {
         prefManager.setFirstTimeLaunch(false);
-        startActivity(new Intent(WellcomeActivity.this, MainActivity.class));
+        startActivity(new Intent(WellcomeActivity.this, HomeActivity.class));
         finish();
     }
 

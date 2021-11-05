@@ -48,7 +48,7 @@ public class MyReceiver extends BroadcastReceiver {
 
 
         // 다음 스니펫은 사용자가 알림을 탭하면 활동을 여는 기본 인텐트를 만드는 방법을 보여줍니다.
-        Intent Notiintent = new Intent(context, MainActivity.class);
+        Intent Notiintent = new Intent(context, HomeActivity.class);
         Notiintent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, Notiintent, 0); //PendingIntent->앱이 꺼져 있오도 원격으로 킬 수가 있는 거
 

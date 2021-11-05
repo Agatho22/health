@@ -47,11 +47,6 @@
             android:theme="@style/MyTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/MyTheme"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
             android:name=".LoginActivityF"
             android:theme="@style/MyTheme"
             android:windowSoftInputMode="adjustPan">

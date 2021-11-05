@@ -59,7 +59,6 @@ public class StepActivity extends Fragment implements SensorEventListener {
     public double cal_calori=0;
     public String result_calori,walkcount = "walk";
 
-
     //만보계 변수 끝
 
     public StepActivity() {
@@ -76,6 +75,8 @@ public class StepActivity extends Fragment implements SensorEventListener {
 
         walkcnt = (TextView) view.findViewById(R.id.walkcnt);
         walkcnt.setText("" + resultcnt);
+
+        calori = (TextView) view.findViewById(R.id.calori);
 
         return view;
     }
@@ -156,8 +157,8 @@ public class StepActivity extends Fragment implements SensorEventListener {
 
                     // 칼로리
                     cal_calori = 0.03*resultcnt;
-                    result_calori = String.format("%.2f", cal_calori);
-                    calori.setText(""+result_calori);
+                    result_calori = String.format(" %.2f ", cal_calori);
+                    calori.setText(" "+result_calori);
 
 
                 }

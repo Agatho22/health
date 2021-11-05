@@ -92,7 +92,7 @@ public class LoginActivityF extends AppCompatActivity {
             mEtpwd.setText(sv_pwd);
             cb_auto.setChecked(saveLoginData);
             */
-            Intent intent = new Intent(LoginActivityF.this, MainActivity.class);
+            Intent intent = new Intent(LoginActivityF.this, HomeActivity.class);
             startActivity(intent);
             finish();
 
@@ -147,7 +147,7 @@ public class LoginActivityF extends AppCompatActivity {
                         Log.d(TAG, "로그인 정보: " + email + " , " + password);
                         if (task.isSuccessful()) {
                             FirebaseUser user = mfirebaseAuth.getCurrentUser();
-                            Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                            Intent intent = new Intent(getBaseContext(), HomeActivity.class);
                             Toast.makeText(getApplicationContext(), "로그인에 성공하였습니다.", Toast.LENGTH_SHORT).show();
                             save();
                             startActivity(intent);
@@ -194,7 +194,7 @@ public class LoginActivityF extends AppCompatActivity {
             if (mEtEmail.getText().toString().equals(sv_email) && mEtpwd.getText().toString().equals(sv_pwd)) {
 
                 Toast.makeText(LoginActivityF.this, sv_email + "님 자동로그인 입니다.", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(LoginActivityF.this, MainActivity.class);
+                Intent intent = new Intent(LoginActivityF.this, HomeActivity.class);
                 startActivity(intent);
                 finish();
 
