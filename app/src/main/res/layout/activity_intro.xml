@@ -8,9 +8,9 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:srcCompat="@drawable/hi"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="182dp" />
+        android:layout_width="137dp"
+        android:layout_height="323dp"
+        app:srcCompat="@drawable/cmyk"
+        tools:layout_editor_absoluteX="137dp"
+        tools:layout_editor_absoluteY="115dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

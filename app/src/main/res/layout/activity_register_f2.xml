@@ -48,12 +48,18 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical">
-
+                <ImageView
+                    android:id="@+id/iv_profile"
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    app:srcCompat="@drawable/cmyk"
+                    tools:srcCompat="@drawable/ellipse2" />
             <EditText
                 android:id="@+id/et_name"
                 style="@style/LoginText"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="20dp"
                 android:hint="이름"
                 android:inputType="textEmailAddress" />
 
@@ -87,12 +93,7 @@
                 android:editable="false"
                 tools:ignore="Deprecated,TouchTargetSizeCheck"  />
 
-                <ImageView
-                    android:id="@+id/iv_profile"
-                    android:layout_width="300dp"
-                    android:layout_height="50dp"
-                    app:srcCompat="@drawable/cmyk"
-                    tools:srcCompat="@drawable/ellipse2" />
+
 
                 <RadioGroup
                 android:id="@+id/rg_gender"

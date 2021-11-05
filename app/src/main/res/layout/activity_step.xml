@@ -72,31 +72,6 @@
             android:gravity="center">
 
 
-            <!--걸음 시작-->
-            <LinearLayout
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:paddingVertical="5dp"
-                android:layout_gravity="center">
-
-                <TextView
-                    android:id="@+id/walkcnt1"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:paddingEnd="10dp"
-                    android:text="000"
-                    android:textAlignment="textEnd"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:text=" 걸음 "
-                    android:textSize="15sp"/>
-
-            </LinearLayout>
-
             <!-- 칼로리 시작-->
             <LinearLayout
                 android:layout_width="290dp"
