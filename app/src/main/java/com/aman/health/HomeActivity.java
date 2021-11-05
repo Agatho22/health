@@ -38,16 +38,16 @@ public class HomeActivity extends AppCompatActivity {
 
         navigationView.setOnNavigationItemSelectedListener((item) -> {
             switch (item.getItemId()) {
-                case R.id.action_profile:
+                case R.id.test:
                     viewPager.setCurrentItem(0);
                     break;
-                case R.id.action_step:
+                case R.id.action_profile:
                     viewPager.setCurrentItem(1);
                     break;
-                case R.id.action_exercise:
+                case R.id.action_step:
                     viewPager.setCurrentItem(2);
                     break;
-                case R.id.test:
+                case R.id.action_exercise:
                     viewPager.setCurrentItem(3);
             }
             return true;
@@ -69,16 +69,16 @@ public class HomeActivity extends AppCompatActivity {
             public void onPageSelected(int position) {
                 switch (position) {
                     case 0:
-                        navigationView.getMenu().findItem(R.id.action_profile).setChecked(true);
+                        navigationView.getMenu().findItem(R.id.test).setChecked(true);
                         break;
                     case 1:
-                        navigationView.getMenu().findItem(R.id.action_step).setChecked(true);
+                        navigationView.getMenu().findItem(R.id.action_profile).setChecked(true);
                         break;
                     case 2:
-                        navigationView.getMenu().findItem(R.id.action_exercise).setChecked(true);
+                        navigationView.getMenu().findItem(R.id.action_step).setChecked(true);
                         break;
                     case 3:
-                        navigationView.getMenu().findItem(R.id.test).setChecked(true);
+                        navigationView.getMenu().findItem(R.id.action_exercise).setChecked(true);
                 }
 
             }

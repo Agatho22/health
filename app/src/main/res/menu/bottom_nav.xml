@@ -3,18 +3,20 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/test"
+        android:title="홈"
+        android:icon="@drawable/ic_home" />
+    <item
         android:id="@+id/action_profile"
         android:title="내 정보"
-        android:icon="@drawable/ic_home"/>
+        android:icon="@drawable/ic_person_pin"/>
     <item
         android:id="@+id/action_step"
         android:title="만보기"
-        android:icon="@drawable/ic_person_pin"/>
+        android:icon="@drawable/ic_walk"/>
     <item
         android:id="@+id/action_exercise"
         android:title="운 동"
         android:icon="@drawable/ic_search"/>
-    <item
-        android:id="@+id/test"
-        android:title="test" />
+
 </menu>
