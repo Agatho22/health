@@ -28,8 +28,7 @@
 
         <activity
             android:name=".ExecDetailActivity"
-            android:exported="true"
-            android:theme="@style/MyTheme" />
+            android:exported="true" />
         <activity
             android:name=".RegisterActivityF"
             android:theme="@style/MyTheme"

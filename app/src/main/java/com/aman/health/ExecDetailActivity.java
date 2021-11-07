@@ -23,7 +23,6 @@ import java.util.ArrayList;
 
 public class ExecDetailActivity extends AppCompatActivity {
 
-    ProgressBar progressBar;
     EditText time_out_min, time_out_sec;
     Button btn_start, btn_reset;
     InputMethodManager imm;
@@ -58,7 +57,6 @@ public class ExecDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_exec_detail);
 
         imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-        progressBar = findViewById(R.id.circularProgressbar);
 
         time_out_min = findViewById(R.id.time_out_min);
         //time_out_min의 텍스트가 변할때 이벤트 발생
@@ -72,7 +70,6 @@ public class ExecDetailActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (time_out_min.hasFocus() && getEditTime() != 0) { //EditText에 입력된 시간이 0초 이상일 경우 미리 시간 세팅
                     setTime();
-                    Log.d("ProgressTest", "setTime = " + setTime);
                 }
             }
 
@@ -94,7 +91,6 @@ public class ExecDetailActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (time_out_sec.hasFocus() && getEditTime() != 0) { //EditText에 입력된 시간이 0초 이상일 경우 미리 시간 세팅
                     setTime();
-                    Log.d("ProgressTest", "setTime = " + setTime);
                 }
             }
 
@@ -159,7 +155,6 @@ public class ExecDetailActivity extends AppCompatActivity {
         time_out_sec.setEnabled(true);
         btn_start.setText("시작"); //시작버튼 텍스트 변경
         btn_reset.setEnabled(false); //초기화 버튼 비활성화
-        progressBar.setProgress(0); //프로그레스 초기화
     }
 
     public void hideKeyboard() { //키보드 숨기기
@@ -222,14 +217,12 @@ public class ExecDetailActivity extends AppCompatActivity {
         time_out_min.setText(times[0]);
         time_out_sec.setText(times[1]);
 
-        progressBar.setProgress((int) ((now - baseTime) + (setTime / 1000)));
         return easy_outTime;
     }
 
     public void setTime() { //프로그레스바 최대치 세팅
         setTime = Long.parseLong(time_out_min.getText().toString()) * 1000 * 60 +
                 Long.parseLong(time_out_sec.getText().toString()) * 1000;
-        progressBar.setMax((int) setTime);
     }
 
 }
