@@ -110,7 +110,6 @@ public class RegisterActivityF2 extends AppCompatActivity {
         setContentView(R.layout.activity_register_f2);
 
 
-
         //파이어베이스 접근 설정
         mfirebaseAuth = FirebaseAuth.getInstance();
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
@@ -210,7 +209,6 @@ public class RegisterActivityF2 extends AppCompatActivity {
                 });
 
 
-
                 Calendar cal = Calendar.getInstance();
                 FirebaseUser user = mfirebaseAuth.getCurrentUser();
                 String email = user.getEmail();
@@ -289,7 +287,6 @@ public class RegisterActivityF2 extends AppCompatActivity {
         intent.setType(MediaStore.Images.Media.CONTENT_TYPE);
         startActivityForResult(intent, PICK_FROM_ALBUM);
     }
-
 
 
     public boolean onSupportNavigateUp() {

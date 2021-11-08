@@ -65,7 +65,8 @@ public class MyReceiver extends BroadcastReceiver {
 
         NotificationCompat.Builder builder2 = new NotificationCompat.Builder(context, "Channel_Id")
                 .setSmallIcon(R.drawable.cmyk)  // 작은 아이콘
-                .setContentTitle("물을 많이 마시지 않으면 당신은 \"죽을수도 있습니다\"")  // 제목
+                .setContentTitle("물을 자주 마셔야 합니다")  // 제목
+                //물을 많이 마시지 않으면 당신은 "죽을수도 있습니다"
                 .setContentText("지난 일주일간 물 섭취량이 기준 미달이에요")  // 본문 텍스트
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)  // 알림 우선순위
                 //밑에는 intent 사용해서 작성한거

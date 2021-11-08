@@ -1,5 +1,6 @@
 package com.aman.health;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -17,13 +18,13 @@ public class WaterActivity extends AppCompatActivity {
     private int water, i_water;
     private String s_water;
     private EditText et_water;
-    private Button btn_select, btn_clear, btn_wa_memo;
-    private TextView wa_info;
-    private TextView wa_info22;
+    private Button btn_select, btn_clear;
+    private TextView wa_info, wa_info22;
 
     private static SharedPreferences pref;
     private static SharedPreferences.Editor editor;
 
+    @SuppressLint("SetTextI18n")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_water);
@@ -31,8 +32,7 @@ public class WaterActivity extends AppCompatActivity {
         wa_info = findViewById(R.id.wa_info2);
         btn_select = findViewById(R.id.btn_select);
         btn_clear = findViewById(R.id.btn_clear);
-        et_water = (EditText) findViewById(R.id.et_water);
-        btn_wa_memo = findViewById(R.id.btn_wa_memo);
+        et_water = findViewById(R.id.et_water);
 
         pref = Objects.requireNonNull(getSharedPreferences("pref", Activity.MODE_PRIVATE));
         editor = pref.edit();

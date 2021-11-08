@@ -5,8 +5,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import com.aman.health.SearchFragment;
-
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     public ViewPagerAdapter(@NonNull FragmentManager fm, int behavior) {
@@ -18,7 +16,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return new testFragment();
+                return new MainFragment();
             case 1:
                 return new ProFileFragment();
             case 2:
@@ -26,7 +24,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
             case 3:
                 return new ExerciseFragment();
             default:
-                return new testFragment();
+                return new MainFragment();
         }
     }
 

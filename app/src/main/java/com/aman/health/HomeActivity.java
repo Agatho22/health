@@ -1,14 +1,13 @@
 package com.aman.health;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.viewpager.widget.ViewPager;
-
 import android.annotation.SuppressLint;
-import android.app.AlarmManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -17,7 +16,6 @@ public class HomeActivity extends AppCompatActivity {
     private BottomNavigationView navigationView;
     private ViewPager viewPager;
     public static Context mContext;
-
 
 
     @SuppressLint("NonConstantResourceId")
@@ -30,6 +28,9 @@ public class HomeActivity extends AppCompatActivity {
         navigationView = findViewById(R.id.bottom_nav);
         viewPager = findViewById(R.id.view_pager);
 
+        //         FbData.resetAlarm(getApplicationContext(), MyReceiver.class, FbData.Alarm, 0, AlarmManager.INTERVAL_DAY);
+        //         FbData.resetAlarm(getApplicationContext(), MyReceiver.class, FbData.wtdayaction, 8, AlarmManager.INTERVAL_DAY);
+        FbData.resetAlarm(getApplicationContext(), MyReceiver.class, FbData.wtweekaction, 0, 1000);
 
 
         Log.d("메인화면", "메인화면 시작");
