@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context=".WaterActivity">
-
+<!--
 
     <TextView
         android:id="@+id/wa_info2"
@@ -69,6 +69,19 @@
         app:layout_constraintTop_toBottomOf="@+id/lottieAnimationView"
         app:layout_constraintVertical_bias="0.269" />
 
+    <Button
+        android:id="@+id/btn_wt180ml"
+        style="@style/LoginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_clear"
+        app:layout_constraintHorizontal_bias="0.874"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lottieAnimationView"
+        app:layout_constraintVertical_bias="0.843" />
+
 
     <Button
         android:id="@+id/btn_clear"
@@ -97,5 +110,5 @@
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/water_loader" />
-
+-->
 </androidx.constraintlayout.widget.ConstraintLayout>

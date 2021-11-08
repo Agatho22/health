@@ -13,11 +13,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.Objects;
 
 public class MainFragment extends Fragment {
 
     Button btn_gowater, btn_logout;
+
+    int water;
+    EditText et_water;
+    Button btn_select, btn_clear;
+    TextView wa_info, wa_info22;
+
+    private static SharedPreferences pref;
+    private static SharedPreferences.Editor editor;
 
 
     @Override
@@ -25,8 +37,52 @@ public class MainFragment extends Fragment {
         super.onCreate(savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_main, container, false);
 
-        btn_gowater = (Button) view.findViewById(R.id.btn_gowater);
-        btn_logout = (Button) view.findViewById(R.id.btn_logout);
+        btn_logout = view.findViewById(R.id.btn_logout);
+
+        wa_info22 = view.findViewById(R.id.wa_info22);
+        wa_info = view.findViewById(R.id.wa_info2);
+        btn_select = view.findViewById(R.id.btn_select);
+        btn_clear = view.findViewById(R.id.btn_clear);
+        et_water = view.findViewById(R.id.et_water);
+
+        pref = getActivity().getSharedPreferences("pref", Activity.MODE_PRIVATE);
+        editor = pref.edit();
+        water = pref.getInt("watercount", 0);
+        wa_info22.setText("오늘 하루목표 물 섭취까지 남은량 :" + (2000 - water) + "ml");
+        wa_info.setText("오늘 하루 물 섭취량 :" + water + "ml");
+
+
+
+        btn_select.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                int i_water = Integer.parseInt(et_water.getText().toString());
+                if (i_water < 0) {
+                    Toast.makeText(getActivity(), "잘못입력하셨습니다. ", Toast.LENGTH_SHORT).show();
+                } else if ((water + i_water) > 2000) {
+                    Toast.makeText(getActivity(), i_water + "ml추가완료. ", Toast.LENGTH_SHORT).show();
+                    water += i_water;
+                    editor.putInt("watercount", water);
+                    editor.commit(); // 저장
+                    wa_info.setText("오늘 하루 물 섭취량 :" + water + "ml");
+                    wa_info22.setText("오늘 하루 물 목표 섭취까지 남은량 :" + 0 + "ml");
+                } else {
+                    Toast.makeText(getActivity(), i_water + "ml추가완료. ", Toast.LENGTH_SHORT).show();
+                    water += i_water;
+                    editor.putInt("watercount", water);
+                    editor.commit(); // 저장
+                    wa_info.setText("오늘 하루 물 섭취량 :" + water + "ml");
+                    wa_info22.setText("오늘 하루 물 목표 섭취까지 남은량 :" + (2000 - water) + "ml");
+                }
+            }
+        });
+
+        btn_clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editor.clear();
+                editor.commit();
+            }
+        });
 
 
         btn_logout.setOnClickListener(new View.OnClickListener() {
@@ -46,13 +102,14 @@ public class MainFragment extends Fragment {
         });
 
 
-        btn_gowater.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().startActivity(new Intent(getActivity(), WaterActivity.class));
-            }
-        });
 
         return view;
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        editor.putInt("watercount", water);
+        editor.commit(); // 저장
     }
 }

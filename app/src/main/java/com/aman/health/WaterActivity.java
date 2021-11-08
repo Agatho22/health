@@ -15,6 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Objects;
 
 public class WaterActivity extends AppCompatActivity {
+
+    /*
     private int water, i_water;
     private String s_water;
     private EditText et_water;
@@ -79,4 +81,6 @@ public class WaterActivity extends AppCompatActivity {
         editor.putInt("watercount", water);
         editor.commit(); // 저장
     }
+    */
+
 }
