@@ -1,5 +1,6 @@
 package com.aman.health;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -29,6 +30,8 @@ public class ExecDetailActivity extends AppCompatActivity {
     ArrayList<Exercise> item;
     ImageView imageView;
 
+
+    @SuppressLint("HandlerLeak")
     Handler handler = new Handler() {
         public void handleMessage(Message msg) {
             String time = getTimeout();
@@ -148,7 +151,7 @@ public class ExecDetailActivity extends AppCompatActivity {
     public void reset() {
         handler.removeCallbacksAndMessages(null); //핸들러 메시지 전달 종료
         Pstatus = INIT; //상태 변수 초기화
-        setTime = 0; //long형으로 변환할 변후 초기화
+        setTime = 0; //long 형으로 변환할 변후 초기화
         time_out_min.setText("00");
         time_out_min.setEnabled(true);
         time_out_sec.setText("00");
@@ -197,7 +200,7 @@ public class ExecDetailActivity extends AppCompatActivity {
         }
     }
 
-    public String getTimeout() { //핸들러 안에서 EditText의 시간을 return해주고 프로그레스를 세팅
+    public String getTimeout() { //핸들러 안에서 EditText 의 시간을 return 해주고 프로그레스를 세팅
         long now = SystemClock.elapsedRealtime();
         long outTime = baseTime - now + setTime;
         long sec = outTime / 1000 % 60;
@@ -211,6 +214,7 @@ public class ExecDetailActivity extends AppCompatActivity {
             }
         }
 
+        @SuppressLint("DefaultLocale")
         String easy_outTime = String.format("%02d:%02d", min, sec);
         String[] times = easy_outTime.split(":");
 

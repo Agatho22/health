@@ -79,21 +79,19 @@ public class ProFileFragment extends Fragment {
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users").child(uid);
         barchart = view.findViewById(R.id.barchart);
         waterbarchart = view.findViewById(R.id.Waterbarchart);
-        List<BarEntry> step_value = new ArrayList<>();
-        List<BarEntry> water_value = new ArrayList<>();
-
 
 
         mDatabaseRef.child("walkcount").limitToFirst(7).addValueEventListener(new ValueEventListener() {
+            final List<BarEntry> step_value = new ArrayList<>();
+
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     int key = parseInt(Objects.requireNonNull(snapshot.getKey()).substring(4, 8));
                     step_value.add(new BarEntry(key, snapshot.getValue(long.class)));
-                    Log.d("차트", "" + key);
-
+                    //Log.d("차트", "" + key);
                 }
-                Log.d("차트", "" + step_value);
+                //Log.d("차트", "" + step_value);
                 FbData.StepChartset(step_value, barchart);
             }
 
@@ -104,6 +102,8 @@ public class ProFileFragment extends Fragment {
         });
 
         mDatabaseRef.child("watercount").limitToFirst(7).addValueEventListener(new ValueEventListener() {
+            final List<BarEntry> water_value = new ArrayList<>();
+
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
@@ -111,7 +111,7 @@ public class ProFileFragment extends Fragment {
                     water_value.add(new BarEntry(key, snapshot.getValue(long.class)));
 
                 }
-                Log.d("차트", "" + water_value);
+                //Log.d("차트", "" + water_value);
                 FbData.WaterChartset(water_value, waterbarchart);
             }
 

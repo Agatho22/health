@@ -46,7 +46,6 @@ public class MyReceiver extends BroadcastReceiver {
         int waterintake = pref.getInt("watercount", 0);
 
 
-
         // 다음 스니펫은 사용자가 알림을 탭하면 활동을 여는 기본 인텐트를 만드는 방법을 보여줍니다.
         Intent Notiintent = new Intent(context, HomeActivity.class);
         Notiintent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -54,7 +53,7 @@ public class MyReceiver extends BroadcastReceiver {
 
 
         // 알림의 콘텐츠와 채널 설정
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "Channel_Id")
+        NotificationCompat.Builder builderWtDay = new NotificationCompat.Builder(context, "water_intake_channel_id")
                 .setSmallIcon(R.drawable.cmyk)  // 작은 아이콘
                 .setContentTitle("하루동안 물을 마시지 않았습니다")  // 제목
                 .setContentText("물을 마시고 섭취량을 기록해보세요")  // 본문 텍스트
@@ -63,7 +62,7 @@ public class MyReceiver extends BroadcastReceiver {
                 .setContentIntent(pendingIntent) // 사용자가 탭하면 자동으로 알림을 삭제
                 .setAutoCancel(true);
 
-        NotificationCompat.Builder builder2 = new NotificationCompat.Builder(context, "Channel_Id")
+        NotificationCompat.Builder builderWtWeek = new NotificationCompat.Builder(context, "water_intake_channel_id")
                 .setSmallIcon(R.drawable.cmyk)  // 작은 아이콘
                 .setContentTitle("물을 자주 마셔야 합니다")  // 제목
                 //물을 많이 마시지 않으면 당신은 "죽을수도 있습니다"
@@ -74,8 +73,8 @@ public class MyReceiver extends BroadcastReceiver {
                 .setAutoCancel(true);
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
 
-        Log.d(String.valueOf(this), ""+intent.getAction());
-        switch (intent.getAction()){
+        Log.d(String.valueOf(this), "" + intent.getAction());
+        switch (intent.getAction()) {
             case Alarm:
                 Log.d(String.valueOf(this), "물, 스텝 업로드");
 
@@ -89,28 +88,25 @@ public class MyReceiver extends BroadcastReceiver {
                 if (waterintake == 0) {
                     Log.d(String.valueOf(this), "물섭취 조건문 통과");
 
-                    notificationManager.notify(0, builder.build()); // 0 줌
+                    notificationManager.notify(1, builderWtDay.build()); // 0 줌
                 }
                 break;
             case wtweekaction:
-                Log.d(String.valueOf(this), "물섭취 week");
                 ArrayList<Integer> num = new ArrayList<>();
                 mDatabaseRefU.child("watercount").limitToFirst(7).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                            Log.d(String.valueOf(this), ""+ snapshot.getValue(int.class));
+                            //Log.d(String.valueOf(this), "" + snapshot.getValue(int.class));
                             num.add(snapshot.getValue(int.class));
-                            }
-
-                        Log.d(String.valueOf(this), ""+ num);
-                        int sum = num.stream().mapToInt(Integer::intValue).sum();
-                        Log.d(String.valueOf(this), ""+ sum);
-                        int avg = sum/num.size();
+                        }
+                        //Log.d(String.valueOf(this), ""+ num);
+                        //Log.d(String.valueOf(this), ""+ sum);
+                        int avg = num.stream().mapToInt(Integer::intValue).sum() / num.size();
                         Log.d(String.valueOf(this), ""+ avg);
                         if (avg <= 2100) {
-                            Log.d(String.valueOf(this), "노티");
-                            notificationManager.notify(0, builder2.build()); // 0 줌
+                            Log.d(String.valueOf(this), "물 섭취 week 노티");
+                            notificationManager.notify(1, builderWtWeek.build()); // 0 줌
                         }
                     }
 
@@ -121,7 +117,8 @@ public class MyReceiver extends BroadcastReceiver {
                 });
 
                 break;
-            default:Log.d(String.valueOf(this), "정의되지 않은 Action");
+            default:
+                Log.d(String.valueOf(this), "정의되지 않은 Action");
         }
     }
 }
