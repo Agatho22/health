@@ -81,7 +81,7 @@ public class ProFileFragment extends Fragment {
         waterbarchart = view.findViewById(R.id.Waterbarchart);
 
 
-        mDatabaseRef.child("walkcount").limitToFirst(7).addValueEventListener(new ValueEventListener() {
+        mDatabaseRef.child("walkcount").limitToLast(7).addValueEventListener(new ValueEventListener() {
             final List<BarEntry> step_value = new ArrayList<>();
 
             @Override
@@ -101,7 +101,7 @@ public class ProFileFragment extends Fragment {
             }
         });
 
-        mDatabaseRef.child("watercount").limitToFirst(7).addValueEventListener(new ValueEventListener() {
+        mDatabaseRef.child("watercount").limitToLast(7).addValueEventListener(new ValueEventListener() {
             final List<BarEntry> water_value = new ArrayList<>();
 
             @Override

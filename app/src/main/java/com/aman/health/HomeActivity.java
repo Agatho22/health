@@ -24,13 +24,13 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        mContext = this;
+
 
         navigationView = findViewById(R.id.bottom_nav);
         viewPager = findViewById(R.id.view_pager);
 
         //FbData.resetAlarm(getApplicationContext(), MyReceiver.class, FbData.Alarm, 0, AlarmManager.INTERVAL_DAY);
-        //FbData.resetAlarm(getApplicationContext(), MyReceiver.class, FbData.wtdayaction, 8, AlarmManager.INTERVAL_DAY);
+        FbData.resetAlarm(getApplicationContext(), MyReceiver.class, FbData.wtdayaction, 0, 1000);
         FbData.resetAlarm(getApplicationContext(), MyReceiver.class, FbData.wtweekaction, 0, 1000);
 
 

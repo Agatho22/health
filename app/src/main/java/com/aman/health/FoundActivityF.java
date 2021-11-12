@@ -23,7 +23,6 @@ public class FoundActivityF extends AppCompatActivity implements View.OnClickLis
 
     private static final String TAG = "LoginActivityF";
     private FirebaseAuth mfirebaseAuth; //파이어베이스 인증
-    private EditText mEtEmail, mEtpwd; //로그인 입력필드
     private EditText editTextUserEmail;
     private Button btn_continue;
     private ProgressDialog progressDialog;

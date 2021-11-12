@@ -56,8 +56,8 @@ public class StepActivity extends Fragment implements SensorEventListener {
     public int resultcnt = 0;
     public TextView walkcnt, calori;
 
-    public double cal_calori=0;
-    public String result_calori,walkcount = "walk";
+    public double cal_calori = 0;
+    public String result_calori, walkcount = "walk";
 
     //만보계 변수 끝
 
@@ -77,7 +77,6 @@ public class StepActivity extends Fragment implements SensorEventListener {
         walkcnt.setText("" + resultcnt);
 
 
-
         return view;
     }
 
@@ -95,7 +94,7 @@ public class StepActivity extends Fragment implements SensorEventListener {
     @Override
     public void onStart() {
         super.onStart();
-        resultcnt = pref.getInt(walkcount, 1);
+        resultcnt = pref.getInt(walkcount, 0);
 
         if (accelerometerSensor != null)
             sensorManager.registerListener(this, accelerometerSensor,
@@ -122,12 +121,13 @@ public class StepActivity extends Fragment implements SensorEventListener {
     @Override
     public void onResume() {
         super.onResume();
-        resultcnt = pref.getInt(walkcount, 1);
+        resultcnt = pref.getInt(walkcount, 0);
         Log.d("넣은 값", "키 : " + walkcount + "   값:" + resultcnt);
     }
 
 
     //sensoreventlistener에 필수. 센서가 변하면 발생하는 함수. 흔들림 감지
+    @SuppressLint({"DefaultLocale", "SetTextI18n"})
     @Override
     public void onSensorChanged(android.hardware.SensorEvent event) {
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
@@ -156,9 +156,9 @@ public class StepActivity extends Fragment implements SensorEventListener {
                     editor.commit(); // 저장
 
                     // 칼로리
-                    cal_calori = 0.03*resultcnt;
+                    cal_calori = 0.03 * resultcnt;
                     result_calori = String.format(" %.2f ", cal_calori);
-                    calori.setText(" "+result_calori);
+                    calori.setText(" " + result_calori);
 
 
                 }

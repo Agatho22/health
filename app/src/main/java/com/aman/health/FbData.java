@@ -27,6 +27,7 @@ import java.util.List;
 
 public class FbData {
 
+    @SuppressLint("StaticFieldLeak")
     public static Context mContext;
 
     public static String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -40,8 +41,8 @@ public class FbData {
     public static SharedPreferences.Editor editor;
 
 
-    final static String wtdayaction = "com.aman.health.waterintakeday";
-    final static String wtweekaction= "com.aman.health.waterintakeweek";
+    final static String wtdayaction = "com.aman.health.wtdailyreminder";
+    final static String wtweekaction= "com.aman.health.wtrweekreport";
     final static String Alarm = "com.aman.health.alarm";
 
 
