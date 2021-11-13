@@ -57,7 +57,7 @@ public class MyReceiver extends BroadcastReceiver {
                 .setSmallIcon(R.drawable.workout)  // 작은 아이콘
                 .setContentTitle("하루동안 물을 마시지 않았습니다")  // 제목
                 .setContentText("물을 마시고 섭취량을 기록해보세요")  // 본문 텍스트
-                .setPriority(NotificationCompat.PRIORITY_HIGH)  // 알림 우선순위
+                .setPriority(NotificationCompat.PRIORITY_MAX)  // 알림 우선순위
                 .setDefaults(NotificationCompat.DEFAULT_VIBRATE)
                 //밑에는 intent 사용해서 작성한거
                 .setContentIntent(pendingIntent) // 사용자가 탭하면 자동으로 알림을 삭제
@@ -66,7 +66,7 @@ public class MyReceiver extends BroadcastReceiver {
                 .setSmallIcon(R.drawable.workout)
                 .setContentTitle("물을 자주 마셔야 합니다")
                 .setContentText("지난 일주일간 물 섭취량이 기준 미달이에요")
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setPriority(NotificationCompat.PRIORITY_MAX)
                 .setDefaults(NotificationCompat.DEFAULT_VIBRATE)
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true);

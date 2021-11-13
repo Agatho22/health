@@ -75,6 +75,7 @@ public class StepActivity extends Fragment implements SensorEventListener {
 
         walkcnt = (TextView) view.findViewById(R.id.walkcnt);
         walkcnt.setText("" + resultcnt);
+        calori = (TextView) view.findViewById(R.id.calori);
 
 
         return view;
