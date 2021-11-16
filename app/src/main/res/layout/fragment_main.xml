@@ -36,7 +36,18 @@
             android:textSize="12dp" />
 
 
+
+
+
     </LinearLayout>
+    <Button
+        android:id="@+id/btn_music"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="40dp"
+        android:text="music"
+        android:textSize="12dp" />
 
     <LinearLayout
         android:layout_width="match_parent"

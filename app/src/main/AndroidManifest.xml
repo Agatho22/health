@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -23,54 +25,66 @@
             android:name=".MyReceiver"
             android:enabled="true"
             android:exported="true">
-
         </receiver>
 
         <activity
             android:name=".ExecDetailActivity"
             android:exported="true" />
+
         <activity
             android:name=".RegisterActivityF"
             android:theme="@style/MyTheme"
             android:windowSoftInputMode="adjustPan" />
+
         <activity
             android:name=".FoundActivityF"
             android:theme="@style/MyTheme"
             android:windowSoftInputMode="adjustPan" />
+
         <activity
             android:name=".RegisterActivityF2"
             android:theme="@style/MyTheme"
             android:windowSoftInputMode="adjustPan" />
+
         <activity
             android:name=".WellcomeActivity"
             android:theme="@style/MyTheme"
             android:windowSoftInputMode="adjustPan" />
+
         <activity
             android:name=".LoginActivityF"
             android:theme="@style/MyTheme"
             android:windowSoftInputMode="adjustPan">
-
         </activity>
+
         <activity
             android:name=".IntroActivity"
             android:theme="@style/MyTheme"
             android:windowSoftInputMode="adjustPan" >
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+
         <activity
             android:name=".HomeActivity"
             android:theme="@style/MyTheme"
             android:windowSoftInputMode="adjustPan" />
+
         <activity
             android:name=".WaterActivity"
             android:theme="@style/MyTheme"
             android:windowSoftInputMode="adjustPan" />
-    </application>
 
+        <activity
+            android:name=".MusicPlayerActivity"
+            android:theme="@style/MyTheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".MusicActivity"
+            android:theme="@style/MyTheme"
+            android:windowSoftInputMode="adjustPan" />
+
+    </application>
 </manifest>

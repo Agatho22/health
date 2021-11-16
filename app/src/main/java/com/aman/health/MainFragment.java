@@ -26,7 +26,7 @@ public class MainFragment extends Fragment {
 
     int water;
     EditText et_water;
-    Button btn_select, btn_clear;
+    Button btn_select, btn_clear,btn_music;
     TextView wa_info, wa_info22;
 
     private static SharedPreferences pref;
@@ -40,7 +40,7 @@ public class MainFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
 
         btn_logout = view.findViewById(R.id.btn_logout);
-
+        btn_music = view.findViewById(R.id.btn_music);
         wa_info22 = view.findViewById(R.id.wa_info22);
         wa_info = view.findViewById(R.id.wa_info2);
         btn_select = view.findViewById(R.id.btn_select);
@@ -100,6 +100,14 @@ public class MainFragment extends Fragment {
                 editor.clear();
                 editor.apply();
                 getActivity().finish();
+            }
+        });
+
+        btn_music.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), MusicActivity.class);
+                getActivity().startActivity(intent);
             }
         });
 
