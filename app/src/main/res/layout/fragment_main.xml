@@ -105,20 +105,82 @@
             <Button
                 android:id="@+id/btn_select"
                 style="@style/LoginButton"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="30dp"
-                android:background="@drawable/round_bg"
-                android:text="확인" />
+                android:background="@drawable/ic_rectangle_3"
+                android:text="100"
+                android:textColor="@color/black" />
 
             <Button
                 android:id="@+id/btn_clear"
                 style="@style/LoginButton"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="30dp"
-                android:background="@drawable/round_bg"
-                android:text="초기화" />
+                android:background="@drawable/ic_rectangle_3"
+                android:text="초기화"
+                android:textColor="@color/black" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_ml3"
+                style="@style/LoginButton"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:background="@drawable/ic_rectangle_3"
+                android:text="100"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/btn_ml4"
+                style="@style/LoginButton"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:background="@drawable/ic_rectangle_3"
+                android:text="초기화"
+                android:textColor="@color/black" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_ml5"
+                style="@style/LoginButton"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:background="@drawable/ic_rectangle_3"
+                android:text="100"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/btn_ml6"
+                style="@style/LoginButton"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:background="@drawable/ic_rectangle_3"
+                android:text="초기화"
+                android:textColor="@color/black" />
 
 
         </LinearLayout>
