@@ -26,6 +26,10 @@
         <entry key="..\:/Users/user/AndroidStudioProjects/health/app/src/main/res/layout/fragment_profile.xml" value="0.21875" />
         <entry key="..\:/Users/user/AndroidStudioProjects/health/app/src/main/res/layout/wellcome_screen_one.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable-anydpi/ic_back.xml" value="0.162109375" />
+        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable-hdpi/ic_email.xml" value="0.16484375" />
+        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable-hdpi/ic_rectangle_back.xml" value="0.16484375" />
+        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable-hdpi/ic_rectangle_reset.xml" value="0.16484375" />
+        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable-hdpi/ic_rectangle_timmer.xml" value="0.16484375" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable-v24/ic_launcher_background.xml" value="0.2171875" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable-v24/ic_rectamgle.xml" value="0.162109375" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable-xhdpi/ellipse2.xml" value="0.21822916666666667" />
@@ -61,7 +65,7 @@
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable/play.xml" value="0.164453125" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable/previous.xml" value="0.164453125" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable/skip_next.xml" value="0.162109375" />
-        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/activity_exec_detail.xml" value="0.138671875" />
+        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/activity_exec_detail.xml" value="0.33" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/activity_fbtest.xml" value="0.21458333333333332" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/activity_found.xml" value="0.25" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/activity_home.xml" value="0.33" />
