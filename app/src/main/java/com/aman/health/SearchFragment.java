@@ -62,6 +62,30 @@ public class SearchFragment extends Fragment {
         save.setText("fighting2");
         save.setImage(R.drawable.lunge);
 
+        save = new Exercise();
+
+        save.setName("plank");
+        save.setText("fighting3");
+        save.setImage(R.drawable.plank);
+
+        save = new Exercise();
+
+        save.setName("pullup");
+        save.setText("fighting4");
+        save.setImage(R.drawable.pullup);
+
+        save = new Exercise();
+
+        save.setName("situp");
+        save.setText("fighting5");
+        save.setImage(R.drawable.situp);
+
+        save = new Exercise();
+
+        save.setName("squat");
+        save.setText("fighting6");
+        save.setImage(R.drawable.squat);
+
         items.add(save);
     }
 
