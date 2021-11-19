@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.1921875" />
         <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_exec_detail.xml" value="0.23143115942028986" />
         <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_login_f.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/DongKwan/AndroidStudioProjects/health/app/src/main/res/layout/activity_login_test.xml" value="0.2957427536231884" />
@@ -136,7 +137,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

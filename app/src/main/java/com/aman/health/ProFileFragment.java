@@ -139,24 +139,17 @@ public class ProFileFragment extends Fragment {
 
 
         mDatabasePFRef = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("profile"); // 파이어베이스 realtime database 에서 정보 가져오기
-        DatabaseReference email = mDatabasePFRef.child("Email");    // 이메일
-        DatabaseReference name = mDatabasePFRef.child("Name");
-        DatabaseReference age = mDatabasePFRef.child("Age");
-        DatabaseReference height = mDatabasePFRef.child("Height");
-        DatabaseReference weight = mDatabasePFRef.child("Weight");
-
         // uid = 파이어베이스 유저 고유 uid , nickname = 데이터 베이스 child 명
 
         getFireBaseProfileImage(uid);
 
 
         // 이메일 띄워줌
-        email.addValueEventListener(new ValueEventListener() {
+        mDatabasePFRef.child("Email").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String value = snapshot.getValue(String.class);
                 info_email.setText(value);
-                Log.e("test", "나이 " + name);
             }
 
             @Override
@@ -166,7 +159,7 @@ public class ProFileFragment extends Fragment {
 
 
         // 이메일 띄워줌
-        name.addValueEventListener(new ValueEventListener() {
+        mDatabasePFRef.child("Name").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String value = snapshot.getValue(String.class);
@@ -178,7 +171,7 @@ public class ProFileFragment extends Fragment {
             }
         });
 
-        age.addValueEventListener(new ValueEventListener() {
+        mDatabasePFRef.child("Age").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String value = snapshot.getValue(String.class);
@@ -190,7 +183,7 @@ public class ProFileFragment extends Fragment {
             }
         });
 
-        height.addValueEventListener(new ValueEventListener() {
+        mDatabasePFRef.child("Height").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String value = snapshot.getValue(String.class);
@@ -202,7 +195,7 @@ public class ProFileFragment extends Fragment {
             }
         });
 
-        weight.addValueEventListener(new ValueEventListener() {
+        mDatabasePFRef.child("Weight").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String value = snapshot.getValue(String.class);
