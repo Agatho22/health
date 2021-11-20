@@ -16,17 +16,20 @@
         <ImageView
             android:id="@+id/image2"
             android:layout_width="match_parent"
-            android:layout_height="530dp"
+            android:layout_height="500dp"
             android:layout_below="@+id/text1"
             android:layout_gravity="center"
             android:scaleType="centerCrop" />
 
 
         <!--타이머 시작-->
+
+        <!--버튼-->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -82,19 +85,16 @@
             </FrameLayout>
         </LinearLayout>
 
-        <!--버튼-->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="5dp"
             android:gravity="center">
 
             <Button
                 android:id="@+id/btn_start"
-                android:layout_width="81dp"
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/circularProgressbar"
                 android:layout_toStartOf="@+id/btn_reset"
                 android:layout_weight="1"
                 android:background="@drawable/ic_rectangle_start"
@@ -102,39 +102,25 @@
 
             <Button
                 android:id="@+id/btn_reset"
-                android:layout_width="75dp"
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/circularProgressbar"
                 android:layout_weight="1"
                 android:background="@drawable/ic_rectangle_reset"
-                android:enabled="false"
+                android:enabled="true"
                 android:paddingLeft="5dp"
                 android:text="리셋" />
 
-            <Button
-                android:id="@+id/backbtn"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
-                android:background="@drawable/ic_rectangle_back"
-                android:nextFocusRight="@color/colorPrimary"
-                android:text="back" />
-
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/backbtn"
+            android:layout_width="40dp"
             android:layout_height="wrap_content"
-            android:gravity="right">
+            android:layout_marginTop="0dp"
+            android:background="@drawable/ic_rectangle_back"
+            android:nextFocusRight="@color/colorPrimary"
+            android:text="back" />
 
-        </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>
