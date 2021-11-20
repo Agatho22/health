@@ -31,9 +31,10 @@ public class MainFragment extends Fragment {
     Button btn_logout;
 
     int water;
+    int twater;
     EditText et_water;
-    Button btn_select, btn_clear, btn_music, btn_ml3, btn_ml4, btn_ml5, btn_ml6;
-    TextView wa_info, wa_info22, watertext;
+    Button btn_save, btn_clear, btn_music, btn_ml3, btn_ml4, btn_ml5, btn_ml6;
+    TextView wa_info, wa_info22;
     CircleProgressBar circleProgressBar;
     ObjectAnimator progressAnimator;
 
@@ -54,64 +55,33 @@ public class MainFragment extends Fragment {
         btn_music = view.findViewById(R.id.btn_music);
         wa_info22 = view.findViewById(R.id.wa_info22);
         wa_info = view.findViewById(R.id.wa_info2);
-        btn_select = view.findViewById(R.id.btn_select);
+        btn_save = view.findViewById(R.id.btn_save);
         btn_clear = view.findViewById(R.id.btn_clear);
-        et_water = view.findViewById(R.id.et_water);
 
         btn_ml3 = view.findViewById(R.id.btn_ml3);
         btn_ml4 = view.findViewById(R.id.btn_ml4);
         btn_ml5 = view.findViewById(R.id.btn_ml5);
         btn_ml6 = view.findViewById(R.id.btn_ml6);
-        watertext = view.findViewById(R.id.watertext);
 
         btn_ml3.setOnClickListener(this::onClickButton);
         btn_ml4.setOnClickListener(this::onClickButton);
         btn_ml5.setOnClickListener(this::onClickButton);
         btn_ml6.setOnClickListener(this::onClickButton);
+        btn_save.setOnClickListener(this::onClickButton);
+        btn_clear.setOnClickListener(this::onClickButton);
 
 
         pref = getActivity().getSharedPreferences("pref", Activity.MODE_PRIVATE);
         editor = pref.edit();
         water = pref.getInt("watercount", 0);
-        wa_info22.setText("오늘 하루목표 물 섭취까지 남은량 :" + (2000 - water) + "ml");
-        wa_info.setText("오늘 하루 물 섭취량 :" + water + "ml");
+        wa_info22.setText("남은량 : " + (2000 - water) + "ml");
+        wa_info.setText("섭취량 : " +water+"ml");
+
+
 
         circleProgressBar = view.findViewById(R.id.days_graph);
         circleProgressBar.setMax(2000);
-
-
-        btn_select.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("SetTextI18n")
-            public void onClick(View view) {
-                int i_water = Integer.parseInt(et_water.getText().toString());
-                if (i_water < 0) {
-                    Toast.makeText(getActivity(), "잘못입력하셨습니다. ", Toast.LENGTH_SHORT).show();
-                } else if ((water + i_water) > 2000) {
-                    Toast.makeText(getActivity(), i_water + "ml추가완료. ", Toast.LENGTH_SHORT).show();
-                    water += i_water;
-                    wa_info.setText("오늘 하루 물 섭취량 :" + water + "ml");
-                    wa_info22.setText("오늘 하루 물 목표 섭취까지 남은량 :" + 0 + "ml");
-                } else {
-                    Toast.makeText(getActivity(), i_water + "ml추가완료. ", Toast.LENGTH_SHORT).show();
-                    water += i_water;
-                    wa_info.setText("오늘 하루 물 섭취량 :" + water + "ml");
-                    wa_info22.setText("오늘 하루 물 목표 섭취까지 남은량 :" + (2000 - water) + "ml");
-                }
-            }
-        });
-
-        onClickButton(view);
-
-
-        btn_clear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editor.clear();
-                editor.commit();
-                water = 0;
-                circleProgressBar.setProgress(0);
-            }
-        });
+        circleProgressBar.setProgress(water);
 
 
         btn_logout.setOnClickListener(new View.OnClickListener() {
@@ -138,39 +108,42 @@ public class MainFragment extends Fragment {
                 getActivity().startActivity(intent);
             }
         });
-
         return view;
     }
 
+    @SuppressLint({"SetTextI18n", "NonConstantResourceId"})
     public void onClickButton(View v) {
         progressAnimator = ObjectAnimator.ofInt(circleProgressBar, "progress", circleProgressBar.getProgress(), water);
         switch (v.getId()) {
+            case R.id.btn_save:
+                water += twater;
+                twater =0;
+                circleProgressBar.setProgress(water);
+                break;
+            case R.id.btn_clear:
+                twater = 0;
+                circleProgressBar.setProgress(water);
+                break;
             case R.id.btn_ml3:
-                water += 180;
-                wa_info.setText("오늘 하루 물 섭취량 :" + water + "ml");
-                progressAnimator.setIntValues(water);
-                progressAnimator.setDuration(300).start();
+                twater += 180;
                 break;
             case R.id.btn_ml4:
-                water += 200;
-                wa_info.setText("오늘 하루 물 섭취량 :" + water + "ml");
-                progressAnimator.setIntValues(water);
-                progressAnimator.setDuration(400).start();
+                twater += 200;
                 break;
             case R.id.btn_ml5:
-                water += 250;
-                wa_info.setText("오늘 하루 물 섭취량 :" + water + "ml");
-                progressAnimator.setIntValues(water);
-                progressAnimator.setDuration(400).start();
+                twater += 250;
                 break;
             case R.id.btn_ml6:
-                water += 300;
-                wa_info.setText("오늘 하루 물 섭취량 :" + water + "ml");
-                progressAnimator.setIntValues(water);
-                progressAnimator.setDuration(400).start();
+                twater += 300;
                 break;
         }
-
+        progressAnimator.setIntValues(water+twater);
+        progressAnimator.setDuration(300).start();
+        wa_info22.setText("남은량 : " + (2000 - water) + "ml");
+        if(water >= 2000){
+            wa_info.setText("목표량 달성!");
+        } else if(water < 2000)
+            wa_info.setText("섭취량 : " +water+"ml");
     }
 
     @SuppressLint("DefaultLocale")

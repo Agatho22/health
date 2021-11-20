@@ -17,6 +17,9 @@
     <color name="cyan">#00FFFF</color>
     <color name="magenta">#ff0090</color>
     <color name="yellow">#FFE302</color>
+    <color name="waterintake">#0074fe</color>
+    <color name="watergray">#f0f0f0</color>
+
 
 
     <!-- dots active colors -->
