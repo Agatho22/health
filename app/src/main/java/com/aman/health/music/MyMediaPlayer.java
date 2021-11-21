@@ -1,9 +1,8 @@
-package com.aman.health;
-
+package com.aman.health.music;
 
 import android.media.MediaPlayer;
 
-public class HealthMusic {
+public class MyMediaPlayer {
     static MediaPlayer instance;
 
     public static MediaPlayer getInstance(){
@@ -15,4 +14,3 @@ public class HealthMusic {
 
     public static int currentIndex = -1;
 }
-

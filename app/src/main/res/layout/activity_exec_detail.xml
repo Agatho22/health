@@ -110,16 +110,16 @@
                 android:paddingLeft="5dp"
                 android:text="리셋" />
 
-        </LinearLayout>
+            <Button
+                android:id="@+id/backbtn"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/ic_rectangle_back"
+                android:nextFocusRight="@color/colorPrimary"
+                android:text="back" />
 
-        <Button
-            android:id="@+id/backbtn"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:background="@drawable/ic_rectangle_back"
-            android:nextFocusRight="@color/colorPrimary"
-            android:text="back" />
+        </LinearLayout>
 
     </LinearLayout>
 

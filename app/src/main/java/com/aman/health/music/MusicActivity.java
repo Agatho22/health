@@ -1,4 +1,4 @@
-package com.aman.health;
+package com.aman.health.music;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -15,6 +15,8 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.aman.health.R;
+
 import java.io.File;
 import java.util.ArrayList;
 
@@ -27,7 +29,7 @@ public class MusicActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_music_list);
+        setContentView(R.layout.activity_music);
 
         recyclerView = findViewById(R.id.recycler_view);
         noMusicTextView = findViewById(R.id.no_songs_text);
@@ -45,6 +47,7 @@ public class MusicActivity extends AppCompatActivity {
 
         String selection = MediaStore.Audio.Media.IS_MUSIC +" != 0";
 
+        //음악 데이터 가져오기
         Cursor cursor = getContentResolver().query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,projection,selection,null,null);
         while(cursor.moveToNext()){
             AudioModel songData = new AudioModel(cursor.getString(1),cursor.getString(0),cursor.getString(2));
@@ -52,8 +55,9 @@ public class MusicActivity extends AppCompatActivity {
                 songsList.add(songData);
         }
 
+        //음악 파일이 없을 경우
         if(songsList.size()==0){
-            noMusicTextView.setVisibility(View.VISIBLE);
+            noMusicTextView.setVisibility(View.VISIBLE); //음악 파일 없음 출력
         }else{
             //recyclerview
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -61,7 +65,9 @@ public class MusicActivity extends AppCompatActivity {
         }
 
     }
-    //READ_EXTERNAL_STORAGE 사용자 권한 부여
+
+
+    //사용자 권한
     boolean checkPermission(){
         int result = ContextCompat.checkSelfPermission(MusicActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE);
         if(result == PackageManager.PERMISSION_GRANTED){
@@ -71,10 +77,10 @@ public class MusicActivity extends AppCompatActivity {
         }
     }
 
-    //음악 폴더를 읽기 위한 사용자 권한
+    //사용자 권한 추가
     void requestPermission(){
         if(ActivityCompat.shouldShowRequestPermissionRationale(MusicActivity.this,Manifest.permission.READ_EXTERNAL_STORAGE)){
-            Toast.makeText(MusicActivity.this,"읽기 권한이 필요합니다. 설정에서 허용하세요.",Toast.LENGTH_SHORT).show();
+            Toast.makeText(MusicActivity.this,"READ PERMISSION IS REQUIRED,PLEASE ALLOW FROM SETTTINGS",Toast.LENGTH_SHORT).show();
         }else
             ActivityCompat.requestPermissions(MusicActivity.this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},123);
     }

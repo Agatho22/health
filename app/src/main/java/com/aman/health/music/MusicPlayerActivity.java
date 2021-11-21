@@ -1,4 +1,4 @@
-package com.aman.health;
+package com.aman.health.music;
 
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.aman.health.R;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,7 +22,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
     ImageView pausePlay,nextBtn,previousBtn,musicIcon;
     ArrayList<AudioModel> songsList;
     AudioModel currentSong;
-    MediaPlayer mediaPlayer = HealthMusic.getInstance();
+    MediaPlayer mediaPlayer = MyMediaPlayer.getInstance();
     int x=0;
 
     @Override
@@ -86,7 +88,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
     }
 
     void setResourcesWithMusic(){
-        currentSong = songsList.get(HealthMusic.currentIndex);
+        currentSong = songsList.get(MyMediaPlayer.currentIndex);
 
         titleTv.setText(currentSong.getTitle());
 
@@ -120,18 +122,18 @@ public class MusicPlayerActivity extends AppCompatActivity {
 
     private void playNextSong(){
 
-        if(HealthMusic.currentIndex== songsList.size()-1)
+        if(MyMediaPlayer.currentIndex== songsList.size()-1)
             return;
-        HealthMusic.currentIndex +=1;
+        MyMediaPlayer.currentIndex +=1;
         mediaPlayer.reset();
         setResourcesWithMusic();
 
     }
 
     private void playPreviousSong(){
-        if(HealthMusic.currentIndex== 0)
+        if(MyMediaPlayer.currentIndex== 0)
             return;
-        HealthMusic.currentIndex -=1;
+        MyMediaPlayer.currentIndex -=1;
         mediaPlayer.reset();
         setResourcesWithMusic();
     }

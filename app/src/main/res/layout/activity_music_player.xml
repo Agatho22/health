@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".MusicPlayerActivity">
+    tools:context=".music.MusicPlayerActivity">
 
     <TextView
         android:id="@+id/song_title"
@@ -21,6 +21,7 @@
         android:text="Title of the song"
         android:textColor="@color/black"
         android:textSize="20dp" />
+
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
