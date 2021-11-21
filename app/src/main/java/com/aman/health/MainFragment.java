@@ -75,8 +75,7 @@ public class MainFragment extends Fragment {
         editor = pref.edit();
         water = pref.getInt("watercount", 0);
         wa_info22.setText("남은량 : " + (2000 - water) + "ml");
-        wa_info.setText("섭취량 : " +water+"ml");
-
+        wa_info.setText("섭취량 : " + water + "ml");
 
 
         circleProgressBar = view.findViewById(R.id.days_graph);
@@ -117,7 +116,7 @@ public class MainFragment extends Fragment {
         switch (v.getId()) {
             case R.id.btn_save:
                 water += twater;
-                twater =0;
+                twater = 0;
                 circleProgressBar.setProgress(water);
                 break;
             case R.id.btn_clear:
@@ -137,13 +136,14 @@ public class MainFragment extends Fragment {
                 twater += 300;
                 break;
         }
-        progressAnimator.setIntValues(water+twater);
+        progressAnimator.setIntValues(water + twater);
         progressAnimator.setDuration(300).start();
         wa_info22.setText("남은량 : " + (2000 - water) + "ml");
-        if(water >= 2000){
+        if (water >= 2000) {
             wa_info.setText("목표량 달성!");
-        } else if(water < 2000)
-            wa_info.setText("섭취량 : " +water+"ml");
+            wa_info22.setText("총 섭취량 : " + (water) + "ml");
+        } else if (water < 2000)
+            wa_info.setText("섭취량 : " + water + "ml");
     }
 
     @SuppressLint("DefaultLocale")
