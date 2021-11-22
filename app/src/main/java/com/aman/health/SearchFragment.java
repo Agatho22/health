@@ -62,11 +62,15 @@ public class SearchFragment extends Fragment {
         save.setText("fighting2");
         save.setImage(R.drawable.lunge);
 
+        items.add(save);
+
         save = new Exercise();
 
         save.setName("plank");
         save.setText("fighting3");
         save.setImage(R.drawable.plank);
+
+        items.add(save);
 
         save = new Exercise();
 
@@ -74,11 +78,15 @@ public class SearchFragment extends Fragment {
         save.setText("fighting4");
         save.setImage(R.drawable.pullup);
 
+        items.add(save);
+
         save = new Exercise();
 
         save.setName("situp");
         save.setText("fighting5");
         save.setImage(R.drawable.situp);
+
+        items.add(save);
 
         save = new Exercise();
 
