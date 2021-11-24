@@ -5,6 +5,9 @@ import static java.lang.Integer.valueOf;
 import static java.lang.String.format;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -61,7 +64,7 @@ import java.util.Objects;
 public class ProFileFragment extends Fragment {
 
     private DatabaseReference mDatabasePFRef; //실시간 데이터베이스
-    private TextView info_email, info_name, info_age, info_height, info_weight;
+    private TextView info_email, info_name, info_age, info_height, info_weight, txt_secession, txt_logout;
     private ImageView iv_pfimg;
     private BarChart barchart, waterbarchart;
 
@@ -72,6 +75,7 @@ public class ProFileFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser(); // 로그인한 유저의 정보 가져오기
         String uid = user != null ? user.getUid() : null; // 로그인한 유저의 고유 uid 가져오기
 
@@ -136,6 +140,45 @@ public class ProFileFragment extends Fragment {
         info_height = view.findViewById(R.id.info_height);
         info_weight = view.findViewById(R.id.info_weight);
         iv_pfimg = view.findViewById(R.id.iv_pfimg);
+        txt_secession = view.findViewById(R.id.txt_secession);
+        txt_logout = view.findViewById(R.id.txt_logout);
+
+
+        txt_secession.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAuth.getCurrentUser().delete();
+                getActivity().finish();
+                Log.d("회원가입 탈퇴", "성공적으로 탈퇴되었습니다");
+
+            }
+        });
+
+        txt_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAuth.signOut();
+                Log.d("logout", "로그아웃");
+            }
+        });
+
+        txt_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //SharedPreferences 에 저장된 값들을 로그아웃 버튼을 누르면 삭제하기 위해
+                //SharedPreferences 를 불러옵니다. 메인에서 만든 이름으로
+                mAuth.signOut();
+                Intent intent = new Intent(getActivity(), LoginActivityF.class);
+                getActivity().startActivity(intent);
+                SharedPreferences appData = getActivity().getSharedPreferences("appData", Activity.MODE_PRIVATE);
+                SharedPreferences.Editor editor = appData.edit();
+                //editor.clear()는 appData 들어있는 모든 정보를 기기에서 지웁니다.
+                editor.clear();
+                editor.apply();
+                getActivity().finish();
+            }
+        });
+
 
 
         mDatabasePFRef = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("profile"); // 파이어베이스 realtime database 에서 정보 가져오기

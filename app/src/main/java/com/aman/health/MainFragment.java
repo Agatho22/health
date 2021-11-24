@@ -84,21 +84,7 @@ public class MainFragment extends Fragment {
         circleProgressBar.setProgress(water);
 
 
-        btn_logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //SharedPreferences 에 저장된 값들을 로그아웃 버튼을 누르면 삭제하기 위해
-                //SharedPreferences 를 불러옵니다. 메인에서 만든 이름으로
-                Intent intent = new Intent(getActivity(), LoginActivityF.class);
-                getActivity().startActivity(intent);
-                SharedPreferences appData = getActivity().getSharedPreferences("appData", Activity.MODE_PRIVATE);
-                SharedPreferences.Editor editor = appData.edit();
-                //editor.clear()는 appData 들어있는 모든 정보를 기기에서 지웁니다.
-                editor.clear();
-                editor.apply();
-                getActivity().finish();
-            }
-        });
+
 
 
         btn_music.setOnClickListener(new View.OnClickListener() {
@@ -128,13 +114,13 @@ public class MainFragment extends Fragment {
                 twater += 180;
                 break;
             case R.id.btn_ml4:
-                twater += 200;
-                break;
-            case R.id.btn_ml5:
                 twater += 250;
                 break;
+            case R.id.btn_ml5:
+                twater += 350;
+                break;
             case R.id.btn_ml6:
-                twater += 300;
+                twater += 500;
                 break;
         }
         progressAnimator.setIntValues(water + twater);

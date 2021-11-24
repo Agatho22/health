@@ -246,43 +246,47 @@
 
                 </LinearLayout>
 
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/barchart"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp" />
+
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/Waterbarchart"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp" >
+
+                </com.github.mikephil.charting.charts.BarChart>
+
+                <TextView
+                    android:id="@+id/txt_logout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:paddingHorizontal="100dp"
+                    android:paddingVertical="20dp"
+                    android:text="로그아웃"
+                    android:textColor="#00498c"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txt_secession"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:paddingHorizontal="100dp"
+                    android:paddingVertical="20dp"
+                    android:text="회원탈퇴"
+                    android:textColor="#F70D1A"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
             </LinearLayout>
 
         </ScrollView>
-
-        <com.github.mikephil.charting.charts.BarChart
-            android:id="@+id/barchart"
-            android:layout_width="match_parent"
-            android:layout_height="120dp" />
-
-        <com.github.mikephil.charting.charts.BarChart
-            android:id="@+id/Waterbarchart"
-            android:layout_width="match_parent"
-            android:layout_height="120dp" />
-
-        <TextView
-            android:id="@+id/btn_logout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:text="로그아웃"
-            android:textAlignment="center"
-            android:textColor="#00498c"
-            android:textSize="17sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/secession"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:text="탈퇴??"
-            android:textAlignment="center"
-            android:textColor="#F70D1A"
-            android:textSize="17sp"
-            android:textStyle="bold" />
 
     </LinearLayout>
 
