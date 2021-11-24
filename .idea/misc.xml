@@ -32,10 +32,13 @@
         <entry key="..\:/Users/user/AndroidStudioProjects/health/app/src/main/res/layout/wellcome_screen_two.xml" value="0.10733695652173914" />
         <entry key="..\:/Users/user/AndroidStudioProjects/health/app/src/main/res/menu/bottom_nav.xml" value="0.20833333333333334" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable-hdpi/ic_email.xml" value="0.16171875" />
+        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable-hdpi/ic_rectangle5.xml" value="0.16171875" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable-v24/ic_launcher_background.xml" value="0.2171875" />
+        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable-v24/ic_rectamgle.xml" value="0.16171875" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable-v24/login_bg.xml" value="0.16171875" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable-xhdpi/circular.xml" value="0.153125" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable-xhdpi/ellipse2.xml" value="0.21822916666666667" />
+        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable-xhdpi/ic_rectangle_4.xml" value="0.16171875" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable-xxhdpi/circle.xml" value="0.23072916666666668" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable-xxhdpi/ic_baseline_account_circle_24.xml" value="0.2171875" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable-xxhdpi/ic_email.xml" value="0.221875" />
@@ -46,6 +49,7 @@
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable/check.xml" value="0.235546875" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable/ic_home.xml" value="0.16171875" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.23072916666666668" />
+        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable/ic_rectangle.xml" value="0.16171875" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable/ic_rectangle_3.xml" value="0.235546875" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable/menu_selector_color.xml" value="0.16171875" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable/mug.xml" value="0.16171875" />

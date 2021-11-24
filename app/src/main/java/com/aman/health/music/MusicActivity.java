@@ -42,7 +42,9 @@ public class MusicActivity extends AppCompatActivity {
         String[] projection = {
                 MediaStore.Audio.Media.TITLE,
                 MediaStore.Audio.Media.DATA,
-                MediaStore.Audio.Media.DURATION
+                MediaStore.Audio.Media.DURATION,
+                MediaStore.Audio.Albums.ALBUM_ART, //앨범아트
+                MediaStore.Audio.Albums._ID
         };
 
         String selection = MediaStore.Audio.Media.IS_MUSIC +" != 0";
@@ -55,9 +57,11 @@ public class MusicActivity extends AppCompatActivity {
                 songsList.add(songData);
         }
 
+
         //음악 파일이 없을 경우
         if(songsList.size()==0){
             noMusicTextView.setVisibility(View.VISIBLE); //음악 파일 없음 출력
+
         }else{
             //recyclerview
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
