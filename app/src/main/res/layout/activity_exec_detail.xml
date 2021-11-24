@@ -94,7 +94,7 @@
             android:paddingRight="50dp"
             android:gravity="center">
 
-            <Button
+            <ImageView
                 android:id="@+id/btn_start"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
@@ -116,7 +116,7 @@
                 android:id="@+id/backbtn"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/back_ex"
+                android:background="@drawable/back_24"
                 android:nextFocusRight="@color/colorPrimary" />
 
         </LinearLayout>
