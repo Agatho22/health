@@ -125,7 +125,7 @@
                 android:layout_marginHorizontal="30dp"
                 android:background="@drawable/ic_rectangle_3"
                 android:text="저장"
-                android:textColor="@color/black" />
+                android:textColor="@color/white" />
 
             <Button
                 android:id="@+id/btn_clear"
@@ -135,7 +135,7 @@
                 android:layout_marginHorizontal="30dp"
                 android:background="@drawable/ic_rectangle_3"
                 android:text="초기화"
-                android:textColor="@color/black" />
+                android:textColor="@color/white" />
 
 
         </LinearLayout>
@@ -156,8 +156,8 @@
                 android:background="@drawable/ic_rectangle_3"
                 android:drawableLeft="@drawable/paper_cup"
                 android:paddingLeft="10dp"
-                android:text="180"
-                android:textColor="@color/black" />
+                android:text="180ml"
+                android:textColor="@color/white" />
 
             <Button
                 android:id="@+id/btn_ml4"
@@ -168,8 +168,8 @@
                 android:background="@drawable/ic_rectangle_3"
                 android:drawableLeft="@drawable/can"
                 android:paddingLeft="10dp"
-                android:text="250"
-                android:textColor="@color/black" />
+                android:text="250ml"
+                android:textColor="@color/white" />
 
 
         </LinearLayout>
@@ -190,9 +190,9 @@
                 android:background="@drawable/ic_rectangle_3"
 
                 android:drawableLeft="@drawable/mug"
-                android:paddingLeft="10dp"
-                android:text="350"
-                android:textColor="@color/black" />
+                android:paddingLeft="15dp"
+                android:text="350ml"
+                android:textColor="@color/white" />
 
             <Button
                 android:id="@+id/btn_ml6"
@@ -203,9 +203,9 @@
                 android:background="@drawable/ic_rectangle_3"
 
                 android:drawableLeft="@drawable/plastic_bottle"
-                android:paddingLeft="18dp"
-                android:text="500"
-                android:textColor="@color/black" />
+                android:paddingLeft="19dp"
+                android:text="500ml"
+                android:textColor="@color/white" />
 
 
         </LinearLayout>
