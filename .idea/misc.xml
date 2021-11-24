@@ -39,11 +39,14 @@
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable-xxhdpi/circle.xml" value="0.23072916666666668" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable-xxhdpi/ic_baseline_account_circle_24.xml" value="0.2171875" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable-xxhdpi/ic_email.xml" value="0.221875" />
+        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable-xxhdpi/ic_lock.xml" value="0.15625" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable-xxhdpi/round_bg.xml" value="0.16171875" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable-xxhdpi/round_bg01.xml" value="0.23072916666666668" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable-xxhdpi/round_border.xml" value="0.16171875" />
+        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable/back_ex.xml" value="0.15625" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable/can.xml" value="0.16171875" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable/check.xml" value="0.235546875" />
+        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable/ellipse.xml" value="0.15625" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable/ic_home.xml" value="0.16171875" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.23072916666666668" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable/ic_rectangle_3.xml" value="0.235546875" />
@@ -52,9 +55,11 @@
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable/paper_cup.xml" value="0.16171875" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable/pause.xml" value="0.16171875" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable/plastic_bottle.xml" value="0.16171875" />
+        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable/play.xml" value="0.15625" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable/previous.xml" value="0.16171875" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable/skip_next.xml" value="0.16171875" />
-        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/activity_exec_detail.xml" value="0.18032786885245902" />
+        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/drawable/stop.xml" value="0.15625" />
+        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/activity_exec_detail.xml" value="0.25" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/activity_fbtest.xml" value="0.21458333333333332" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/activity_found.xml" value="0.25" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/activity_home.xml" value="0.33" />
@@ -74,9 +79,11 @@
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/fragment_exercise.xml" value="0.15234375" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/fragment_list.xml" value="0.20104166666666667" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/fragment_main.xml" value="0.25" />
-        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/fragment_profile.xml" value="0.20104166666666667" />
+        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/fragment_profile.xml" value="0.18" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/music_recycler_item.xml" value="0.18032786885245902" />
+        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/wellcome_screen_one.xml" value="0.1" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/wellcome_screen_three.xml" value="0.15234375" />
+        <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/layout/wellcome_screen_two.xml" value="0.1" />
         <entry key="..\:/Users/userpc/AndroidStudioProjects/health/app/src/main/res/menu/bottom_nav.xml" value="0.2234375" />
         <entry key="app/src/main/res/drawable/ellipse.xml" value="0.2015625" />
         <entry key="app/src/main/res/drawable/ic_age.xml" value="0.2015625" />
