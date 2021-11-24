@@ -19,7 +19,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
 
     TextView titleTv,currentTimeTv,totalTimeTv;
     SeekBar seekBar;
-    ImageView pausePlay,nextBtn,previousBtn,musicIcon;
+    ImageView pausePlay,nextBtn,previousBtn;
     ArrayList<AudioModel> songsList;
     AudioModel currentSong;
     MediaPlayer mediaPlayer = MyMediaPlayer.getInstance();
@@ -37,7 +37,6 @@ public class MusicPlayerActivity extends AppCompatActivity {
         pausePlay = findViewById(R.id.pause_play);
         nextBtn = findViewById(R.id.next);
         previousBtn = findViewById(R.id.previous);
-        musicIcon = findViewById(R.id.music_icon_big);
 
         titleTv.setSelected(true);
 
@@ -54,10 +53,8 @@ public class MusicPlayerActivity extends AppCompatActivity {
 
                     if(mediaPlayer.isPlaying()){
                         pausePlay.setImageResource(R.drawable.pause);
-                        musicIcon.setRotation(x++);
                     }else{
                         pausePlay.setImageResource(R.drawable.play);
-                        musicIcon.setRotation(0);
                     }
 
                 }

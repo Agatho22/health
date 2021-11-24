@@ -25,10 +25,10 @@ import java.util.ArrayList;
 public class ExecDetailActivity extends AppCompatActivity {
 
     EditText time_out_min, time_out_sec;
-    Button btn_start, btn_reset;
+    Button btn_reset;
     InputMethodManager imm;
     ArrayList<Exercise> item;
-    ImageView imageView;
+    ImageView btn_start, imageView;
 
 
     @SuppressLint("HandlerLeak")
@@ -156,7 +156,7 @@ public class ExecDetailActivity extends AppCompatActivity {
         time_out_min.setEnabled(true);
         time_out_sec.setText("00");
         time_out_sec.setEnabled(true);
-        btn_start.setText("시작"); //시작버튼 텍스트 변경
+        btn_start.setImageResource(R.drawable.play);
         btn_reset.setEnabled(false); //초기화 버튼 비활성화
     }
 
@@ -175,7 +175,7 @@ public class ExecDetailActivity extends AppCompatActivity {
         switch (status) {
             case INIT: //시작
                 baseTime = SystemClock.elapsedRealtime();
-                btn_start.setText("멈춤");
+                btn_start.setImageResource(R.drawable.play);
                 btn_reset.setEnabled(false);
                 time_out_min.setEnabled(false);
                 time_out_sec.setEnabled(false);
@@ -185,14 +185,14 @@ public class ExecDetailActivity extends AppCompatActivity {
             case RUN: //멈춤
                 handler.removeMessages(0); //핸들러에서 메세지 삭제
                 pauseTime = SystemClock.elapsedRealtime(); //멈출 시간 기록
-                btn_start.setText("재시작");
+                btn_start.setImageResource(R.drawable.pause2);
                 btn_reset.setEnabled(true);
                 Pstatus = PAUSE;
                 break;
             case PAUSE: //재시작
                 long now = SystemClock.elapsedRealtime(); //현재 시간 다시 기록
                 baseTime += (now - pauseTime); //타이머 시간 세팅
-                btn_start.setText("멈춤");
+                btn_start.setImageResource(R.drawable.play);
                 btn_reset.setEnabled(false);
                 handler.sendEmptyMessage(0); //타이머 재시작
                 Pstatus = RUN;

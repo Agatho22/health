@@ -7,6 +7,7 @@
     android:background="#FFFFFF"
     tools:context=".music.MusicPlayerActivity">
 
+
     <TextView
         android:id="@+id/song_title"
         android:layout_width="match_parent"
@@ -22,27 +23,12 @@
         android:textColor="@color/black"
         android:textSize="20dp" />
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center"
-    android:layout_marginTop="150dp">
-
-    <ImageView
-        android:id="@+id/music_icon_big"
-        android:layout_width="240dp"
-        android:layout_height="240dp"
-        android:layout_above="@id/controls"
-        android:layout_centerHorizontal="true"
-        android:padding="20dp" />
-
-</LinearLayout>
-
     <RelativeLayout
+        android:id="@+id/controls"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:id="@+id/controls"
+        android:layout_marginBottom="205dp"
         android:padding="40dp">
 
         <SeekBar
@@ -67,15 +53,16 @@
             android:layout_marginBottom="20dp"
             android:text="0:00"
             android:textColor="@color/black" />
+
         <TextView
+            android:id="@+id/total_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/seek_bar"
-            android:id="@+id/total_time"
-            android:text="0:00"
             android:layout_alignParentEnd="true"
-            android:textColor="@color/black"
-            android:layout_margin="20dp"/>
+            android:layout_margin="20dp"
+            android:text="0:00"
+            android:textColor="@color/black" />
 
         <RelativeLayout
             android:layout_width="match_parent"

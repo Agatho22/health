@@ -16,7 +16,7 @@
         <ImageView
             android:id="@+id/image2"
             android:layout_width="match_parent"
-            android:layout_height="500dp"
+            android:layout_height="550dp"
             android:layout_below="@+id/text1"
             android:layout_gravity="center"
             android:scaleType="centerCrop" />
@@ -29,7 +29,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:layout_width="140dp"
+                    android:layout_width="160dp"
                     android:layout_height="140dp"
                     android:layout_gravity="center" />
 
@@ -59,13 +59,14 @@
                         android:maxLines="1"
                         android:selectAllOnFocus="true"
                         android:text="00"
-                        android:textSize="55dp" />
+                        android:textSize="60dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text=":"
+                        android:textColor="@color/black"
                         android:textSize="50dp" />
 
                     <EditText
@@ -79,7 +80,7 @@
                         android:maxLines="1"
                         android:selectAllOnFocus="true"
                         android:text="00"
-                        android:textSize="55dp" />
+                        android:textSize="60dp" />
 
                 </LinearLayout>
             </FrameLayout>
@@ -89,35 +90,42 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:paddingLeft="50dp"
+            android:paddingRight="50dp"
             android:gravity="center">
 
-            <Button
+            <ImageView
                 android:id="@+id/btn_start"
-                android:layout_width="60dp"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_toStartOf="@+id/btn_reset"
                 android:layout_weight="1"
-                android:background="@drawable/ic_rectangle_start"
-                android:drawable="@drawable/play" />
+                android:background="@drawable/play" />
 
             <Button
                 android:id="@+id/btn_reset"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/ic_rectangle_reset"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/stop"
                 android:enabled="true"
-                android:paddingLeft="5dp"
-                android:text="리셋" />
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:paddingLeft="5dp" />
 
             <Button
                 android:id="@+id/backbtn"
-                android:layout_width="40dp"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
-                android:background="@drawable/ic_rectangle_back"
-                android:nextFocusRight="@color/colorPrimary"
-                android:text="back" />
+                android:background="@drawable/back_24"
+                android:nextFocusRight="@color/colorPrimary" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+
 
         </LinearLayout>
 
