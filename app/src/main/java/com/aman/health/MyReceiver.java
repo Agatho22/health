@@ -99,11 +99,15 @@ public class MyReceiver extends BroadcastReceiver {
                             //Log.d(String.valueOf(this), "" + snapshot.getValue(int.class));
                             num.add(snapshot.getValue(int.class));
                         }
-                        int avg = num.stream().mapToInt(Integer::intValue).sum() / num.size();
-                        Log.d(String.valueOf(this), ""+ avg);
-                        if (avg <= 2100) {
-                            Log.d(String.valueOf(this), "물 섭취 week 노티");
-                            notificationManager.notify(1, builderWtWeek.build()); // 0 줌
+
+                        if (false == num.isEmpty()) {
+                            int avg = num.stream().mapToInt(Integer::intValue).sum() / num.size();
+                            Log.d(String.valueOf(this), "" + avg);
+                            if (avg <= 2100) {
+                                Log.d(String.valueOf(this), "물 섭취 week 노티");
+                                notificationManager.notify(1, builderWtWeek.build()); // 0 줌
+
+                            }
                         }
                     }
 

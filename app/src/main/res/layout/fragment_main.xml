@@ -112,27 +112,29 @@
 -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="15dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btn_save"
                 style="@style/LoginButton"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
+                android:layout_width="160dp"
+                android:layout_height="70dp"
+                android:layout_marginHorizontal="20dp"
                 android:background="@drawable/ic_rectangle_3"
                 android:text="저장"
+                android:textSize="20dp"
                 android:textColor="@color/white" />
 
             <Button
                 android:id="@+id/btn_clear"
                 style="@style/LoginButton"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
+                android:layout_width="160dp"
+                android:layout_height="70dp"
+                android:textSize="20dp"
+                android:layout_marginHorizontal="20dp"
                 android:background="@drawable/ic_rectangle_3"
                 android:text="초기화"
                 android:textColor="@color/white" />
@@ -142,33 +144,35 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="15dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btn_ml3"
                 style="@style/LoginButton"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
+                android:layout_width="160dp"
+                android:layout_height="70dp"
+                android:textSize="20sp"
+                android:layout_marginHorizontal="20dp"
                 android:background="@drawable/ic_rectangle_3"
                 android:drawableLeft="@drawable/paper_cup"
-                android:paddingLeft="10dp"
-                android:text="180ml"
+                android:paddingLeft="20dp"
+                android:text="180"
                 android:textColor="@color/white" />
 
             <Button
                 android:id="@+id/btn_ml4"
                 style="@style/LoginButton"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
+                android:layout_width="160dp"
+                android:layout_height="70dp"
+                android:textSize="20dp"
+                android:layout_marginHorizontal="20dp"
                 android:background="@drawable/ic_rectangle_3"
                 android:drawableLeft="@drawable/can"
-                android:paddingLeft="10dp"
-                android:text="250ml"
+                android:paddingLeft="20dp"
+                android:text="250"
                 android:textColor="@color/white" />
 
 
@@ -176,35 +180,36 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="15dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btn_ml5"
                 style="@style/LoginButton"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
+                android:layout_width="160dp"
+                android:layout_height="70dp"
+                android:textSize="20dp"
+                android:layout_marginHorizontal="20dp"
                 android:background="@drawable/ic_rectangle_3"
-
                 android:drawableLeft="@drawable/mug"
-                android:paddingLeft="15dp"
-                android:text="350ml"
+                android:paddingLeft="24dp"
+                android:text="350"
                 android:textColor="@color/white" />
 
             <Button
                 android:id="@+id/btn_ml6"
                 style="@style/LoginButton"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
+                android:layout_width="160dp"
+                android:layout_height="70dp"
+                android:textSize="20dp"
+                android:layout_marginHorizontal="20dp"
                 android:background="@drawable/ic_rectangle_3"
 
                 android:drawableLeft="@drawable/plastic_bottle"
-                android:paddingLeft="19dp"
-                android:text="500ml"
+                android:paddingLeft="30dp"
+                android:text="500"
                 android:textColor="@color/white" />
 
 
