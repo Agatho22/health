@@ -156,7 +156,6 @@ public class ExecDetailActivity extends AppCompatActivity {
         time_out_min.setEnabled(true);
         time_out_sec.setText("00");
         time_out_sec.setEnabled(true);
-        btn_start.setImageResource(R.drawable.play);
         btn_reset.setEnabled(false); //초기화 버튼 비활성화
     }
 

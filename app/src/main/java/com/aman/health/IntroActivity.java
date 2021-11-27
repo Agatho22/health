@@ -24,6 +24,8 @@ public class IntroActivity extends AppCompatActivity {
 
         IntroThread introThread = new IntroThread(handler);
         introThread.start();
+
+        
     }
 
 

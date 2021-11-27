@@ -27,7 +27,8 @@ import com.github.mikephil.charting.formatter.ValueFormatter;
 
 import java.util.Objects;
 
-public class MainFragment extends Fragment {
+public class
+MainFragment extends Fragment {
 
     Button btn_logout;
 
