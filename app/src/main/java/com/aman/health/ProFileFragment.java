@@ -148,7 +148,7 @@ public class ProFileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 mAuth.getCurrentUser().delete();
-                getActivity().finish();
+                ((LoginActivityF)getActivity()).finish();
                 Log.d("회원가입 탈퇴", "성공적으로 탈퇴되었습니다");
 
             }
