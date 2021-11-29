@@ -42,14 +42,11 @@ public class MusicActivity extends AppCompatActivity {
         String[] projection = {
                 MediaStore.Audio.Media.TITLE,
                 MediaStore.Audio.Media.DATA,
-                MediaStore.Audio.Media.DURATION,
-                MediaStore.Audio.Albums.ALBUM_ART, //앨범아트
-                MediaStore.Audio.Albums._ID
+                MediaStore.Audio.Media.DURATION
         };
 
         String selection = MediaStore.Audio.Media.IS_MUSIC +" != 0";
 
-        //음악 데이터 가져오기
         Cursor cursor = getContentResolver().query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,projection,selection,null,null);
         while(cursor.moveToNext()){
             AudioModel songData = new AudioModel(cursor.getString(1),cursor.getString(0),cursor.getString(2));
@@ -63,6 +60,7 @@ public class MusicActivity extends AppCompatActivity {
             noMusicTextView.setVisibility(View.VISIBLE); //음악 파일 없음 출력
 
         }else{
+
             //recyclerview
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
             recyclerView.setAdapter(new MusicListAdapter(songsList,getApplicationContext()));

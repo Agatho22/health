@@ -82,6 +82,7 @@
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".music.MusicActivity"
+            android:theme="@style/MyTheme"
             android:windowSoftInputMode="adjustPan" />
 
     </application>
