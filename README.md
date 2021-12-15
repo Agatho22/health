@@ -3,6 +3,39 @@
 
 
 
+# 사용된 언어
+Language : Java
+
+
+DB - google FireBase
+
+# 사용된 기능
+NavigationView - 메인 화면
+
+
+ViewPager - 인트로 화면, 메인화면
+
+
+ListView - 운동 리스트
+
+
+# 개발 기간
+2021.04 프로젝트 주제 선정
+
+
+2021.05 Login UI 제작
+
+
+2021.06 DB 추가
+
+
+2021.09 각종 기능 추가 (물섭취 기능, 운동 타이머)
+
+
+2021.11 최종 기능 추가
+
+
+
 # Contributors
 김병화 (Agatho22)
 
