@@ -16,7 +16,13 @@ NavigationView - 메인 화면
 ViewPager - 인트로 화면, 메인화면
 
 
-ListView - 운동 리스트
+ListView - 운동 리스트 & 음악 리스트
+
+
+Login & Logout & Sign Up
+
+
+Profile
 
 
 # 개발 기간
